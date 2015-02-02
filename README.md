@@ -4,7 +4,7 @@
 
 *A mostly reasonable approach to JavaScript*
 
-
+<a name="table-of-contents"></a>
 ## 目錄
 
   1. [資料型態](#types)
@@ -39,6 +39,7 @@
   1. [貢獻者](#contributors)
   1. [授權許可](#license)
 
+<a name="type"></a>
 ## 資料型態
 
   - **基本**: 你可以直接存取基本資料型態。
@@ -72,8 +73,9 @@
     console.log(foo[0], bar[0]); // => 9, 9
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到頂端](#table-of-contents)**
 
+<a name="object"></a>
 ## 物件
 
   - 使用簡潔的語法建立物件。
@@ -121,8 +123,9 @@
     };
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到頂端](#table-of-contents)**
 
+<a name="array"></a>
 ## 陣列
 
   - 使用簡潔的語法建立陣列。
@@ -173,9 +176,9 @@
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到頂端](#table-of-contents)**
 
-
+<a name="string"></a>
 ## 字串
 
   - 字串請使用單引號 `''` 。
@@ -257,9 +260,9 @@
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到頂端](#table-of-contents)**
 
-
+<a name="function"></a>
 ## 函式
 
   - 函式表達式:
@@ -315,10 +318,9 @@
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到頂端](#table-of-contents)**
 
-
-
+<a name="properties"></a>
 ## 屬性
 
   - 使用點 `.` 來存取屬性。
@@ -351,9 +353,9 @@
     var isJedi = getProp('jedi');
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到頂端](#table-of-contents)**
 
-
+<a name="variables"></a>
 ## 變數
 
   - 為了避免污染全域的命名空間，請使用 `var` 來宣告變數，如果不這麼做將會產生全域變數。
@@ -467,9 +469,9 @@
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到頂端](#table-of-contents)**
 
-
+<a name="hoisting"></a>
 ## 提升
 
   - 變數宣告可以被提升至該作用域的最頂層，但賦予的值並不會。
@@ -553,10 +555,9 @@
 
   - 想瞭解更多訊息，請參考 [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) by [Ben Cherry](http://www.adequatelygood.com/).
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到頂端](#table-of-contents)**
 
-
-
+<a name="conditional-expressions--equality"></a>
 ## 條件式與等號
 
   - 使用 `===` 及 `!==` 過於 `==` 及 `!=`.
@@ -602,9 +603,9 @@
 
   - 想瞭解更多訊息請參考 [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到頂端](#table-of-contents)**
 
-
+<a name="blocks"></a>
 ## 區塊
 
   - 多行區塊請使用花括號刮起來。
@@ -631,9 +632,9 @@
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到頂端](#table-of-contents)**
 
-
+<a name="comments"></a>
 ## 註解
 
   - 多行註解請使用 `/** ... */` ，包含描述，指定類型以及參數值還有回傳值。
@@ -722,9 +723,9 @@
     }
   ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到頂端](#table-of-contents)**
 
-
+<a name="whitespace"></a>
 ## 空格
 
   - 將 Tab 設定為兩個空格。
@@ -837,8 +838,9 @@
         .call(tron.led);
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到頂端](#table-of-contents)**
 
+<a name="commas"></a>
 ## 逗號
 
   - 不要將逗號放在前方。
@@ -903,7 +905,7 @@
     ];
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到頂端](#table-of-contents)**
 
 
 ## 分號
@@ -932,9 +934,9 @@
 
     [Read more](http://stackoverflow.com/a/7365214/1712802).
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到頂端](#table-of-contents)**
 
-
+<a name="type-casting--coercion"></a>
 ## 型別轉換
 
   - 在開頭的宣告進行強制型別轉換。
@@ -1010,9 +1012,9 @@
     var hasAge = !!age;
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到頂端](#table-of-contents)**
 
-
+<a name="naming-conventions"></a>
 ## 命名規則
 
   - 避免使用單一字母的名稱，讓你的名稱有解釋的含義。
@@ -1125,9 +1127,9 @@
 
   - **注意:** IE8 及 IE8 以下對於命名函式的獨到見解。更多的訊息在 [http://kangax.github.io/nfe/](http://kangax.github.io/nfe/)。
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到頂端](#table-of-contents)**
 
-
+<a name="accessors"></a>
 ## 存取函式
 
   - 存取函式不是必須的。
@@ -1179,9 +1181,9 @@
     };
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到頂端](#table-of-contents)**
 
-
+<a name="constructors"></a>
 ## 建構函式
 
   - 將方法分配給物件原型，而不是用新的物件覆蓋掉原型，否則會導致繼承出現問題：重置原型時你會覆蓋原有的原型。
@@ -1264,9 +1266,9 @@
     };
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到頂端](#table-of-contents)**
 
-
+<a name="events"></a>
 ## 事件
 
   - 當需要對事件傳入資料時（不論是 DOM 事件或是其他私有事件），請傳入物件替代單一的資料。這樣可以使之後的開發人員直接加入其他的資料到事件裡，而不需更新該事件的處理器。例如，比較不好的做法：
@@ -1295,9 +1297,9 @@
     });
     ```
 
-  **[⬆ back to top](#table-of-contents)**
+  **[⬆ 回到頂端](#table-of-contents)**
 
-
+<a name="modules"></a>
 ## 模型
 
   - 模型的開頭必須以 `!` 開頭， 這樣可以確保前一模型結尾忘記加分號時在合併後不會出現錯誤。 [說明](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
@@ -1326,7 +1328,7 @@
     }(this);
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到頂端](#table-of-contents)**
 
 
 ## jQuery
@@ -1388,16 +1390,16 @@
     $sidebar.find('ul').hide();
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到頂端](#table-of-contents)**
 
-
+<a name="ecmascript-5-compatibility"></a>
 ## ECMAScript 5 相容性
 
   - 參考 [Kangax](https://twitter.com/kangax/) 的 ES5 [相容性列表](http://kangax.github.com/es5-compat-table/).
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到頂端](#table-of-contents)**
 
-
+<a name="testing"></a>
 ## 測試
 
   - **如題。**
@@ -1408,9 +1410,9 @@
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到頂端](#table-of-contents)**
 
-
+<a name="performance"></a>
 ## 效能
 
   - [On Layout & Web Performance](http://kellegous.com/j/2013/01/26/layout-performance/)
@@ -1422,9 +1424,9 @@
   - [Long String Concatenation](http://jsperf.com/ya-string-concat)
   - Loading...
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到頂端](#table-of-contents)**
 
-
+<a name="resources"></a>
 ## 資源
 
 
@@ -1488,8 +1490,9 @@
   - [Dustin Diaz](http://dustindiaz.com/)
   - [nettuts](http://net.tutsplus.com/?s=javascript)
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到頂端](#table-of-contents)**
 
+<a name="in-the-wild"></a>
 ## 誰在使用
 
   這是正在使用這份風格指南的組織列表。送一個 pull request 或提一個 issue 讓我們將你增加到列表上。
@@ -1535,6 +1538,7 @@
   - **Zillow**: [zillow/javascript](https://github.com/zillow/javascript)
   - **ZocDoc**: [ZocDoc/javascript](https://github.com/ZocDoc/javascript)
 
+<a name="translation"></a>
 ## 翻譯
 
   這份風格指南也提供其他語言的版本：
@@ -1551,19 +1555,22 @@
   - ![ca](https://raw.githubusercontent.com/fpmweb/javascript-style-guide/master/img/catala.png) **Catalan**: [fpmweb/javascript-style-guide](https://github.com/fpmweb/javascript-style-guide)
   - ![pl](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Poland.png) **Polish**: [mjurczyk/javascript](https://github.com/mjurczyk/javascript)
 
+<a name="the-javascript-style-guide-guide"></a>
 ## JavaScript 風格指南
 
   - [Reference](https://github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
 
+<a name="chat-with-us-about-javascript"></a>
 ## 與我們討論 JavaScript
 
   - Find us on [gitter](https://gitter.im/airbnb/javascript).
 
+<a name="contributors"></a>
 ## 貢獻者
 
   - [View Contributors](https://github.com/airbnb/javascript/graphs/contributors)
 
-
+<a name="license"></a>
 ## 授權許可
 
 (The MIT License)
@@ -1589,6 +1596,6 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到頂端](#table-of-contents)**
 
 # };
