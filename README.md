@@ -5,47 +5,47 @@
 *A mostly reasonable approach to JavaScript*
 
 
-## Table of Contents
+## 目錄
 
-  1. [Types](#types)
-  1. [Objects](#objects)
-  1. [Arrays](#arrays)
-  1. [Strings](#strings)
-  1. [Functions](#functions)
-  1. [Properties](#properties)
-  1. [Variables](#variables)
-  1. [Hoisting](#hoisting)
-  1. [Conditional Expressions & Equality](#conditional-expressions--equality)
-  1. [Blocks](#blocks)
-  1. [Comments](#comments)
-  1. [Whitespace](#whitespace)
-  1. [Commas](#commas)
-  1. [Semicolons](#semicolons)
-  1. [Type Casting & Coercion](#type-casting--coercion)
-  1. [Naming Conventions](#naming-conventions)
-  1. [Accessors](#accessors)
-  1. [Constructors](#constructors)
-  1. [Events](#events)
-  1. [Modules](#modules)
+  1. [資料型態](#types)
+  1. [物件](#objects)
+  1. [陣列](#arrays)
+  1. [字串](#strings)
+  1. [函式](#functions)
+  1. [屬性](#properties)
+  1. [變數](#variables)
+  1. [提升](#hoisting)
+  1. [條件式與等號](#conditional-expressions--equality)
+  1. [區塊](#blocks)
+  1. [註解](#comments)
+  1. [空格](#whitespace)
+  1. [逗號](#commas)
+  1. [分號](#semicolons)
+  1. [型別轉換](#type-casting--coercion)
+  1. [命名規則](#naming-conventions)
+  1. [存取函式](#accessors)
+  1. [建構函式](#constructors)
+  1. [事件](#events)
+  1. [模型](#modules)
   1. [jQuery](#jquery)
-  1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
-  1. [Testing](#testing)
-  1. [Performance](#performance)
-  1. [Resources](#resources)
-  1. [In the Wild](#in-the-wild)
-  1. [Translation](#translation)
-  1. [The JavaScript Style Guide Guide](#the-javascript-style-guide-guide)
-  1. [Chat With Us About Javascript](#chat-with-us-about-javascript)
-  1. [Contributors](#contributors)
-  1. [License](#license)
+  1. [ECMAScript 5 相容性](#ecmascript-5-compatibility)
+  1. [測試](#testing)
+  1. [效能](#performance)
+  1. [資源](#resources)
+  1. [誰在使用](#in-the-wild)
+  1. [翻譯](#translation)
+  1. [JavaScript 風格指南](#the-javascript-style-guide-guide)
+  1. [和我們討論 Javascript](#chat-with-us-about-javascript)
+  1. [貢獻者](#contributors)
+  1. [授權許可](#license)
 
-## Types
+## 資料型態
 
-  - **Primitives**: When you access a primitive type you work directly on its value.
+  - **基本**: 你可以直接存取基本資料型態。
 
-    + `string`
-    + `number`
-    + `boolean`
+    + `字串`
+    + `數字`
+    + `布林`
     + `null`
     + `undefined`
 
@@ -57,11 +57,11 @@
 
     console.log(foo, bar); // => 1, 9
     ```
-  - **Complex**: When you access a complex type you work on a reference to its value.
+  - **複合**: 你需要透過引用的方式存取複合資料型態。
 
-    + `object`
-    + `array`
-    + `function`
+    + `物件`
+    + `陣列`
+    + `函式`
 
     ```javascript
     var foo = [1, 2];
@@ -74,9 +74,9 @@
 
 **[⬆ back to top](#table-of-contents)**
 
-## Objects
+## 物件
 
-  - Use the literal syntax for object creation.
+  - 使用簡潔的語法建立物件。
 
     ```javascript
     // bad
@@ -86,7 +86,7 @@
     var item = {};
     ```
 
-  - Don't use [reserved words](http://es5.github.io/#x7.6.1) as keys. It won't work in IE8. [More info](https://github.com/airbnb/javascript/issues/61).
+  - 別使用 [保留字](http://es5.github.io/#x7.6.1) 當作鍵值，他在 IE8 上不會被執行。[了解更多](https://github.com/airbnb/javascript/issues/61)
 
     ```javascript
     // bad
@@ -102,7 +102,7 @@
     };
     ```
 
-  - Use readable synonyms in place of reserved words.
+  - 使用同義詞取代保留字。
 
     ```javascript
     // bad
@@ -123,9 +123,9 @@
 
 **[⬆ back to top](#table-of-contents)**
 
-## Arrays
+## 陣列
 
-  - Use the literal syntax for array creation.
+  - 使用簡潔的語法建立陣列。
 
     ```javascript
     // bad
@@ -135,7 +135,7 @@
     var items = [];
     ```
 
-  - If you don't know array length use Array#push.
+  - 如果你不知道陣列的長度請使用 Array#push.
 
     ```javascript
     var someStack = [];
@@ -148,7 +148,7 @@
     someStack.push('abracadabra');
     ```
 
-  - When you need to copy an array use Array#slice. [jsPerf](http://jsperf.com/converting-arguments-to-an-array/7)
+  - 如果你要複製一個陣列請使用 Array#slice 。[jsPerf](http://jsperf.com/converting-arguments-to-an-array/7)
 
     ```javascript
     var len = items.length;
@@ -164,7 +164,7 @@
     itemsCopy = items.slice();
     ```
 
-  - To convert an array-like object to an array, use Array#slice.
+  - 如果要轉換一個像陣列的物件至陣列，可以使用 Array#slice 。
 
     ```javascript
     function trigger() {
@@ -176,9 +176,9 @@
 **[⬆ back to top](#table-of-contents)**
 
 
-## Strings
+## 字串
 
-  - Use single quotes `''` for strings.
+  - 字串請使用單引號 `''` 。
 
     ```javascript
     // bad
@@ -194,8 +194,8 @@
     var fullName = 'Bob ' + this.lastName;
     ```
 
-  - Strings longer than 80 characters should be written across multiple lines using string concatenation.
-  - Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40).
+  - 如果字串超過 80 個字元，請使用字串連接符號 `\` 換行。
+  - 注意: 過度的長字串連接可能會影響效能 [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40)。
 
     ```javascript
     // bad
@@ -213,7 +213,7 @@
       'with this, you would get nowhere fast.';
     ```
 
-  - When programmatically building up a string, use Array#join instead of string concatenation. Mostly for IE: [jsPerf](http://jsperf.com/string-vs-array-concat/2).
+  - 如果要透過陣列產生字串，請使用 Array#join 代替字串連接符號，尤其是 IE: [jsPerf](http://jsperf.com/string-vs-array-concat/2).
 
     ```javascript
     var items;
@@ -260,29 +260,29 @@
 **[⬆ back to top](#table-of-contents)**
 
 
-## Functions
+## 函式
 
-  - Function expressions:
+  - 函式表達式:
 
     ```javascript
-    // anonymous function expression
+    // 匿名函式
     var anonymous = function() {
       return true;
     };
 
-    // named function expression
+    // 命名函式
     var named = function named() {
       return true;
     };
 
-    // immediately-invoked function expression (IIFE)
+    // 立即函式 (immediately-invoked function expression, IIFE)
     (function() {
       console.log('Welcome to the Internet. Please follow me.');
     })();
     ```
 
-  - Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.
-  - **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262's note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
+  - 絕對不要在非函式的區塊（ if, while, 等等）宣告函式，瀏覽器或許會允許你這麼做，但不同瀏覽器產生的結果可能會不同。你可以將函式賦予一個區塊外的變數解決這個問題。
+  - **注意:** ECMA-262 將 `區塊` 定義為陳述式，函式宣告則不是陳述式。 [閱讀 ECMA-262 關於這個問題的說明](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
 
     ```javascript
     // bad
@@ -301,7 +301,7 @@
     }
     ```
 
-  - Never name a parameter `arguments`, this will take precedence over the `arguments` object that is given to every function scope.
+  - 請勿將參數命名為 `arguments` ，這樣會將覆蓋掉函式作用域傳來的 `arguments` 。
 
     ```javascript
     // bad
@@ -319,9 +319,9 @@
 
 
 
-## Properties
+## 屬性
 
-  - Use dot notation when accessing properties.
+  - 使用點 `.` 來存取屬性。
 
     ```javascript
     var luke = {
@@ -336,7 +336,7 @@
     var isJedi = luke.jedi;
     ```
 
-  - Use subscript notation `[]` when accessing properties with a variable.
+  - 需要帶參數存取屬性時請使用中括號 `[]` 。
 
     ```javascript
     var luke = {
@@ -354,9 +354,9 @@
 **[⬆ back to top](#table-of-contents)**
 
 
-## Variables
+## 變數
 
-  - Always use `var` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that.
+  - 為了避免污染全域的命名空間，請使用 `var` 來宣告變數，如果不這麼做將會產生全域變數。
 
     ```javascript
     // bad
@@ -366,10 +366,7 @@
     var superPower = new SuperPower();
     ```
 
-  - Use one `var` declaration per variable.
-    It's easier to add new variable declarations this way, and you never have
-    to worry about swapping out a `;` for a `,` or introducing punctuation-only
-    diffs. 
+  - 每個變數只使用一個 `var` 來宣告，這樣更容易增加新的變數宣告，而且你也不用擔心替換  `;` 為 `,` 及 introducing punctuation-only diffsce的問題。
 
     ```javascript
     // bad
@@ -378,7 +375,7 @@
         dragonball = 'z';
 
     // bad
-    // (compare to above, and try to spot the mistake)
+    // （比較上述例子找出錯誤）
     var items = getItems(),
         goSportsTeam = true;
         dragonball = 'z';
@@ -389,7 +386,7 @@
     var dragonball = 'z';
     ```
 
-  - Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
+  - 將未賦值的變數宣告在最後，當你需要根據之前已賦值變數來賦值給未賦值變數時相當有幫助。
 
     ```javascript
     // bad
@@ -412,7 +409,7 @@
     var i;
     ```
 
-  - Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.
+  - 在作用域的最頂層宣告變數，避免變數宣告及賦值提升的相關問題
 
     ```javascript
     // bad
@@ -473,29 +470,27 @@
 **[⬆ back to top](#table-of-contents)**
 
 
-## Hoisting
+## 提升
 
-  - Variable declarations get hoisted to the top of their scope, their assignment does not.
+  - 變數宣告可以被提升至該作用域的最頂層，但賦予的值並不會。
 
     ```javascript
-    // we know this wouldn't work (assuming there
-    // is no notDefined global variable)
+    // 我們知道這樣是行不同的
+    // （假設沒有名為 notDefined 的全域變數）
     function example() {
-      console.log(notDefined); // => throws a ReferenceError
+      console.log(notDefined); // => 拋出一個參考錯誤
     }
 
-    // creating a variable declaration after you
-    // reference the variable will work due to
-    // variable hoisting. Note: the assignment
-    // value of `true` is not hoisted.
+    // 由於變數提升的關係，
+    // 你在引用變數後再宣告變數是行得通的。
+    // 注：賦予給變數的 `true` 並不會被提升。
     function example() {
       console.log(declaredButNotAssigned); // => undefined
       var declaredButNotAssigned = true;
     }
 
-    // The interpreter is hoisting the variable
-    // declaration to the top of the scope,
-    // which means our example could be rewritten as:
+    // 直譯器會將宣告的變數提升至作用域的最頂層，
+    // 表示我們可以將這個例子改寫成以下：
     function example() {
       var declaredButNotAssigned;
       console.log(declaredButNotAssigned); // => undefined
@@ -503,7 +498,7 @@
     }
     ```
 
-  - Anonymous function expressions hoist their variable name, but not the function assignment.
+  - 賦予匿名函式的變數會被提升，但函式內容並不會。
 
     ```javascript
     function example() {
@@ -517,7 +512,7 @@
     }
     ```
 
-  - Named function expressions hoist the variable name, not the function name or the function body.
+  - 賦予命名函式的變數會被提升，但函式內容及函式名稱並不會。
 
     ```javascript
     function example() {
@@ -532,8 +527,7 @@
       };
     }
 
-    // the same is true when the function name
-    // is the same as the variable name.
+    // 當函式名稱和變數名稱相同時也是如此。
     function example() {
       console.log(named); // => undefined
 
@@ -545,7 +539,7 @@
     }
     ```
 
-  - Function declarations hoist their name and the function body.
+  - 宣告函式的名稱及函式內容都會被提升。
 
     ```javascript
     function example() {
@@ -557,32 +551,32 @@
     }
     ```
 
-  - For more information refer to [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) by [Ben Cherry](http://www.adequatelygood.com/).
+  - 想瞭解更多訊息，請參考 [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) by [Ben Cherry](http://www.adequatelygood.com/).
 
 **[⬆ back to top](#table-of-contents)**
 
 
 
-## Conditional Expressions & Equality
+## 條件式與等號
 
-  - Use `===` and `!==` over `==` and `!=`.
-  - Conditional expressions are evaluated using coercion with the `ToBoolean` method and always follow these simple rules:
+  - 使用 `===` 及 `!==` 過於 `==` 及 `!=`.
+  - 條件表達式的強轉類型使用 `ToBoolean` 方法，並遵循以下規範：
 
-    + **Objects** evaluate to **true**
-    + **Undefined** evaluates to **false**
-    + **Null** evaluates to **false**
-    + **Booleans** evaluate to **the value of the boolean**
-    + **Numbers** evaluate to **false** if **+0, -0, or NaN**, otherwise **true**
-    + **Strings** evaluate to **false** if an empty string `''`, otherwise **true**
+    + **物件** 轉換為 **true**
+    + **Undefined** 轉換為 **false**
+    + **Null** 轉換為 **false**
+    + **布林** 轉換為 **該布林值**
+    + **數字** 如果是 **+0, -0, 或 NaN** 則轉換為 **false** ，其他的皆為 **true**
+    + **字串** 如果是空字串 `''` 則轉換為 **false** ，其他的皆為 **true**
 
     ```javascript
     if ([0]) {
       // true
-      // An array is an object, objects evaluate to true
+      // 陣列為一個物件，所以轉換為true
     }
     ```
 
-  - Use shortcuts.
+  - 使用快速的方式。
 
     ```javascript
     // bad
@@ -606,14 +600,14 @@
     }
     ```
 
-  - For more information see [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll.
+  - 想瞭解更多訊息請參考 [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll.
 
 **[⬆ back to top](#table-of-contents)**
 
 
-## Blocks
+## 區塊
 
-  - Use braces with all multi-line blocks.
+  - 多行區塊請使用花括號刮起來。
 
     ```javascript
     // bad
@@ -640,14 +634,13 @@
 **[⬆ back to top](#table-of-contents)**
 
 
-## Comments
+## 註解
 
-  - Use `/** ... */` for multiline comments. Include a description, specify types and values for all parameters and return values.
+  - 多行註解請使用 `/** ... */` ，包含描述，指定類型以及參數值還有回傳值。
 
     ```javascript
     // bad
-    // make() returns a new element
-    // based on the passed in tag name
+    // make() 根據傳入的 tag 名稱回傳一個新的元件
     //
     // @param {String} tag
     // @return {Element} element
@@ -660,8 +653,7 @@
 
     // good
     /**
-     * make() returns a new element
-     * based on the passed in tag name
+     * make() 根據傳入的 tag 名稱回傳一個新的 element
      *
      * @param {String} tag
      * @return {Element} element
@@ -674,20 +666,20 @@
     }
     ```
 
-  - Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment.
+  - 單行註解請使用 `//` ，在欲註解的地方上方進行當行註解，並在註解前空一格。
 
     ```javascript
     // bad
-    var active = true;  // is current tab
+    var active = true;  // 當目前分頁
 
     // good
-    // is current tab
+    // 當目前分頁
     var active = true;
 
     // bad
     function getType() {
       console.log('fetching type...');
-      // set the default type to 'no type'
+      // 設定預設的類型為 'no type'
       var type = this._type || 'no type';
 
       return type;
@@ -697,33 +689,33 @@
     function getType() {
       console.log('fetching type...');
 
-      // set the default type to 'no type'
+      // 設定預設的類型為 'no type'
       var type = this._type || 'no type';
 
       return type;
     }
     ```
 
-  - Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME -- need to figure this out` or `TODO -- need to implement`.
+  - 在註解前方加上 `FIXME` 或 `TODO` 可以幫助其他開發人員快速瞭解這是一個需要重新討論的問題，或是一個等待解決的問題。和一般的註解不同，他們是可被執行的。對應的動作為 `FIXME -- 重新討論並解決` 或 `TODO -- 必須執行`.
 
-  - Use `// FIXME:` to annotate problems.
+  - 使用 `// FIXME:` 標注問題。
 
     ```javascript
     function Calculator() {
 
-      // FIXME: shouldn't use a global here
+      // FIXME: 不改在這使用全域變數
       total = 0;
 
       return this;
     }
     ```
 
-  - Use `// TODO:` to annotate solutions to problems.
+  - 使用 `// TODO:` 標注問題的解決方式
 
     ```javascript
     function Calculator() {
 
-      // TODO: total should be configurable by an options param
+      // TODO: total 應該是可被傳入參數修改的
       this.total = 0;
 
       return this;
@@ -733,9 +725,9 @@
 **[⬆ back to top](#table-of-contents)**
 
 
-## Whitespace
+## 空格
 
-  - Use soft tabs set to 2 spaces.
+  - 將 Tab 設定為兩個空格。
 
     ```javascript
     // bad
@@ -754,7 +746,7 @@
     }
     ```
 
-  - Place 1 space before the leading brace.
+  - 在花括號前加一個空格。
 
     ```javascript
     // bad
@@ -780,7 +772,7 @@
     });
     ```
 
-  - Set off operators with spaces.
+  - 將運算元用空格隔開。
 
     ```javascript
     // bad
@@ -790,7 +782,7 @@
     var x = y + 5;
     ```
 
-  - End files with a single newline character.
+  - 在檔案的最尾端加上一行空白行。
 
     ```javascript
     // bad
@@ -814,7 +806,7 @@
     })(this);↵
     ```
 
-  - Use indentation when making long method chains.
+  - 當多個方法連接時請換行縮排，利用前面的 `.` 強調該行是呼叫方法，而不是一個新的宣告。
 
     ```javascript
     // bad
@@ -847,9 +839,9 @@
 
 **[⬆ back to top](#table-of-contents)**
 
-## Commas
+## 逗號
 
-  - Leading commas: **Nope.**
+  - 不要將逗號放在前方。
 
     ```javascript
     // bad
@@ -883,7 +875,7 @@
     };
     ```
 
-  - Additional trailing comma: **Nope.** This can cause problems with IE6/7 and IE9 if it's in quirksmode. Also, in some implementations of ES3 would add length to an array if it had an additional trailing comma. This was clarified in ES5 ([source](http://es5.github.io/#D)):
+  - 多餘的逗號: **Nope.** 在 IE6/7 及 IE9的相容性模式中，多餘的逗號可能會產生問題。另外，在 ES3 的一些實現方式上會多計算陣列的長度，不過在ES5中已經被修正了（[source](http://es5.github.io/#D)）：
 
   > Edition 5 clarifies the fact that a trailing comma at the end of an ArrayInitialiser does not add to the length of the array. This is not a semantic change from Edition 3 but some implementations may have previously misinterpreted this.
 
@@ -914,9 +906,9 @@
 **[⬆ back to top](#table-of-contents)**
 
 
-## Semicolons
+## 分號
 
-  - **Yup.**
+  - 句尾請加分號。
 
     ```javascript
     // bad
@@ -931,7 +923,7 @@
       return name;
     })();
 
-    // good (guards against the function becoming an argument when two files with IIFEs are concatenated)
+    // good （防止當兩個檔案含有立即函式需要合併時，函式被當成參數處理）
     ;(function() {
       var name = 'Skywalker';
       return name;
@@ -943,10 +935,10 @@
 **[⬆ back to top](#table-of-contents)**
 
 
-## Type Casting & Coercion
+## 型別轉換
 
-  - Perform type coercion at the beginning of the statement.
-  - Strings:
+  - 在開頭的宣告進行強制型別轉換。
+  - 字串:
 
     ```javascript
     //  => this.reviewScore = 9;
@@ -964,7 +956,7 @@
     var totalScore = this.reviewScore + ' total score';
     ```
 
-  - Use `parseInt` for Numbers and always with a radix for type casting.
+  - 對數字使用 `parseInt` 轉換，並帶上型別轉換的基數。
 
     ```javascript
     var inputValue = '4';
@@ -986,21 +978,16 @@
 
     // good
     var val = parseInt(inputValue, 10);
-    ```
 
-  - If for whatever reason you are doing something wild and `parseInt` is your bottleneck and need to use Bitshift for [performance reasons](http://jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you're doing.
-
-    ```javascript
     // good
     /**
-     * parseInt was the reason my code was slow.
-     * Bitshifting the String to coerce it to a
-     * Number made it a lot faster.
+     * 使用 parseInt 導致我的程式變慢，改成使用
+     * 位元轉換強制將字串轉為數字加快了他的速度。
      */
     var val = inputValue >> 0;
     ```
 
-  - **Note:** Be careful when using bitshift operations. Numbers are represented as [64-bit values](http://es5.github.io/#x4.3.19), but Bitshift operations always return a 32-bit integer ([source](http://es5.github.io/#x11.7)). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. [Discussion](https://github.com/airbnb/javascript/issues/109). Largest signed 32-bit Int is 2,147,483,647:
+  - **注意：**使用位元轉換時請小心，數字為 [64 位元數值](http://es5.github.io/#x4.3.19)，但是使用位元轉換時則會回傳一個 32 位元的整數 （[來源](http://es5.github.io/#x11.7)），這會導致大於 32 位元的數值產生異常 [討論串](https://github.com/airbnb/javascript/issues/109)， 32 位元的整數最大值為 2,147,483,647 ：
 
     ```javascript
     2147483647 >> 0 //=> 2147483647
@@ -1008,7 +995,7 @@
     2147483649 >> 0 //=> -2147483647
     ```
 
-  - Booleans:
+  - 布林:
 
     ```javascript
     var age = 0;
@@ -1026,9 +1013,9 @@
 **[⬆ back to top](#table-of-contents)**
 
 
-## Naming Conventions
+## 命名規則
 
-  - Avoid single letter names. Be descriptive with your naming.
+  - 避免使用單一字母的名稱，讓你的名稱有解釋的含義。
 
     ```javascript
     // bad
@@ -1042,7 +1029,7 @@
     }
     ```
 
-  - Use camelCase when naming objects, functions, and instances.
+  - 使用駝峰式大小寫命名物件，函式及實例。
 
     ```javascript
     // bad
@@ -1061,7 +1048,7 @@
     });
     ```
 
-  - Use PascalCase when naming constructors or classes.
+  - 使用帕斯卡命名法來命名建構函式或類別。
 
     ```javascript
     // bad
@@ -1083,7 +1070,7 @@
     });
     ```
 
-  - Use a leading underscore `_` when naming private properties.
+  - 命名私有屬性時請在前面加底線 `_` 。
 
     ```javascript
     // bad
@@ -1094,7 +1081,7 @@
     this._firstName = 'Panda';
     ```
 
-  - When saving a reference to `this` use `_this`.
+  - 要保留對 `this` 的使用時請用 `_this` 取代。
 
     ```javascript
     // bad
@@ -1122,7 +1109,7 @@
     }
     ```
 
-  - Name your functions. This is helpful for stack traces.
+  - 將你的函式命名，這對於在做堆疊追蹤時相當有幫助。
 
     ```javascript
     // bad
@@ -1136,15 +1123,15 @@
     };
     ```
 
-  - **Note:** IE8 and below exhibit some quirks with named function expressions.  See [http://kangax.github.io/nfe/](http://kangax.github.io/nfe/) for more info.
+  - **注意:** IE8 及 IE8 以下對於命名函式的獨到見解。更多的訊息在 [http://kangax.github.io/nfe/](http://kangax.github.io/nfe/)。
 
 **[⬆ back to top](#table-of-contents)**
 
 
-## Accessors
+## 存取函式
 
-  - Accessor functions for properties are not required.
-  - If you do make accessor functions use getVal() and setVal('hello').
+  - 存取函式不是必須的。
+  - 如果你要建立一個存取函式，請使用 getVal() 及 setVal('hello') 。
 
     ```javascript
     // bad
@@ -1160,7 +1147,7 @@
     dragon.setAge(25);
     ```
 
-  - If the property is a boolean, use isVal() or hasVal().
+  - 如果屬性是布林，請使用 isVal() 或 hasVal() 。
 
     ```javascript
     // bad
@@ -1174,7 +1161,7 @@
     }
     ```
 
-  - It's okay to create get() and set() functions, but be consistent.
+  - 可以建立 get() 及 set() 函式，但請保持一致。
 
     ```javascript
     function Jedi(options) {
@@ -1195,9 +1182,9 @@
 **[⬆ back to top](#table-of-contents)**
 
 
-## Constructors
+## 建構函式
 
-  - Assign methods to the prototype object, instead of overwriting the prototype with a new object. Overwriting the prototype makes inheritance impossible: by resetting the prototype you'll overwrite the base!
+  - 將方法分配給物件原型，而不是用新的物件覆蓋掉原型，否則會導致繼承出現問題：重置原型時你會覆蓋原有的原型。
 
     ```javascript
     function Jedi() {
@@ -1225,7 +1212,7 @@
     };
     ```
 
-  - Methods can return `this` to help with method chaining.
+  - 方法可以回傳 `this` 幫助方法連接。
 
     ```javascript
     // bad
@@ -1260,7 +1247,7 @@
     ```
 
 
-  - It's okay to write a custom toString() method, just make sure it works successfully and causes no side effects.
+  - 可以寫一個 toString() 的方法，但是請確保他可以正常執行且沒有副作用。
 
     ```javascript
     function Jedi(options) {
@@ -1280,9 +1267,9 @@
 **[⬆ back to top](#table-of-contents)**
 
 
-## Events
+## 事件
 
-  - When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass a hash instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:
+  - 當需要對事件傳入資料時（不論是 DOM 事件或是其他私有事件），請傳入物件替代單一的資料。這樣可以使之後的開發人員直接加入其他的資料到事件裡，而不需更新該事件的處理器。例如，比較不好的做法：
 
     ```js
     // bad
@@ -1295,7 +1282,7 @@
     });
     ```
 
-    prefer:
+    更好的做法：
 
     ```js
     // good
@@ -1311,12 +1298,12 @@
   **[⬆ back to top](#table-of-contents)**
 
 
-## Modules
+## 模型
 
-  - The module should start with a `!`. This ensures that if a malformed module forgets to include a final semicolon there aren't errors in production when the scripts get concatenated. [Explanation](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
-  - The file should be named with camelCase, live in a folder with the same name, and match the name of the single export.
-  - Add a method called `noConflict()` that sets the exported module to the previous version and returns this one.
-  - Always declare `'use strict';` at the top of the module.
+  - 模型的開頭必須以 `!` 開頭， 這樣可以確保前一模型結尾忘記加分號時在合併後不會出現錯誤。 [說明](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
+  - 命名方式請使用駝峰式大小寫，並存在同名的資料夾下，導出時的名稱也必須一致。 
+  - 加入一個名稱為 `noConflict()` 方法來設置導出時的模型為前一個版本，並回傳他。
+  - 記得在模型的最頂端加上 `'use strict';` 。
 
     ```javascript
     // fancyInput/fancyInput.js
@@ -1344,7 +1331,7 @@
 
 ## jQuery
 
-  - Prefix jQuery object variables with a `$`.
+  - jQuery 的物件請使用 `$` 當前綴。
 
     ```javascript
     // bad
@@ -1354,7 +1341,7 @@
     var $sidebar = $('.sidebar');
     ```
 
-  - Cache jQuery lookups.
+  - 快取 jQuery 的查詢。
 
     ```javascript
     // bad
@@ -1381,8 +1368,8 @@
     }
     ```
 
-  - For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
-  - Use `find` with scoped jQuery object queries.
+  - DOM 的查詢請使用層遞的 `$('.sidebar ul')` 或 父元素 > 子元素 `$('.sidebar > ul')` 。 [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
+  - 對作用域內的 jQuery 物件使用 `find` 做查詢。
 
     ```javascript
     // bad
@@ -1404,16 +1391,16 @@
 **[⬆ back to top](#table-of-contents)**
 
 
-## ECMAScript 5 Compatibility
+## ECMAScript 5 相容性
 
-  - Refer to [Kangax](https://twitter.com/kangax/)'s ES5 [compatibility table](http://kangax.github.com/es5-compat-table/).
+  - 參考 [Kangax](https://twitter.com/kangax/) 的 ES5 [相容性列表](http://kangax.github.com/es5-compat-table/).
 
 **[⬆ back to top](#table-of-contents)**
 
 
-## Testing
+## 測試
 
-  - **Yup.**
+  - **如題。**
 
     ```javascript
     function() {
@@ -1424,7 +1411,7 @@
 **[⬆ back to top](#table-of-contents)**
 
 
-## Performance
+## 效能
 
   - [On Layout & Web Performance](http://kellegous.com/j/2013/01/26/layout-performance/)
   - [String vs Array Concat](http://jsperf.com/string-vs-array-concat/2)
@@ -1438,40 +1425,40 @@
 **[⬆ back to top](#table-of-contents)**
 
 
-## Resources
+## 資源
 
 
-**Read This**
+**請讀這個**
 
   - [Annotated ECMAScript 5.1](http://es5.github.com/)
 
-**Tools**
+**工具**
 
   - Code Style Linters
     + [JSHint](http://www.jshint.com/) - [Airbnb Style .jshintrc](https://github.com/airbnb/javascript/blob/master/linters/jshintrc)
     + [JSCS](https://github.com/jscs-dev/node-jscs) - [Airbnb Style Preset](https://github.com/jscs-dev/node-jscs/blob/master/presets/airbnb.json)
 
-**Other Styleguides**
+**其他的風格指南**
 
   - [Google JavaScript Style Guide](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
   - [jQuery Core Style Guidelines](http://docs.jquery.com/JQuery_Core_Style_Guidelines)
   - [Principles of Writing Consistent, Idiomatic JavaScript](https://github.com/rwldrn/idiomatic.js/)
 
-**Other Styles**
+**其他風格**
 
   - [Naming this in nested functions](https://gist.github.com/4135065) - Christian Johansen
   - [Conditional Callbacks](https://github.com/airbnb/javascript/issues/52) - Ross Allen
   - [Popular JavaScript Coding Conventions on Github](http://sideeffect.kr/popularconvention/#javascript) - JeongHoon Byun
   - [Multiple var statements in JavaScript, not superfluous](http://benalman.com/news/2012/05/multiple-var-statements-javascript/) - Ben Alman
 
-**Further Reading**
+**瞭解更多**
 
   - [Understanding JavaScript Closures](http://javascriptweblog.wordpress.com/2010/10/25/understanding-javascript-closures/) - Angus Croll
   - [Basic JavaScript for the impatient programmer](http://www.2ality.com/2013/06/basic-javascript.html) - Dr. Axel Rauschmayer
   - [You Might Not Need jQuery](http://youmightnotneedjquery.com/) - Zack Bloom & Adam Schwartz
   - [ES6 Features](https://github.com/lukehoban/es6features) - Luke Hoban
 
-**Books**
+**書籍**
 
   - [JavaScript: The Good Parts](http://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742) - Douglas Crockford
   - [JavaScript Patterns](http://www.amazon.com/JavaScript-Patterns-Stoyan-Stefanov/dp/0596806752) - Stoyan Stefanov
@@ -1487,7 +1474,7 @@
   - [JSBooks](http://jsbooks.revolunet.com/) - Julien Bouquillon
   - [Third Party JavaScript](http://manning.com/vinegar/) - Ben Vinegar and Anton Kovalyov
 
-**Blogs**
+**部落格**
 
   - [DailyJS](http://dailyjs.com/)
   - [JavaScript Weekly](http://javascriptweekly.com/)
@@ -1503,9 +1490,9 @@
 
 **[⬆ back to top](#table-of-contents)**
 
-## In the Wild
+## 誰在使用
 
-  This is a list of organizations that are using this style guide. Send us a pull request or open an issue and we'll add you to the list.
+  這是正在使用這份風格指南的組織列表。送一個 pull request 或提一個 issue 讓我們將你增加到列表上。
 
   - **Aan Zee**: [AanZee/javascript](https://github.com/AanZee/javascript)
   - **Airbnb**: [airbnb/javascript](https://github.com/airbnb/javascript)
@@ -1548,9 +1535,9 @@
   - **Zillow**: [zillow/javascript](https://github.com/zillow/javascript)
   - **ZocDoc**: [ZocDoc/javascript](https://github.com/ZocDoc/javascript)
 
-## Translation
+## 翻譯
 
-  This style guide is also available in other languages:
+  這份風格指南也提供其他語言的版本：
 
   - ![de](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Germany.png) **German**: [timofurrer/javascript-style-guide](https://github.com/timofurrer/javascript-style-guide)
   - ![jp](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Japan.png) **Japanese**: [mitsuruog/javacript-style-guide](https://github.com/mitsuruog/javacript-style-guide)
@@ -1564,20 +1551,20 @@
   - ![ca](https://raw.githubusercontent.com/fpmweb/javascript-style-guide/master/img/catala.png) **Catalan**: [fpmweb/javascript-style-guide](https://github.com/fpmweb/javascript-style-guide)
   - ![pl](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Poland.png) **Polish**: [mjurczyk/javascript](https://github.com/mjurczyk/javascript)
 
-## The JavaScript Style Guide Guide
+## JavaScript 風格指南
 
   - [Reference](https://github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
 
-## Chat With Us About JavaScript
+## 與我們討論 JavaScript
 
   - Find us on [gitter](https://gitter.im/airbnb/javascript).
 
-## Contributors
+## 貢獻者
 
   - [View Contributors](https://github.com/airbnb/javascript/graphs/contributors)
 
 
-## License
+## 授權許可
 
 (The MIT License)
 
