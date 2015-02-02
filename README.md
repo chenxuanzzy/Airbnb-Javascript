@@ -274,7 +274,7 @@
 
 **[⬆ back to top](#table-of-contents)**
 
-<a name="array"></a>
+<a name="arrays"></a>
 ## 陣列
 
   - [4.1](#4.1) <a name='4.1'></a> Use the literal syntax for array creation.
