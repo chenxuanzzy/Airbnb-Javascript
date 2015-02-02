@@ -78,7 +78,7 @@
     console.log(foo[0], bar[0]); // => 9, 9
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到頂端](#table-of-contents)**
 
 ## References
 
@@ -274,6 +274,7 @@
 
 **[⬆ back to top](#table-of-contents)**
 
+<a name="array"></a>
 ## 陣列
 
   - [4.1](#4.1) <a name='4.1'></a> Use the literal syntax for array creation.
@@ -804,6 +805,7 @@
 **[⬆ back to top](#table-of-contents)**
 
 
+<a name="properties"></a>
 ## 屬性
 
   - [12.1](#12.1) <a name='12.1'></a> Use dot notation when accessing properties.
@@ -836,9 +838,9 @@
     const isJedi = getProp('jedi');
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到頂端](#table-of-contents)**
 
-
+<a name="variables"></a>
 ## 變數
 
   - [13.1](#13.1) <a name='13.1'></a> Always use `const` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that.
@@ -945,9 +947,9 @@
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到頂端](#table-of-contents)**
 
-
+<a name="hoisting"></a>
 ## 提升
 
   - [14.1](#14.1) <a name='14.1'></a> `var` declarations get hoisted to the top of their scope, their assignment does not. `const` and `let` declarations are blessed with a new concept called [Temporal Dead Zones (TDZ)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone_and_errors_with_let). It's important to know why [typeof is no longer safe](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15).
@@ -1086,9 +1088,9 @@
 
   - [15.4](#15.4) <a name='15.4'></a> For more information see [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到頂端](#table-of-contents)**
 
-
+<a name="blocks"></a>
 ## 區塊
 
   - [16.1](#16.1) <a name='16.1'></a> Use braces with all multi-line blocks.
@@ -1141,6 +1143,7 @@
 **[⬆ back to top](#table-of-contents)**
 
 
+<a name="comments"></a>
 ## 註解
 
   - [17.1](#17.1) <a name='17.1'></a> Use `/** ... */` for multi-line comments. Include a description, specify types and values for all parameters and return values.
@@ -1227,9 +1230,9 @@
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到頂端](#table-of-contents)**
 
-
+<a name="whitespace"></a>
 ## 空格
 
   - [18.1](#18.1) <a name='18.1'></a> Use soft tabs set to 2 spaces.
@@ -1415,6 +1418,7 @@
 
 **[⬆ back to top](#table-of-contents)**
 
+<a name="commas"></a>
 ## 逗號
 
   - [19.1](#19.1) <a name='19.1'></a> Leading commas: **Nope.**
@@ -1494,7 +1498,7 @@
     ];
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到頂端](#table-of-contents)**
 
 
 ## 分號
@@ -1523,9 +1527,9 @@
 
     [Read more](http://stackoverflow.com/a/7365214/1712802).
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到頂端](#table-of-contents)**
 
-
+<a name="type-casting--coercion"></a>
 ## 型別轉換
 
   - [21.1](#21.1) <a name='21.1'></a> Perform type coercion at the beginning of the statement.
@@ -1598,9 +1602,9 @@
     const hasAge = !!age;
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到頂端](#table-of-contents)**
 
-
+<a name="naming-conventions"></a>
 ## 命名規則
 
   - [22.1](#22.1) <a name='22.1'></a> Avoid single letter names. Be descriptive with your naming.
@@ -1732,9 +1736,9 @@
     ```
 
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到頂端](#table-of-contents)**
 
-
+<a name="accessors"></a>
 ## 存取函式
 
   - [23.1](#23.1) <a name='23.1'></a> Accessor functions for properties are not required.
@@ -1787,9 +1791,9 @@
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到頂端](#table-of-contents)**
 
-
+<a name="events"></a>
 ## 事件
 
   - [24.1](#24.1) <a name='24.1'></a> When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass a hash instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:
@@ -1818,8 +1822,7 @@
     });
     ```
 
-  **[⬆ back to top](#table-of-contents)**
-
+  **[⬆ 回到頂端](#table-of-contents)**
 
 ## jQuery
 
@@ -1880,9 +1883,9 @@
     $sidebar.find('ul').hide();
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到頂端](#table-of-contents)**
 
-
+<a name="ecmascript-5-compatibility"></a>
 ## ECMAScript 5 相容性
 
   - [26.1](#26.1) <a name='26.1'></a> Refer to [Kangax](https://twitter.com/kangax/)'s ES5 [compatibility table](http://kangax.github.com/es5-compat-table/).
@@ -1909,6 +1912,7 @@
 
 **[⬆ back to top](#table-of-contents)**
 
+<a name="testing"></a>
 ## 測試
 
   - [28.1](#28.1) <a name='28.1'></a> **Yup.**
@@ -1919,9 +1923,9 @@
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到頂端](#table-of-contents)**
 
-
+<a name="performance"></a>
 ## 效能
 
   - [On Layout & Web Performance](http://kellegous.com/j/2013/01/26/layout-performance/)
@@ -1933,9 +1937,9 @@
   - [Long String Concatenation](http://jsperf.com/ya-string-concat)
   - Loading...
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到頂端](#table-of-contents)**
 
-
+<a name="resources"></a>
 ## 資源
 
 **Learning ES6**
@@ -2014,6 +2018,7 @@
 
 **[⬆ back to top](#table-of-contents)**
 
+<a name="in-the-wild"></a>
 ## 誰在使用
 
   這是正在使用這份風格指南的組織列表。送一個 pull request 或提一個 issue 讓我們將你增加到列表上。
@@ -2067,6 +2072,7 @@
   - **Zillow**: [zillow/javascript](https://github.com/zillow/javascript)
   - **ZocDoc**: [ZocDoc/javascript](https://github.com/ZocDoc/javascript)
 
+<a name="translation"></a>
 ## 翻譯
 
   這份風格指南也提供其他語言的版本：
@@ -2086,19 +2092,22 @@
   - ![es](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Spain.png) **Spanish**: [paolocarrasco/javascript-style-guide](https://github.com/paolocarrasco/javascript-style-guide)
   - ![th](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Thailand.png) **Thai**: [lvarayut/javascript-style-guide](https://github.com/lvarayut/javascript-style-guide)
 
+<a name="the-javascript-style-guide-guide"></a>
 ## JavaScript 風格指南
 
   - [Reference](https://github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
 
+<a name="chat-with-us-about-javascript"></a>
 ## 與我們討論 JavaScript
 
   - Find us on [gitter](https://gitter.im/airbnb/javascript).
 
+<a name="contributors"></a>
 ## 貢獻者
 
   - [View Contributors](https://github.com/airbnb/javascript/graphs/contributors)
 
-
+<a name="license"></a>
 ## 授權許可
 
 (The MIT License)
@@ -2124,6 +2133,6 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到頂端](#table-of-contents)**
 
 # };
