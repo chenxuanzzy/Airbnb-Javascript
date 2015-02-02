@@ -39,7 +39,7 @@
   1. [貢獻者](#contributors)
   1. [授權許可](#license)
 
-<a name="type"></a>
+<a name="types"></a>
 ## 資料型態
 
   - **基本**: 你可以直接存取基本資料型態。
@@ -75,7 +75,7 @@
 
 **[⬆ 回到頂端](#table-of-contents)**
 
-<a name="object"></a>
+<a name="objects"></a>
 ## 物件
 
   - 使用簡潔的語法建立物件。
@@ -125,7 +125,7 @@
 
 **[⬆ 回到頂端](#table-of-contents)**
 
-<a name="array"></a>
+<a name="arrays"></a>
 ## 陣列
 
   - 使用簡潔的語法建立陣列。
@@ -178,7 +178,7 @@
 
 **[⬆ 回到頂端](#table-of-contents)**
 
-<a name="string"></a>
+<a name="strings"></a>
 ## 字串
 
   - 字串請使用單引號 `''` 。
@@ -262,7 +262,7 @@
 
 **[⬆ 回到頂端](#table-of-contents)**
 
-<a name="function"></a>
+<a name="functions"></a>
 ## 函式
 
   - 函式表達式:
