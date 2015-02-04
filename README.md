@@ -1827,6 +1827,37 @@
 
   **[⬆ 回到頂端](#table-of-contents)**
 
+
+  - 模組的開頭必須以 `!` 開頭， 這樣可以確保前一模組結尾忘記加分號時在合併後不會出現錯誤。 [說明](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
+  - 命名方式請使用駝峰式大小寫，並存在同名的資料夾下，導出時的名稱也必須一致。 
+  - 加入一個名稱為 `noConflict()` 方法來設置導出時的模組為前一個版本，並回傳他。
+  - 記得在模組的最頂端加上 `'use strict';` 。
+
+    ```javascript
+    // fancyInput/fancyInput.js
+
+    !function(global) {
+      'use strict';
+
+      var previousFancyInput = global.FancyInput;
+
+      function FancyInput(options) {
+        this.options = options || {};
+      }
+
+      FancyInput.noConflict = function noConflict() {
+        global.FancyInput = previousFancyInput;
+        return FancyInput;
+      };
+
+      global.FancyInput = FancyInput;
+    }(this);
+    ```
+
+**[⬆ 回到頂端](#table-of-contents)**
+
+
+>>>>>>> 將模型修改為模組
 ## jQuery
 
   - [25.1](#25.1) <a name='25.1'></a> Prefix jQuery object variables with a `$`.
