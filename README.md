@@ -958,7 +958,7 @@
   - [14.1](#14.1) <a name='14.1'></a> `var` declarations get hoisted to the top of their scope, their assignment does not. `const` and `let` declarations are blessed with a new concept called [Temporal Dead Zones (TDZ)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone_and_errors_with_let). It's important to know why [typeof is no longer safe](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15).
 
     ```javascript
-    // 我們知道這樣是行不同的
+    // 我們知道這樣是行不通的
     // （假設沒有名為 notDefined 的全域變數）
     function example() {
       console.log(notDefined); // => 拋出一個參考錯誤
