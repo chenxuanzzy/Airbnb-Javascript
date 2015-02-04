@@ -480,7 +480,7 @@
   - 變數宣告可以被提升至該作用域的最頂層，但賦予的值並不會。
 
     ```javascript
-    // 我們知道這樣是行不同的
+    // 我們知道這樣是行不通的
     // （假設沒有名為 notDefined 的全域變數）
     function example() {
       console.log(notDefined); // => 拋出一個參考錯誤
