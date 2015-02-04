@@ -1,8 +1,11 @@
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-# Airbnb JavaScript Style Guide() {
+# JavaScript Style Guide() {
 
-*A mostly reasonable approach to JavaScript*
+*一份彙整了在 JavasScript 中被普遍使用的風格指南。*
+
+翻譯自 [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript) 。
+
 
 [For the ES5-only guide click here](es5/).
 
