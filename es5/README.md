@@ -27,8 +27,8 @@
   1. [分號](#semicolons)
   1. [型別轉換](#type-casting--coercion)
   1. [命名規則](#naming-conventions)
-  1. [存取函式](#accessors)
-  1. [建構函式](#constructors)
+  1. [存取器](#accessors)
+  1. [建構子](#constructors)
   1. [事件](#events)
   1. [模組](#modules)
   1. [jQuery](#jquery)
@@ -1008,7 +1008,7 @@
 
 **[⬆ 回到頂端](#table-of-contents)**
 
-
+<a name="semicolons"></a>
 ## 分號
 
   - 句尾請加分號。
@@ -1249,10 +1249,10 @@
 **[⬆ 回到頂端](#table-of-contents)**
 
 <a name="accessors"></a>
-## 存取函式
+## 存取器
 
-  - 存取函式不是必須的。
-  - 如果你要建立一個存取函式，請使用 getVal() 及 setVal('hello') 。
+  - 存取器不是必須的。
+  - 如果你要建立一個存取器，請使用 getVal() 及 setVal('hello') 。
 
     ```javascript
     // bad
@@ -1303,7 +1303,7 @@
 **[⬆ 回到頂端](#table-of-contents)**
 
 <a name="constructors"></a>
-## 建構函式
+## 建構子
 
   - 將方法分配給物件原型，而不是用新的物件覆蓋掉原型，否則會導致繼承出現問題：重置原型時你會覆蓋原有的原型。
 
