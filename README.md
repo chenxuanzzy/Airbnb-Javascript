@@ -1,11 +1,8 @@
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-# JavaScript Style Guide() {
+# Airbnb JavaScript Style Guide() {
 
-*一份彙整了在 JavasScript 中被普遍使用的風格指南。*
-
-翻譯自 [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript) 。
-
+*A mostly reasonable approach to JavaScript*
 
 [For the ES5-only guide click here](es5/).
 
@@ -68,9 +65,9 @@
     ```
   - [1.2](#1.2) <a name='1.2'></a> **Complex**: When you access a complex type you work on a reference to its value.
 
-    + `物件`
-    + `陣列`
-    + `函式`
+    + `object`
+    + `array`
+    + `function`
 
     ```javascript
     const foo = [1, 2];
@@ -81,7 +78,7 @@
     console.log(foo[0], bar[0]); // => 9, 9
     ```
 
-**[⬆ 回到頂端](#table-of-contents)**
+**[⬆ back to top](#table-of-contents)**
 
 ## References
 
@@ -277,8 +274,7 @@
 
 **[⬆ back to top](#table-of-contents)**
 
-<a name="arrays"></a>
-## 陣列
+## Arrays
 
   - [4.1](#4.1) <a name='4.1'></a> Use the literal syntax for array creation.
 
@@ -808,8 +804,7 @@
 **[⬆ back to top](#table-of-contents)**
 
 
-<a name="properties"></a>
-## 屬性
+## Properties
 
   - [12.1](#12.1) <a name='12.1'></a> Use dot notation when accessing properties.
 
@@ -841,10 +836,10 @@
     const isJedi = getProp('jedi');
     ```
 
-**[⬆ 回到頂端](#table-of-contents)**
+**[⬆ back to top](#table-of-contents)**
 
-<a name="variables"></a>
-## 變數
+
+## Variables
 
   - [13.1](#13.1) <a name='13.1'></a> Always use `const` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that.
 
@@ -950,30 +945,32 @@
     }
     ```
 
-**[⬆ 回到頂端](#table-of-contents)**
+**[⬆ back to top](#table-of-contents)**
 
-<a name="hoisting"></a>
-## 提升
+
+## Hoisting
 
   - [14.1](#14.1) <a name='14.1'></a> `var` declarations get hoisted to the top of their scope, their assignment does not. `const` and `let` declarations are blessed with a new concept called [Temporal Dead Zones (TDZ)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone_and_errors_with_let). It's important to know why [typeof is no longer safe](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15).
 
     ```javascript
-    // 我們知道這樣是行不通的
-    // （假設沒有名為 notDefined 的全域變數）
+    // we know this wouldn't work (assuming there
+    // is no notDefined global variable)
     function example() {
-      console.log(notDefined); // => 拋出一個參考錯誤
+      console.log(notDefined); // => throws a ReferenceError
     }
 
-    // 由於變數提升的關係，
-    // 你在引用變數後再宣告變數是行得通的。
-    // 注：賦予給變數的 `true` 並不會被提升。
+    // creating a variable declaration after you
+    // reference the variable will work due to
+    // variable hoisting. Note: the assignment
+    // value of `true` is not hoisted.
     function example() {
       console.log(declaredButNotAssigned); // => undefined
       var declaredButNotAssigned = true;
     }
 
-    // 直譯器會將宣告的變數提升至作用域的最頂層，
-    // 表示我們可以將這個例子改寫成以下：
+    // The interpreter is hoisting the variable
+    // declaration to the top of the scope,
+    // which means our example could be rewritten as:
     function example() {
       let declaredButNotAssigned;
       console.log(declaredButNotAssigned); // => undefined
@@ -1017,7 +1014,8 @@
       };
     }
 
-    // 當函式名稱和變數名稱相同時也是如此。
+    // the same is true when the function name
+    // is the same as the variable name.
     function example() {
       console.log(named); // => undefined
 
@@ -1041,7 +1039,7 @@
     }
     ```
 
-  - 想瞭解更多訊息，請參考 [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) by [Ben Cherry](http://www.adequatelygood.com/).
+  - For more information refer to [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) by [Ben Cherry](http://www.adequatelygood.com/).
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -1051,17 +1049,17 @@
   - [15.1](#15.1) <a name='15.1'></a> Use `===` and `!==` over `==` and `!=`.
   - [15.2](#15.2) <a name='15.2'></a> Conditional statements such as the `if` statement evaulate their expression using coercion with the `ToBoolean` abstract method and always follow these simple rules:
 
-    + **物件** 轉換為 **true**
-    + **Undefined** 轉換為 **false**
-    + **Null** 轉換為 **false**
-    + **布林** 轉換為 **該布林值**
-    + **數字** 如果是 **+0, -0, 或 NaN** 則轉換為 **false** ，其他的皆為 **true**
-    + **字串** 如果是空字串 `''` 則轉換為 **false** ，其他的皆為 **true**
+    + **Objects** evaluate to **true**
+    + **Undefined** evaluates to **false**
+    + **Null** evaluates to **false**
+    + **Booleans** evaluate to **the value of the boolean**
+    + **Numbers** evaluate to **false** if **+0, -0, or NaN**, otherwise **true**
+    + **Strings** evaluate to **false** if an empty string `''`, otherwise **true**
 
     ```javascript
     if ([0]) {
       // true
-      // 陣列為一個物件，所以轉換為true
+      // An array is an object, objects evaluate to true
     }
     ```
 
@@ -1091,10 +1089,10 @@
 
   - [15.4](#15.4) <a name='15.4'></a> For more information see [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll.
 
-**[⬆ 回到頂端](#table-of-contents)**
+**[⬆ back to top](#table-of-contents)**
 
-<a name="blocks"></a>
-## 區塊
+
+## Blocks
 
   - [16.1](#16.1) <a name='16.1'></a> Use braces with all multi-line blocks.
 
@@ -1146,14 +1144,14 @@
 **[⬆ back to top](#table-of-contents)**
 
 
-<a name="comments"></a>
-## 註解
+## Comments
 
   - [17.1](#17.1) <a name='17.1'></a> Use `/** ... */` for multi-line comments. Include a description, specify types and values for all parameters and return values.
 
     ```javascript
     // bad
-    // make() 根據傳入的 tag 名稱回傳一個新的元件
+    // make() returns a new element
+    // based on the passed in tag name
     //
     // @param {String} tag
     // @return {Element} element
@@ -1166,7 +1164,8 @@
 
     // good
     /**
-     * make() 根據傳入的 tag 名稱回傳一個新的 element
+     * make() returns a new element
+     * based on the passed in tag name
      *
      * @param {String} tag
      * @return {Element} element
@@ -1233,10 +1232,10 @@
     }
     ```
 
-**[⬆ 回到頂端](#table-of-contents)**
+**[⬆ back to top](#table-of-contents)**
 
-<a name="whitespace"></a>
-## 空格
+
+## Whitespace
 
   - [18.1](#18.1) <a name='18.1'></a> Use soft tabs set to 2 spaces.
 
@@ -1421,8 +1420,7 @@
 
 **[⬆ back to top](#table-of-contents)**
 
-<a name="commas"></a>
-## 逗號
+## Commas
 
   - [19.1](#19.1) <a name='19.1'></a> Leading commas: **Nope.**
 
@@ -1501,10 +1499,10 @@
     ];
     ```
 
-**[⬆ 回到頂端](#table-of-contents)**
+**[⬆ back to top](#table-of-contents)**
 
 
-## 分號
+## Semicolons
 
   - [20.1](#20.1) <a name='20.1'></a> **Yup.**
 
@@ -1530,10 +1528,10 @@
 
     [Read more](http://stackoverflow.com/a/7365214/1712802).
 
-**[⬆ 回到頂端](#table-of-contents)**
+**[⬆ back to top](#table-of-contents)**
 
-<a name="type-casting--coercion"></a>
-## 型別轉換
+
+## Type Casting & Coercion
 
   - [21.1](#21.1) <a name='21.1'></a> Perform type coercion at the beginning of the statement.
   - [21.2](#21.2) <a name='21.2'></a> Strings:
@@ -1574,10 +1572,12 @@
 
   - [21.4](#21.4) <a name='21.4'></a> If for whatever reason you are doing something wild and `parseInt` is your bottleneck and need to use Bitshift for [performance reasons](http://jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you're doing.
 
+    ```javascript
     // good
     /**
-     * 使用 parseInt 導致我的程式變慢，改成使用
-     * 位元轉換強制將字串轉為數字加快了他的速度。
+     * parseInt was the reason my code was slow.
+     * Bitshifting the String to coerce it to a
+     * Number made it a lot faster.
      */
     const val = inputValue >> 0;
     ```
@@ -1605,10 +1605,10 @@
     const hasAge = !!age;
     ```
 
-**[⬆ 回到頂端](#table-of-contents)**
+**[⬆ back to top](#table-of-contents)**
 
-<a name="naming-conventions"></a>
-## 命名規則
+
+## Naming Conventions
 
   - [22.1](#22.1) <a name='22.1'></a> Avoid single letter names. Be descriptive with your naming.
 
@@ -1739,10 +1739,10 @@
     ```
 
 
-**[⬆ 回到頂端](#table-of-contents)**
+**[⬆ back to top](#table-of-contents)**
 
-<a name="accessors"></a>
-## 存取函式
+
+## Accessors
 
   - [23.1](#23.1) <a name='23.1'></a> Accessor functions for properties are not required.
   - [23.2](#23.2) <a name='23.2'></a> If you do make accessor functions use getVal() and setVal('hello').
@@ -1794,10 +1794,10 @@
     }
     ```
 
-**[⬆ 回到頂端](#table-of-contents)**
+**[⬆ back to top](#table-of-contents)**
 
-<a name="events"></a>
-## 事件
+
+## Events
 
   - [24.1](#24.1) <a name='24.1'></a> When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass a hash instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:
 
@@ -1812,7 +1812,7 @@
     });
     ```
 
-    更好的做法：
+    prefer:
 
     ```javascript
     // good
@@ -1825,39 +1825,9 @@
     });
     ```
 
-  **[⬆ 回到頂端](#table-of-contents)**
+  **[⬆ back to top](#table-of-contents)**
 
 
-  - 模組的開頭必須以 `!` 開頭， 這樣可以確保前一模組結尾忘記加分號時在合併後不會出現錯誤。 [說明](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
-  - 命名方式請使用駝峰式大小寫，並存在同名的資料夾下，導出時的名稱也必須一致。 
-  - 加入一個名稱為 `noConflict()` 方法來設置導出時的模組為前一個版本，並回傳他。
-  - 記得在模組的最頂端加上 `'use strict';` 。
-
-    ```javascript
-    // fancyInput/fancyInput.js
-
-    !function(global) {
-      'use strict';
-
-      var previousFancyInput = global.FancyInput;
-
-      function FancyInput(options) {
-        this.options = options || {};
-      }
-
-      FancyInput.noConflict = function noConflict() {
-        global.FancyInput = previousFancyInput;
-        return FancyInput;
-      };
-
-      global.FancyInput = FancyInput;
-    }(this);
-    ```
-
-**[⬆ 回到頂端](#table-of-contents)**
-
-
->>>>>>> 將模型修改為模組
 ## jQuery
 
   - [25.1](#25.1) <a name='25.1'></a> Prefix jQuery object variables with a `$`.
@@ -1917,10 +1887,10 @@
     $sidebar.find('ul').hide();
     ```
 
-**[⬆ 回到頂端](#table-of-contents)**
+**[⬆ back to top](#table-of-contents)**
 
-<a name="ecmascript-5-compatibility"></a>
-## ECMAScript 5 相容性
+
+## ECMAScript 5 Compatibility
 
   - [26.1](#26.1) <a name='26.1'></a> Refer to [Kangax](https://twitter.com/kangax/)'s ES5 [compatibility table](http://kangax.github.com/es5-compat-table/).
 
@@ -1946,8 +1916,7 @@
 
 **[⬆ back to top](#table-of-contents)**
 
-<a name="testing"></a>
-## 測試
+## Testing
 
   - [28.1](#28.1) <a name='28.1'></a> **Yup.**
 
@@ -1957,10 +1926,10 @@
     }
     ```
 
-**[⬆ 回到頂端](#table-of-contents)**
+**[⬆ back to top](#table-of-contents)**
 
-<a name="performance"></a>
-## 效能
+
+## Performance
 
   - [On Layout & Web Performance](http://kellegous.com/j/2013/01/26/layout-performance/)
   - [String vs Array Concat](http://jsperf.com/string-vs-array-concat/2)
@@ -1971,10 +1940,10 @@
   - [Long String Concatenation](http://jsperf.com/ya-string-concat)
   - Loading...
 
-**[⬆ 回到頂端](#table-of-contents)**
+**[⬆ back to top](#table-of-contents)**
 
-<a name="resources"></a>
-## 資源
+
+## Resources
 
 **Learning ES6**
 
@@ -1983,30 +1952,30 @@
   - [ES6 Compatibility Table](https://kangax.github.io/compat-table/es6/)
   - [Comprehensive Overview of ES6 Features](http://es6-features.org/)
 
-**請讀這個**
+**Read This**
 
   - [Annotated ECMAScript 5.1](http://es5.github.com/)
 
-**工具**
+**Tools**
 
   - Code Style Linters
     + [JSHint](http://www.jshint.com/) - [Airbnb Style .jshintrc](https://github.com/airbnb/javascript/blob/master/linters/jshintrc)
     + [JSCS](https://github.com/jscs-dev/node-jscs) - [Airbnb Style Preset](https://github.com/jscs-dev/node-jscs/blob/master/presets/airbnb.json)
 
-**其他的風格指南**
+**Other Styleguides**
 
   - [Google JavaScript Style Guide](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
   - [jQuery Core Style Guidelines](http://docs.jquery.com/JQuery_Core_Style_Guidelines)
   - [Principles of Writing Consistent, Idiomatic JavaScript](https://github.com/rwldrn/idiomatic.js/)
 
-**其他風格**
+**Other Styles**
 
   - [Naming this in nested functions](https://gist.github.com/4135065) - Christian Johansen
   - [Conditional Callbacks](https://github.com/airbnb/javascript/issues/52) - Ross Allen
   - [Popular JavaScript Coding Conventions on Github](http://sideeffect.kr/popularconvention/#javascript) - JeongHoon Byun
   - [Multiple var statements in JavaScript, not superfluous](http://benalman.com/news/2012/05/multiple-var-statements-javascript/) - Ben Alman
 
-**瞭解更多**
+**Further Reading**
 
   - [Understanding JavaScript Closures](http://javascriptweblog.wordpress.com/2010/10/25/understanding-javascript-closures/) - Angus Croll
   - [Basic JavaScript for the impatient programmer](http://www.2ality.com/2013/06/basic-javascript.html) - Dr. Axel Rauschmayer
@@ -2014,7 +1983,7 @@
   - [ES6 Features](https://github.com/lukehoban/es6features) - Luke Hoban
   - [Frontend Guidelines](https://github.com/bendc/frontend-guidelines) - Benjamin De Cock
 
-**書籍**
+**Books**
 
   - [JavaScript: The Good Parts](http://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742) - Douglas Crockford
   - [JavaScript Patterns](http://www.amazon.com/JavaScript-Patterns-Stoyan-Stefanov/dp/0596806752) - Stoyan Stefanov
@@ -2031,7 +2000,7 @@
   - [Third Party JavaScript](http://manning.com/vinegar/) - Ben Vinegar and Anton Kovalyov
   - [Effective JavaScript: 68 Specific Ways to Harness the Power of JavaScript](http://amzn.com/0321812182) - David Herman
 
-**部落格**
+**Blogs**
 
   - [DailyJS](http://dailyjs.com/)
   - [JavaScript Weekly](http://javascriptweekly.com/)
@@ -2052,10 +2021,9 @@
 
 **[⬆ back to top](#table-of-contents)**
 
-<a name="in-the-wild"></a>
-## 誰在使用
+## In the Wild
 
-  這是正在使用這份風格指南的組織列表。送一個 pull request 或提一個 issue 讓我們將你增加到列表上。
+  This is a list of organizations that are using this style guide. Send us a pull request or open an issue and we'll add you to the list.
 
   - **Aan Zee**: [AanZee/javascript](https://github.com/AanZee/javascript)
   - **Adult Swim**: [adult-swim/javascript](https://github.com/adult-swim/javascript)
@@ -2106,10 +2074,9 @@
   - **Zillow**: [zillow/javascript](https://github.com/zillow/javascript)
   - **ZocDoc**: [ZocDoc/javascript](https://github.com/ZocDoc/javascript)
 
-<a name="translation"></a>
-## 翻譯
+## Translation
 
-  這份風格指南也提供其他語言的版本：
+  This style guide is also available in other languages:
 
   - ![br](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Brazil.png) **Brazilian Portuguese**: [armoucar/javascript-style-guide](https://github.com/armoucar/javascript-style-guide)
   - ![bg](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Bulgaria.png) **Bulgarian**: [borislavvv/javascript](https://github.com/borislavvv/javascript)
@@ -2126,23 +2093,20 @@
   - ![es](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Spain.png) **Spanish**: [paolocarrasco/javascript-style-guide](https://github.com/paolocarrasco/javascript-style-guide)
   - ![th](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Thailand.png) **Thai**: [lvarayut/javascript-style-guide](https://github.com/lvarayut/javascript-style-guide)
 
-<a name="the-javascript-style-guide-guide"></a>
-## JavaScript 風格指南
+## The JavaScript Style Guide Guide
 
   - [Reference](https://github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
 
-<a name="chat-with-us-about-javascript"></a>
-## 與我們討論 JavaScript
+## Chat With Us About JavaScript
 
   - Find us on [gitter](https://gitter.im/airbnb/javascript).
 
-<a name="contributors"></a>
-## 貢獻者
+## Contributors
 
   - [View Contributors](https://github.com/airbnb/javascript/graphs/contributors)
 
-<a name="license"></a>
-## 授權許可
+
+## License
 
 (The MIT License)
 
@@ -2167,6 +2131,6 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-**[⬆ 回到頂端](#table-of-contents)**
+**[⬆ back to top](#table-of-contents)**
 
 # };
