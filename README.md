@@ -4,7 +4,7 @@
 
 *一份彙整了在 JavasScript 中被普遍使用的風格指南。*
 
-[只有 ES5 版本的指南請點此](es5/).
+[ES5 版本的指南請點此](es5/).
 
 翻譯自 [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript) 。
 
@@ -182,7 +182,6 @@
 
   <a name="es6-computed-properties"></a>
   - 建立具有動態屬性名稱的物件時請使用可被計算的屬性名稱。
-  - Use computed property names when creating objects with dynamic property names.
 
   > 為什麼？因為這樣能夠讓你在同一個地方定義所有的物件屬性。
 
@@ -616,7 +615,7 @@
     });
     ```
 
-  - 請總是在參數的兩側加上括號。省略括號會使函式失去可讀性，而且也只作用於單一參數。
+  - 總是在參數的兩側加上括號。省略括號會使函式失去可讀性，而且也只作用於單一參數。
 
   > 為什麼？當有括號時會使用些宣告更易讀。而且當有多個參數時，括號也是必須的，所以這麼做能夠加強一致性。
 
@@ -798,7 +797,7 @@
 
   - 不要使用迭代器。更好的做法是使用 JavaScript 的高階函式，像是 `map()` 及 `reduce()`，替代如 `for-of ` 的迴圈語法。
 
-  > 為什麼？Why? This enforces our immutable rule. Dealing with pure functions that return values is easier to reason about than side-effects.
+  > 為什麼？這加強了我們不變的規則。處理純函式的回傳值讓程式碼更易讀，勝過它所造成的函式副作用。
 
     ```javascript
     const numbers = [1, 2, 3, 4, 5];
@@ -823,7 +822,7 @@
 
   - 現在還不要使用產生器。
 
-  > 為什麼？因為它現在編譯至 ES5 沒有編譯得非常好。
+  > 為什麼？因為它現在編譯至 ES5 還沒有編譯得非常好。
 
 **[⬆ 回到頂端](#table-of-contents)**
 
