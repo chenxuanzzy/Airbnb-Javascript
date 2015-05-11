@@ -4,7 +4,7 @@
 
 *一份彙整了在 JavasScript 中被普遍使用的風格指南。*
 
-[只有 ES5 版本的指南請點此](es5/).
+[ES5 版本的指南請點此](es5/).
 
 翻譯自 [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript) 。
 
@@ -785,7 +785,7 @@
 
   - [11.1](#11.1) <a name='11.1'></a> 不要使用迭代器。更好的做法是使用 JavaScript 的高階函式，像是 `map()` 及 `reduce()`，替代如 `for-of ` 的迴圈語法。
 
-  > 為什麼？Why? This enforces our immutable rule. Dealing with pure functions that return values is easier to reason about than side-effects.
+  > 為什麼？這加強了我們不變的規則。處理純函式的回傳值讓程式碼更易讀，勝過它所造成的函式副作用。
 
     ```javascript
     const numbers = [1, 2, 3, 4, 5];
@@ -810,7 +810,7 @@
 
   - [11.2](#11.2) <a name='11.2'></a> 現在還不要使用產生器。
 
-  > 為什麼？因為它現在編譯至 ES5 沒有編譯得非常好。
+  > 為什麼？因為它現在編譯至 ES5 還沒有編譯得非常好。
 
 **[⬆ 回到頂端](#table-of-contents)**
 
