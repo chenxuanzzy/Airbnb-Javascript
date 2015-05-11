@@ -1912,6 +1912,7 @@
 
 **[⬆ 回到頂端](#table-of-contents)**
 
+<a name="ecmascript-6-styles"></a>
 ## ECMAScript 6 風格
 
 這是連結到各個ES6特性的列表。
