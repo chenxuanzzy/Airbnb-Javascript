@@ -51,7 +51,7 @@
 <a name="types"></a>
 ## 資料型態
 
-  - [1.1](#1.1) <a name='1.1'></a> **基本**: 你可以直接存取基本資料型態。
+  - [1.1](#1.1) <a name='1.1'></a> **基本**：你可以直接存取基本資料型態。
 
     + `字串`
     + `數字`
@@ -67,7 +67,7 @@
 
     console.log(foo, bar); // => 1, 9
     ```
-  - [1.2](#1.2) <a name='1.2'></a> **複合**: 你需要透過引用的方式存取複合資料型態。
+  - [1.2](#1.2) <a name='1.2'></a> **複合**：你需要透過引用的方式存取複合資料型態。
 
     + `物件`
     + `陣列`
@@ -146,7 +146,7 @@
     const item = {};
     ```
 
-  - [3.2](#3.2) <a name='3.2'></a> 別使用 [保留字](http://es5.github.io/#x7.6.1) 當作鍵值，他在 IE8 上不會被執行。[了解更多](https://github.com/airbnb/javascript/issues/61)。
+  - [3.2](#3.2) <a name='3.2'></a> 別使用[保留字](http://es5.github.io/#x7.6.1) 當作鍵值，他在 IE8 上不會被執行。[了解更多](https://github.com/airbnb/javascript/issues/61)。
 
     ```javascript
     // bad
@@ -293,7 +293,7 @@
     const items = [];
     ```
 
-  - [4.2](#4.2) <a name='4.2'></a> 如果你不知道陣列的長度請使用 Array#push.
+  - [4.2](#4.2) <a name='4.2'></a> 如果你不知道陣列的長度請使用 Array#push。
 
     ```javascript
     const someStack = [];
@@ -402,7 +402,7 @@
 <a name="strings"></a>
 ## 字串
 
-  - [6.1](#6.1) <a name='6.1'></a> 字串請使用單引號 `''` 。
+  - [6.1](#6.1) <a name='6.1'></a> 字串請使用單引號 `''`。
 
     ```javascript
     // bad
@@ -413,7 +413,7 @@
     ```
 
   - [6.2](#6.2) <a name='6.2'></a> 如果字串超過 80 個字元，請使用字串連接符號 `\` 換行。
-  - [6.3](#6.3) <a name='6.3'></a> 注意: 過度的長字串連接可能會影響效能 [jsPerf](http://jsperf.com/ya-string-concat) & [討論串](https://github.com/airbnb/javascript/issues/40)。
+  - [6.3](#6.3) <a name='6.3'></a> 注意：過度的長字串連接可能會影響效能 [jsPerf](http://jsperf.com/ya-string-concat) 及[討論串](https://github.com/airbnb/javascript/issues/40)。
 
     ```javascript
     // bad
@@ -472,7 +472,7 @@
     }
     ```
 
-  - [7.2](#7.2) <a name='7.2'></a> 函式表達式:
+  - [7.2](#7.2) <a name='7.2'></a> 函式表達式：
 
     ```javascript
     // 立即函式（IIFE）
@@ -482,7 +482,7 @@
     ```
 
   - [7.3](#7.3) <a name='7.3'></a> 絕對不要在非函式的區塊（if, while, 等等）宣告函式，瀏覽器或許會允許你這麼做，但不同瀏覽器產生的結果可能會不同。你可以將函式賦予一個區塊外的變數解決這個問題。
-  - [7.4](#7.4) <a name='7.4'></a> **注意:** ECMA-262 將 `區塊` 定義為陳述式，函式宣告則不是陳述式。 [閱讀 ECMA-262 關於這個問題的說明](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97)。
+  - [7.4](#7.4) <a name='7.4'></a> **注意:** ECMA-262 將 `區塊` 定義為陳述式，函式宣告則不是陳述式。[閱讀 ECMA-262 關於這個問題的說明](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97)。
 
     ```javascript
     // bad
@@ -621,9 +621,9 @@
 <a name="constructors"></a>
 ## 建構子
 
-  - [9.1](#9.1) <a name='9.1'></a> 總是使用 `class`。避免直接操作 `prototype` 。
+  - [9.1](#9.1) <a name='9.1'></a> 總是使用 `class`。避免直接操作 `prototype`。
 
-  > 為什麼？ 因為 `class` 語法更簡潔且更易讀。
+  > 為什麼？因為 `class` 語法更簡潔且更易讀。
 
     ```javascript
     // bad
@@ -652,7 +652,7 @@
 
   - [9.2](#9.2) <a name='9.2'></a> 使用 `extends` 繼承。
 
-  > 為什麼？因為他是一個內建繼承原型方法的方式，且不會破壞 `instanceof` 。
+  > 為什麼？因為他是一個內建繼承原型方法的方式，且不會破壞 `instanceof`。
 
     ```javascript
     // bad
@@ -833,7 +833,7 @@
     const isJedi = luke.jedi;
     ```
 
-  - [12.2](#12.2) <a name='12.2'></a> 需要帶參數存取屬性時請使用中括號 `[]` 。
+  - [12.2](#12.2) <a name='12.2'></a> 需要帶參數存取屬性時請使用中括號 `[]`。
 
     ```javascript
     const luke = {
@@ -1068,7 +1068,7 @@
     ```javascript
     if ([0]) {
       // true
-      // 陣列為一個物件，所以轉換為true
+      // 陣列為一個物件，所以轉換為 true
     }
     ```
 
@@ -1462,9 +1462,9 @@
     };
     ```
 
-  - [19.2](#19.2) <a name='19.2'></a> 增加結尾的逗號：**對啦**
+  - [19.2](#19.2) <a name='19.2'></a> 增加結尾的逗號：**別懷疑**
 
-  > 為什麼？這會讓 Git 的差異列表更乾淨。另外，在 Babel 轉譯器也會刪除結尾多餘的逗號，也就是說你完全不需要擔心在老舊的瀏覽器發生[多餘逗號的問題](es5/README.md#commas)。
+  > 為什麼？這會讓 Git 的差異列表更乾淨。另外，Babel 轉譯器也會刪除結尾多餘的逗號，也就是說你完全不需要擔心在老舊的瀏覽器發生[多餘逗號的問題](es5/README.md#commas)。
 
     ```javascript
     // bad - 不含多餘逗號的 git 差異列表
@@ -1587,7 +1587,7 @@
     const val = inputValue >> 0;
     ```
 
-  - [21.5](#21.5) <a name='21.5'></a> **注意：**使用位元轉換時請小心，數字為 [64 位元數值](http://es5.github.io/#x4.3.19)，但是使用位元轉換時則會回傳一個 32 位元的整數 （[來源](http://es5.github.io/#x11.7)），這會導致大於 32 位元的數值產生異常 [討論串](https://github.com/airbnb/javascript/issues/109)， 32 位元的整數最大值為 2,147,483,647：
+  - [21.5](#21.5) <a name='21.5'></a> **注意：**使用位元轉換時請小心，數字為 [64 位元數值](http://es5.github.io/#x4.3.19)，但是使用位元轉換時則會回傳一個 32 位元的整數（[來源](http://es5.github.io/#x11.7)），這會導致大於 32 位元的數值產生異常 [討論串](https://github.com/airbnb/javascript/issues/109)，32 位元的整數最大值為 2,147,483,647：
 
     ```javascript
     2147483647 >> 0 //=> 2147483647
@@ -1767,7 +1767,7 @@
     dragon.setAge(25);
     ```
 
-  - [23.3](#23.3) <a name='23.3'></a> 如果屬性是布林，請使用 isVal() 或 hasVal() 。
+  - [23.3](#23.3) <a name='23.3'></a> 如果屬性是布林，請使用 isVal() 或 hasVal()。
 
     ```javascript
     // bad
@@ -1873,7 +1873,7 @@
     }
     ```
 
-  - [25.3](#25.3) <a name='25.3'></a> OM 的查詢請使用層遞的 `$('.sidebar ul')` 或 父元素 > 子元素 `$('.sidebar > ul')`。[jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
+  - [25.3](#25.3) <a name='25.3'></a> DOM 的查詢請使用層遞的 `$('.sidebar ul')` 或 父元素 > 子元素 `$('.sidebar > ul')`。[jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
   - [25.4](#25.4) <a name='25.4'></a> 對作用域內的 jQuery 物件使用 `find` 做查詢。
 
     ```javascript
@@ -1910,8 +1910,8 @@
 1. [箭頭函式](#arrow-functions)
 1. [類別](#constructors)
 1. [物件簡寫](#es6-object-shorthand)
-1. [Object Concise](#es6-object-concise)
-1. [物件計算屬性](#es6-computed-properties)
+1. [簡潔物件](#es6-object-concise)
+1. [可計算的物件屬性](#es6-computed-properties)
 1. [模板字串](#es6-template-literals)
 1. [解構子](#destructuring)
 1. [預設參數](#es6-default-parameters)
