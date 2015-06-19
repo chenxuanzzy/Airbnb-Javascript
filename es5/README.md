@@ -92,7 +92,7 @@
     var item = {};
     ```
 
-  - 別使用 [保留字](http://es5.github.io/#x7.6.1) 當作鍵值，他在 IE8 上不會被執行。[了解更多](https://github.com/airbnb/javascript/issues/61)
+  - 別使用[保留字](http://es5.github.io/#x7.6.1)當作鍵值，他在 IE8 上不會被執行。[了解更多](https://github.com/airbnb/javascript/issues/61)
 
     ```javascript
     // bad
@@ -143,7 +143,7 @@
     var items = [];
     ```
 
-  - 如果你不知道陣列的長度請使用 Array#push.
+  - 如果你不知道陣列的長度請使用 Array#push。
 
     ```javascript
     var someStack = [];
@@ -156,7 +156,7 @@
     someStack.push('abracadabra');
     ```
 
-  - 如果你要複製一個陣列請使用 Array#slice 。[jsPerf](http://jsperf.com/converting-arguments-to-an-array/7)
+  - 如果你要複製一個陣列請使用 Array#slice。[jsPerf](http://jsperf.com/converting-arguments-to-an-array/7)
 
     ```javascript
     var len = items.length;
@@ -172,7 +172,7 @@
     itemsCopy = items.slice();
     ```
 
-  - 如果要轉換一個像陣列的物件至陣列，可以使用 Array#slice 。
+  - 如果要轉換一個像陣列的物件至陣列，可以使用 Array#slice。
 
     ```javascript
     function trigger() {
@@ -203,7 +203,7 @@
     ```
 
   - 如果字串超過 80 個字元，請使用字串連接符號 `\` 換行。
-  - 注意: 過度的長字串連接可能會影響效能 [jsPerf](http://jsperf.com/ya-string-concat) & [討論串](https://github.com/airbnb/javascript/issues/40)。
+  - 注意: 過度的長字串連接可能會影響效能 [jsPerf](http://jsperf.com/ya-string-concat) 與[討論串](https://github.com/airbnb/javascript/issues/40)。
 
     ```javascript
     // bad
@@ -221,7 +221,7 @@
       'with this, you would get nowhere fast.';
     ```
 
-  - 如果要透過陣列產生字串，請使用 Array#join 代替字串連接符號，尤其是 IE: [jsPerf](http://jsperf.com/string-vs-array-concat/2).
+  - 如果要透過陣列產生字串，請使用 Array#join 代替字串連接符號，尤其是 IE：[jsPerf](http://jsperf.com/string-vs-array-concat/2)。
 
     ```javascript
     var items;
@@ -291,7 +291,7 @@
     ```
 
   - 絕對不要在非函式的區塊（if, while, 等等）宣告函式，瀏覽器或許會允許你這麼做，但不同瀏覽器產生的結果可能會不同。你可以將函式賦予一個區塊外的變數解決這個問題。
-  - **注意:** ECMA-262 將 `區塊` 定義為陳述式，函式宣告則不是陳述式。 [閱讀 ECMA-262 關於這個問題的說明](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
+  - **注意：**ECMA-262 將 `區塊` 定義為陳述式，函式宣告則不是陳述式。 [閱讀 ECMA-262 關於這個問題的說明](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97)。
 
     ```javascript
     // bad
@@ -374,7 +374,7 @@
     var superPower = new SuperPower();
     ```
 
-  - 每個變數只使用一個 `var` 來宣告，這樣更容易增加新的變數宣告，而且你也不用擔心替換  `;` 為 `,` 及加入的標點符號不同的問題。
+  - 每個變數只使用一個 `var` 來宣告，這樣更容易增加新的變數宣告，而且你也不用擔心替換 `;` 為 `,` 及加入的標點符號不同的問題。
 
     ```javascript
     // bad
@@ -417,7 +417,7 @@
     var i;
     ```
 
-  - 在作用域的最頂層宣告變數，避免變數宣告及賦值提升的相關問題
+  - 在作用域的最頂層宣告變數，避免變數宣告及賦值提升的相關問題。
 
     ```javascript
     // bad
@@ -564,7 +564,7 @@
     }
     ```
 
-  - 想瞭解更多訊息，請參考 [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) by [Ben Cherry](http://www.adequatelygood.com/).
+  - 想瞭解更多訊息，請參考 [Ben Cherry](http://www.adequatelygood.com/) 的 [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting)。
 
 **[⬆ 回到頂端](#table-of-contents)**
 
@@ -584,7 +584,7 @@
     ```javascript
     if ([0]) {
       // true
-      // 陣列為一個物件，所以轉換為true
+      // 陣列為一個物件，所以轉換為 true
     }
     ```
 
@@ -612,14 +612,14 @@
     }
     ```
 
-  - 想瞭解更多訊息請參考 [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll.
+  - 想瞭解更多訊息請參考 Angus Croll 的 [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108)。
 
 **[⬆ 回到頂端](#table-of-contents)**
 
 <a name="blocks"></a>
 ## 區塊
 
-  - 多行區塊請使用花括號刮起來。
+  - 多行區塊請使用花括號括起來。
 
     ```javascript
     // bad
@@ -643,7 +643,7 @@
     }
     ```
 
-    - 如果你使用 `if` 及 `else` 的多行區塊，請將 `else` 放在 `if` 區塊的結尾花括號下。
+    - 如果你使用 `if` 及 `else` 的多行區塊，請將 `else` 放在 `if` 區塊的結尾花括號之後。
 
     ```javascript
     // bad
@@ -978,7 +978,7 @@
     };
     ```
 
-  - 多餘的逗號: **Nope.** 在 IE6/7 及 IE9的相容性模式中，多餘的逗號可能會產生問題。另外，在 ES3 的一些實現方式上會多計算陣列的長度，不過在 ES5 中已經被修正了（[source](http://es5.github.io/#D)）：
+  - 多餘的逗號：**Nope.** 在 IE6/7 及 IE9 的相容性模式中，多餘的逗號可能會產生問題。另外，在 ES3 的一些實現方式上會多計算陣列的長度，不過在 ES5 中已經被修正了（[來源](http://es5.github.io/#D)）：
 
   > Edition 5 clarifies the fact that a trailing comma at the end of an ArrayInitialiser does not add to the length of the array. This is not a semantic change from Edition 3 but some implementations may have previously misinterpreted this.
 
@@ -1041,7 +1041,7 @@
 ## 型別轉換
 
   - 在開頭的宣告進行強制型別轉換。
-  - 字串:
+  - 字串：
 
     ```javascript
     //  => this.reviewScore = 9;
@@ -1094,7 +1094,7 @@
     var val = inputValue >> 0;
     ```
 
-  - **注意：**使用位元轉換時請小心，數字為 [64 位元數值](http://es5.github.io/#x4.3.19)，但是使用位元轉換時則會回傳一個 32 位元的整數 （[來源](http://es5.github.io/#x11.7)），這會導致大於 32 位元的數值產生異常 [討論串](https://github.com/airbnb/javascript/issues/109)， 32 位元的整數最大值為 2,147,483,647 ：
+  - **注意：**使用位元轉換時請小心，數字為 [64 位元數值](http://es5.github.io/#x4.3.19)，但是使用位元轉換時則會回傳一個 32 位元的整數 （[來源](http://es5.github.io/#x11.7)），這會導致大於 32 位元的數值產生異常[討論串](https://github.com/airbnb/javascript/issues/109)，32 位元的整數最大值為 2,147,483,647：
 
     ```javascript
     2147483647 >> 0 //=> 2147483647
@@ -1172,7 +1172,7 @@
     });
     ```
 
-  - 命名私有屬性時請在前面加底線 `_` 。
+  - 命名私有屬性時請在前面加底線 `_`。
 
     ```javascript
     // bad
@@ -1225,7 +1225,7 @@
     };
     ```
 
-  - **注意:** IE8 及 IE8 以下對於命名函式的獨到見解。更多的訊息在 [http://kangax.github.io/nfe/](http://kangax.github.io/nfe/)。
+  - **注意:**IE8 及 IE8 以下對於命名函式有獨到見解。更多的訊息在 [http://kangax.github.io/nfe/](http://kangax.github.io/nfe/)。
 
   - 如果你的檔案只有輸出一個類別，你的檔案名稱必須和你的類別名稱相同。
     ```javascript
@@ -1252,7 +1252,7 @@
 ## 存取器
 
   - 存取器不是必須的。
-  - 如果你要建立一個存取器，請使用 getVal() 及 setVal('hello') 。
+  - 如果你要建立一個存取器，請使用 getVal() 及 setVal('hello')。
 
     ```javascript
     // bad
@@ -1268,7 +1268,7 @@
     dragon.setAge(25);
     ```
 
-  - 如果屬性是布林，請使用 isVal() 或 hasVal() 。
+  - 如果屬性是布林，請使用 isVal() 或 hasVal()。
 
     ```javascript
     // bad
@@ -1421,7 +1421,7 @@
 <a name="modules"></a>
 ## 模組
 
-  - 模組的開頭必須以 `!` 開頭， 這樣可以確保前一模組結尾忘記加分號時在合併後不會出現錯誤。 [說明](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
+  - 模組的開頭必須以 `!` 開頭， 這樣可以確保前一模組結尾忘記加分號時在合併後不會出現錯誤。[說明](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
   - 命名方式請使用駝峰式大小寫，並存在同名的資料夾下，導出時的名稱也必須一致。
   - 加入一個名稱為 `noConflict()` 方法來設置導出時的模組為前一個版本，並將他回傳。
   - 記得在模組的最頂端加上 `'use strict';` 。
@@ -1489,7 +1489,7 @@
     }
     ```
 
-  - DOM 的查詢請使用層遞的 `$('.sidebar ul')` 或 父元素 > 子元素 `$('.sidebar > ul')` 。 [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
+  - DOM 的查詢請使用層遞的 `$('.sidebar ul')` 或 父元素 > 子元素 `$('.sidebar > ul')` 。[jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
   - 對作用域內的 jQuery 物件使用 `find` 做查詢。
 
     ```javascript
