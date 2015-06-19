@@ -84,6 +84,7 @@
 
 **[⬆ 回到頂端](#table-of-contents)**
 
+<a name="references"></a>
 ## 參考
 
   - [2.1](#2.1) <a name='2.1'></a> 對於所有的參考使用 `const`；避免使用 `var`。
@@ -1051,7 +1052,7 @@
 
 **[⬆ 回到頂端](#table-of-contents)**
 
-<a name="conditional-expressions--equality"></a>
+<a name="comparison-operators--equality"></a>
 ## 條件式與等號
 
   - [15.1](#15.1) <a name='15.1'></a> 請使用 `===` 和 `!==` ，別使用 `==` 及 `!=` 。
