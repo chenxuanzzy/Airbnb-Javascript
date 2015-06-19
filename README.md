@@ -1384,7 +1384,7 @@
         .call(tron.led);
     ```
 
-  - [18.6](#18.6) <a name='18.6'></a> Leave a blank line after blocks and before the next statement.
+  - [18.6](#18.6) <a name='18.6'></a> 在區塊的結束及下個語法間加上空行。
 
     ```javascript
     // bad
@@ -1904,7 +1904,7 @@
 <a name="ecmascript-6-styles"></a>
 ## ECMAScript 6 風格
 
-  - [27.1](#27.1) <a name='27.1'></a> This is a collection of links to the various es6 features.
+  - [27.1](#27.1) <a name='27.1'></a> 以下是連結到各個 ES6 特性的列表。
 
 1. [箭頭函式](#arrow-functions)
 1. [類別](#constructors)
