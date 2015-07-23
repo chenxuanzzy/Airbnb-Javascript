@@ -146,19 +146,19 @@
     const item = {};
     ```
 
-  - [3.2](#3.2) <a name='3.2'></a> 別使用[保留字](http://es5.github.io/#x7.6.1) 當作鍵值，他在 IE8 上不會被執行。[了解更多](https://github.com/airbnb/javascript/issues/61)。
+  - [3.2](#3.2) <a name='3.2'></a> 別使用[保留字](http://es5.github.io/#x7.6.1) 當作鍵值，他在 IE8 上不會被執行。[了解更多](https://github.com/airbnb/javascript/issues/61)。不過在 ES6 模組及伺服器端程式碼中使用是可行的。
 
     ```javascript
     // bad
     const superman = {
       default: { clark: 'kent' },
-      private: true
+      private: true,
     };
 
     // good
     const superman = {
       defaults: { clark: 'kent' },
-      hidden: true
+      hidden: true,
     };
     ```
 
@@ -167,17 +167,17 @@
     ```javascript
     // bad
     const superman = {
-      class: 'alien'
+      class: 'alien',
     };
 
     // bad
     const superman = {
-      klass: 'alien'
+      klass: 'alien',
     };
 
     // good
     const superman = {
-      type: 'alien'
+      type: 'alien',
     };
     ```
 
@@ -240,12 +240,12 @@
 
     // bad
     const obj = {
-      lukeSkywalker: lukeSkywalker
+      lukeSkywalker: lukeSkywalker,
     };
 
     // good
     const obj = {
-      lukeSkywalker
+      lukeSkywalker,
     };
     ```
 
@@ -260,7 +260,7 @@
     // bad
     const obj = {
       episodeOne: 1,
-      twoJedisWalkIntoACantina: 2,
+      twoJediWalkIntoACantina: 2,
       lukeSkywalker,
       episodeThree: 3,
       mayTheFourth: 4,
@@ -272,7 +272,7 @@
       lukeSkywalker,
       anakinSkywalker,
       episodeOne: 1,
-      twoJedisWalkIntoACantina: 2,
+      twoJediWalkIntoACantina: 2,
       episodeThree: 3,
       mayTheFourth: 4,
     };
@@ -297,7 +297,6 @@
 
     ```javascript
     const someStack = [];
-
 
     // bad
     someStack[someStack.length] = 'abracadabra';
@@ -714,7 +713,7 @@
 
     ```javascript
     class Jedi {
-      contructor(options = {}) {
+      constructor(options = {}) {
         this.name = options.name || 'no name';
       }
 
@@ -1062,7 +1061,7 @@
     + **Undefined** 轉換為 **false**
     + **Null** 轉換為 **false**
     + **布林** 轉換為 **該布林值**
-    + **數字** 如果是 **+0, -0, 或 NaN** 則轉換為 **false** ，其他的皆為 **true**
+    + **數字** 如果是 **+0, -0, 或 NaN** 則轉換為 **false**，其他的皆為 **true**
     + **字串** 如果是空字串 `''` 則轉換為 **false** ，其他的皆為 **true**
 
     ```javascript
@@ -1278,13 +1277,13 @@
     // bad
     dog.set('attr',{
       age: '1 year',
-      breed: 'Bernese Mountain Dog'
+      breed: 'Bernese Mountain Dog',
     });
 
     // good
     dog.set('attr', {
       age: '1 year',
-      breed: 'Bernese Mountain Dog'
+      breed: 'Bernese Mountain Dog',
     });
     ```
 
@@ -1420,6 +1419,26 @@
     };
 
     return obj;
+
+    // bad
+    const arr = [
+      function foo() {
+      },
+      function bar() {
+      },
+    ];
+    return arr;
+
+    // good
+    const arr = [
+      function foo() {
+      },
+
+      function bar() {
+      },
+    ];
+
+    return arr;
     ```
 
 
@@ -1472,14 +1491,14 @@
          firstName: 'Florence',
     -    lastName: 'Nightingale'
     +    lastName: 'Nightingale',
-    +    inventorOf: ['coxcomb graph', 'mordern nursing']
+    +    inventorOf: ['coxcomb graph', 'modern nursing']
     }
 
     // good - 包含多餘逗號的 git 差異列表
     const hero = {
          firstName: 'Florence',
          lastName: 'Nightingale',
-    +    inventorOf: ['coxcomb chart', 'mordern nursing'],
+    +    inventorOf: ['coxcomb chart', 'modern nursing'],
     }
 
     // bad
@@ -1767,7 +1786,7 @@
     dragon.setAge(25);
     ```
 
-  - [23.3](#23.3) <a name='23.3'></a> 如果屬性是布林，請使用 isVal() 或 hasVal()。
+  - [23.3](#23.3) <a name='23.3'></a> 如果屬性是布林，請使用 `isVal()` 或 `hasVal()`。
 
     ```javascript
     // bad
@@ -2008,6 +2027,7 @@
   - [JSBooks](http://jsbooks.revolunet.com/) - Julien Bouquillon
   - [Third Party JavaScript](http://manning.com/vinegar/) - Ben Vinegar and Anton Kovalyov
   - [Effective JavaScript: 68 Specific Ways to Harness the Power of JavaScript](http://amzn.com/0321812182) - David Herman
+  - [Eloquent JavaScript](http://eloquentjavascript.net/) - Marijn Haverbeke
 
 **部落格**
 
@@ -2038,10 +2058,10 @@
   - **Aan Zee**: [AanZee/javascript](https://github.com/AanZee/javascript)
   - **Adult Swim**: [adult-swim/javascript](https://github.com/adult-swim/javascript)
   - **Airbnb**: [airbnb/javascript](https://github.com/airbnb/javascript)
-  - **American Insitutes for Research**: [AIRAST/javascript](https://github.com/AIRAST/javascript)
   - **Apartmint**: [apartmint/javascript](https://github.com/apartmint/javascript)
   - **Avalara**: [avalara/javascript](https://github.com/avalara/javascript)
   - **Billabong**: [billabong/javascript](https://github.com/billabong/javascript)
+  - **Blendle**: [blendle/javascript](https://github.com/blendle/javascript)
   - **Compass Learning**: [compasslearning/javascript-style-guide](https://github.com/compasslearning/javascript-style-guide)
   - **DailyMotion**: [dailymotion/javascript](https://github.com/dailymotion/javascript)
   - **Digitpaint** [digitpaint/javascript](https://github.com/digitpaint/javascript)
@@ -2050,10 +2070,11 @@
   - **Expensify** [Expensify/Style-Guide](https://github.com/Expensify/Style-Guide/blob/master/javascript.md)
   - **Flexberry**: [Flexberry/javascript-style-guide](https://github.com/Flexberry/javascript-style-guide)
   - **Gawker Media**: [gawkermedia/javascript](https://github.com/gawkermedia/javascript)
-  - **GeneralElectric**: [GeneralElectric/javascript](https://github.com/GeneralElectric/javascript)
+  - **General Electric**: [GeneralElectric/javascript](https://github.com/GeneralElectric/javascript)
   - **GoodData**: [gooddata/gdc-js-style](https://github.com/gooddata/gdc-js-style)
   - **Grooveshark**: [grooveshark/javascript](https://github.com/grooveshark/javascript)
   - **How About We**: [howaboutwe/javascript](https://github.com/howaboutwe/javascript)
+  - **Huballin**: [huballin/javascript](https://github.com/huballin/javascript)
   - **InfoJobs**: [InfoJobs/JavaScript-Style-Guide](https://github.com/InfoJobs/JavaScript-Style-Guide)
   - **Intent Media**: [intentmedia/javascript](https://github.com/intentmedia/javascript)
   - **Jam3**: [Jam3/Javascript-Code-Conventions](https://github.com/Jam3/Javascript-Code-Conventions)
@@ -2061,6 +2082,7 @@
   - **Kinetica Solutions**: [kinetica/javascript](https://github.com/kinetica/javascript)
   - **Mighty Spring**: [mightyspring/javascript](https://github.com/mightyspring/javascript)
   - **MinnPost**: [MinnPost/javascript](https://github.com/MinnPost/javascript)
+  - **MitocGroup**: [MitocGroup/javascript](https://github.com/MitocGroup/javascript)
   - **ModCloth**: [modcloth/javascript](https://github.com/modcloth/javascript)
   - **Money Advice Service**: [moneyadviceservice/javascript](https://github.com/moneyadviceservice/javascript)
   - **Muber**: [muber/javascript](https://github.com/muber/javascript)
@@ -2079,11 +2101,12 @@
   - **Target**: [target/javascript](https://github.com/target/javascript)
   - **TheLadders**: [TheLadders/javascript](https://github.com/TheLadders/javascript)
   - **T4R Technology**: [T4R-Technology/javascript](https://github.com/T4R-Technology/javascript)
-  - **Userify**: [userify/javascript](https://github.com/userify/javascript)
   - **VoxFeed**: [VoxFeed/javascript-style-guide](https://github.com/VoxFeed/javascript-style-guide)
   - **Weggo**: [Weggo/javascript](https://github.com/Weggo/javascript)
   - **Zillow**: [zillow/javascript](https://github.com/zillow/javascript)
   - **ZocDoc**: [ZocDoc/javascript](https://github.com/ZocDoc/javascript)
+
+**[⬆ 回到頂端](#table-of-contents)**
 
 <a name="translation"></a>
 ## 翻譯

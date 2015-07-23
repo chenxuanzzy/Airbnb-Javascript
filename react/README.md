@@ -27,10 +27,9 @@
 <a name="naming"></a>
 ## 命名
 
-  - **副檔名**：React 元件的副檔名請使用 `js`。
-  - **檔案名稱**：檔案名稱請使用帕斯卡命名法。例如：`ReservationCard.js`。
+  - **副檔名**：React 元件的副檔名請使用 `jsx`。
+  - **檔案名稱**：檔案名稱請使用帕斯卡命名法。例如：`ReservationCard.jsx`。
   - **參考命名規範**: React 元件請使用帕斯卡命名法，元件的實例則使用駝峰式大小寫：
-
     ```javascript
     // bad
     const reservationCard = require('./ReservationCard');
@@ -45,18 +44,18 @@
     const reservationItem = <ReservationCard />;
     ```
 
-    **元件命名規範**：檔案名稱須和元件名稱一致。所以 `ReservationCard.js` 的參考名稱必須為 ReservationCard。但對於目錄的根元件請使用 index.js 作為檔案名稱，並使用目錄名作為元件的名稱。
-
+    **元件命名規範**：檔案名稱須和元件名稱一致。所以 `ReservationCard.jsx` 的參考名稱必須為 `ReservationCard`。但對於目錄的根元件請使用 `index.jsx` 作為檔案名稱，並使用目錄名作為元件的名稱：
     ```javascript
     // bad
-    const Footer = require('./Footer/Footer.js')
+    const Footer = require('./Footer/Footer.jsx')
 
     // bad
-    const Footer = require('./Footer/index.js')
+    const Footer = require('./Footer/index.jsx')
 
     // good
     const Footer = require('./Footer')
     ```
+
 
 <a name="declaration"></a>
 ## 宣告
@@ -78,7 +77,7 @@
 
 <a name="alignment"></a>
 ## 對齊
-  - js 語法請遵循以下的對齊風格
+  - JS 語法請遵循以下的對齊風格
 
     ```javascript
     // bad
@@ -105,8 +104,7 @@
 
 <a name="quotes"></a>
 ## 引號
-  - 總是在 JSX 的屬性使用雙引號（`"`），但是所有的 JavaScript 請使用單引號。
-
+  - 總是在 JSX 的屬性使用雙引號（`"`），但是所有的 JS 請使用單引號。
     ```javascript
     // bad
     <Foo bar='bar' />
@@ -215,8 +213,7 @@
 
 <a name="methods"></a>
 ## 方法
-  - react 元件的內部方法不要使用底線當作前綴。
-
+  - React 元件的內部方法不要使用底線當作前綴。
     ```javascript
     // bad
     React.createClass({
@@ -239,10 +236,11 @@
 
 <a name="ordering"></a>
 ## 排序
-  - 在 react 元件中的方法請遵循以下的排序法則：
+
+  - 在 React 元件中的方法請遵循以下的排序法則：
 
   1. displayName
-  2. mixins (as of React v0.13 mixins are deprecated)
+  2. mixins (as of React v0.13, mixins are deprecated)
   3. statics
   4. propTypes
   5. getDefaultProps
