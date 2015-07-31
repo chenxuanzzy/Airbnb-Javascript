@@ -411,13 +411,8 @@
     const name = 'Capt. Janeway';
     ```
 
-<<<<<<< HEAD
-  - [6.2](#6.2) <a name='6.2'></a> 如果字串超過 80 個字元，請使用字串連接符號 `\` 換行。
+  - [6.2](#6.2) <a name='6.2'></a> 如果字串超過 100 個字元，請使用字串連接符號換行。
   - [6.3](#6.3) <a name='6.3'></a> 注意：過度的長字串連接可能會影響效能 [jsPerf](http://jsperf.com/ya-string-concat) 及[討論串](https://github.com/airbnb/javascript/issues/40)。
-=======
-  - [6.2](#6.2) <a name='6.2'></a> Strings longer than 100 characters should be written across multiple lines using string concatenation.
-  - [6.3](#6.3) <a name='6.3'></a> Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40).
->>>>>>> ea093e0373cc4dfa07c69ef7c75d81bd06bdf0c2
 
     ```javascript
     // bad
@@ -1237,13 +1232,9 @@
     ```javascript
     class Calculator extends Abacus {
       constructor() {
-<<<<<<< HEAD
-        // FIXME: 不該在這使用全域變數
-=======
         super();
 
-        // FIXME: shouldn't use a global here
->>>>>>> ea093e0373cc4dfa07c69ef7c75d81bd06bdf0c2
+        // FIXME: 不該在這使用全域變數
         total = 0;
       }
     }
@@ -1254,13 +1245,9 @@
     ```javascript
     class Calculator extends Abacus {
       constructor() {
-<<<<<<< HEAD
-        // TODO: total 應該可被傳入的參數所修改
-=======
         super();
 
-        // TODO: total should be configurable by an options param
->>>>>>> ea093e0373cc4dfa07c69ef7c75d81bd06bdf0c2
+        // TODO: total 應該可被傳入的參數所修改
         this.total = 0;
       }
     }
