@@ -202,7 +202,7 @@
     var fullName = 'Bob ' + this.lastName;
     ```
 
-  - 如果字串超過 80 個字元，請使用字串連接符號 `\` 換行。
+  - 如果字串超過 100 個字元，請使用字串連接符號換行。
   - 注意: 過度的長字串連接可能會影響效能 [jsPerf](http://jsperf.com/ya-string-concat) 與[討論串](https://github.com/airbnb/javascript/issues/40)。
 
     ```javascript

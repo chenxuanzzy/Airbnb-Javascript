@@ -411,8 +411,13 @@
     const name = 'Capt. Janeway';
     ```
 
+<<<<<<< HEAD
   - [6.2](#6.2) <a name='6.2'></a> 如果字串超過 80 個字元，請使用字串連接符號 `\` 換行。
   - [6.3](#6.3) <a name='6.3'></a> 注意：過度的長字串連接可能會影響效能 [jsPerf](http://jsperf.com/ya-string-concat) 及[討論串](https://github.com/airbnb/javascript/issues/40)。
+=======
+  - [6.2](#6.2) <a name='6.2'></a> Strings longer than 100 characters should be written across multiple lines using string concatenation.
+  - [6.3](#6.3) <a name='6.3'></a> Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40).
+>>>>>>> ea093e0373cc4dfa07c69ef7c75d81bd06bdf0c2
 
     ```javascript
     // bad
@@ -451,6 +456,7 @@
       return `How are you, ${name}?`;
     }
     ```
+  - [6.5](#6.5) <a name='6.5'></a> Never use eval() on a string, it opens too many vulnerabilities.
 
 **[⬆ 回到頂端](#table-of-contents)**
 
@@ -582,7 +588,7 @@
   ```javascript
   // bad
   var add = new Function('a', 'b', 'return a + b');
-  
+
   // still bad
   var subtract = Function('a', 'b', 'return a - b');
   ```
@@ -1229,9 +1235,15 @@
   - [17.4](#17.4) <a name='17.4'></a> 使用 `// FIXME:` 標注問題。
 
     ```javascript
-    class Calculator {
+    class Calculator extends Abacus {
       constructor() {
+<<<<<<< HEAD
         // FIXME: 不該在這使用全域變數
+=======
+        super();
+
+        // FIXME: shouldn't use a global here
+>>>>>>> ea093e0373cc4dfa07c69ef7c75d81bd06bdf0c2
         total = 0;
       }
     }
@@ -1240,9 +1252,15 @@
   - [17.5](#17.5) <a name='17.5'></a> 使用 `// TODO:` 標注問題的解決方式。
 
     ```javascript
-    class Calculator {
+    class Calculator extends Abacus {
       constructor() {
+<<<<<<< HEAD
         // TODO: total 應該可被傳入的參數所修改
+=======
+        super();
+
+        // TODO: total should be configurable by an options param
+>>>>>>> ea093e0373cc4dfa07c69ef7c75d81bd06bdf0c2
         this.total = 0;
       }
     }
@@ -1992,7 +2010,7 @@
 
 **請讀這個**
 
-  - [Annotated ECMAScript 5.1](http://es5.github.com/)
+  - [Standard ECMA-262](http://www.ecma-international.org/ecma-262/6.0/index.html)
 
 **工具**
 
@@ -2039,6 +2057,7 @@
   - [Third Party JavaScript](http://manning.com/vinegar/) - Ben Vinegar and Anton Kovalyov
   - [Effective JavaScript: 68 Specific Ways to Harness the Power of JavaScript](http://amzn.com/0321812182) - David Herman
   - [Eloquent JavaScript](http://eloquentjavascript.net/) - Marijn Haverbeke
+  - [You Don't Know JS: ES6 & Beyond](http://shop.oreilly.com/product/0636920033769.do) - Kyle Simpson
 
 **部落格**
 
