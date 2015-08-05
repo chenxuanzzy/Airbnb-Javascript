@@ -451,7 +451,7 @@
       return `How are you, ${name}?`;
     }
     ```
-  - [6.5](#6.5) <a name='6.5'></a> Never use eval() on a string, it opens too many vulnerabilities.
+  - [6.5](#6.5) <a name='6.5'></a> 千萬不要在字串中使用 eval()，會造成許多的漏洞。
 
 **[⬆ 回到頂端](#table-of-contents)**
 
@@ -576,9 +576,9 @@
   count();  // 3
   ```
 
-- [7.9](#7.9) <a name='7.9'></a> Never use the Function constructor to create a new function.
+- [7.9](#7.9) <a name='7.9'></a> 千萬別使用建構函式去建立一個新的函式。
 
-  > Why? Creating a function in this way evaluates a string similarly to eval(), which opens vulnerabilities.
+  > 為什麼？透過這種方式建立一個函數來計算字串類似於 eval()，會造成許多的漏洞。
 
   ```javascript
   // bad
@@ -815,7 +815,7 @@
     numbers.forEach((num) => sum += num);
     sum === 15;
 
-    // best (use the functional force)
+    // best (使用 javascript 的高階函式)
     const sum = numbers.reduce((total, num) => total + num, 0);
     sum === 15;
     ```
@@ -979,14 +979,14 @@
     // 我們知道這樣是行不通的
     // （假設沒有名為 notDefined 的全域變數）
     function example() {
-      console.log(notDefined); // => throws a ReferenceError
+      console.log(notDefined); // => 拋出引用錯誤
     }
 
     // 由於變數提升的關係，
     // 你在引用變數後再宣告變數是行得通的。
     // 注：賦予給變數的 `true` 並不會被提升。
     function example() {
-      console.log(declaredButNotAssigned); // => undefined
+      console.log(declaredButNotAssigned); // => 未定義
       var declaredButNotAssigned = true;
     }
 
@@ -994,14 +994,14 @@
     // 表示我們可以將這個例子改寫成以下：
     function example() {
       let declaredButNotAssigned;
-      console.log(declaredButNotAssigned); // => undefined
+      console.log(declaredButNotAssigned); // => 未定義
       declaredButNotAssigned = true;
     }
 
     // 使用 const 及 let
     function example() {
-      console.log(declaredButNotAssigned); // => throws a ReferenceError
-      console.log(typeof declaredButNotAssigned); // => throws a ReferenceError
+      console.log(declaredButNotAssigned); // => 拋出引用錯誤
+      console.log(typeof declaredButNotAssigned); // => 拋出引用錯誤
       const declaredButNotAssigned = true;
     }
     ```
@@ -1010,9 +1010,9 @@
 
     ```javascript
     function example() {
-      console.log(anonymous); // => undefined
+      console.log(anonymous); // => 未定義
 
-      anonymous(); // => TypeError anonymous is not a function
+      anonymous(); // => 型別錯誤，anonymous 不是一個函式
 
       var anonymous = function() {
         console.log('anonymous function expression');
@@ -1024,11 +1024,11 @@
 
     ```javascript
     function example() {
-      console.log(named); // => undefined
+      console.log(named); // => 未定義
 
-      named(); // => TypeError named is not a function
+      named(); // => 型別錯誤，named 不是一個函式
 
-      superPower(); // => ReferenceError superPower is not defined
+      superPower(); // => 引用錯誤，superPower 沒有被定義
 
       var named = function superPower() {
         console.log('Flying');
@@ -1037,9 +1037,9 @@
 
     // 當函式名稱和變數名稱相同時也是如此。
     function example() {
-      console.log(named); // => undefined
+      console.log(named); // => 未定義
 
-      named(); // => TypeError named is not a function
+      named(); // => 型別錯誤，named 不是一個函式
 
       var named = function named() {
         console.log('named');
