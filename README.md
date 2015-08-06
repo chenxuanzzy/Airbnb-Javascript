@@ -979,14 +979,14 @@
     // 我們知道這樣是行不通的
     // （假設沒有名為 notDefined 的全域變數）
     function example() {
-      console.log(notDefined); // => 拋出引用錯誤
+      console.log(notDefined); // => 拋出一個 ReferenceError
     }
 
     // 由於變數提升的關係，
     // 你在引用變數後再宣告變數是行得通的。
     // 注：賦予給變數的 `true` 並不會被提升。
     function example() {
-      console.log(declaredButNotAssigned); // => 未定義
+      console.log(declaredButNotAssigned); // => undefined
       var declaredButNotAssigned = true;
     }
 
@@ -994,14 +994,14 @@
     // 表示我們可以將這個例子改寫成以下：
     function example() {
       let declaredButNotAssigned;
-      console.log(declaredButNotAssigned); // => 未定義
+      console.log(declaredButNotAssigned); // => undefined
       declaredButNotAssigned = true;
     }
 
     // 使用 const 及 let
     function example() {
-      console.log(declaredButNotAssigned); // => 拋出引用錯誤
-      console.log(typeof declaredButNotAssigned); // => 拋出引用錯誤
+      console.log(declaredButNotAssigned); // => 拋出一個 ReferenceError
+      console.log(typeof declaredButNotAssigned); // => 拋出一個 ReferenceError
       const declaredButNotAssigned = true;
     }
     ```
@@ -1010,9 +1010,9 @@
 
     ```javascript
     function example() {
-      console.log(anonymous); // => 未定義
+      console.log(anonymous); // => undefined
 
-      anonymous(); // => 型別錯誤，anonymous 不是一個函式
+      anonymous(); // => TypeError，anonymous 不是一個函式
 
       var anonymous = function() {
         console.log('anonymous function expression');
@@ -1024,11 +1024,11 @@
 
     ```javascript
     function example() {
-      console.log(named); // => 未定義
+      console.log(named); // => undefined
 
-      named(); // => 型別錯誤，named 不是一個函式
+      named(); // => TypeError，named 不是一個函式
 
-      superPower(); // => 引用錯誤，superPower 沒有被定義
+      superPower(); // => ReferenceError，superPower 沒有被定義
 
       var named = function superPower() {
         console.log('Flying');
@@ -1037,9 +1037,9 @@
 
     // 當函式名稱和變數名稱相同時也是如此。
     function example() {
-      console.log(named); // => 未定義
+      console.log(named); // => undefined
 
-      named(); // => 型別錯誤，named 不是一個函式
+      named(); // => TypeError，named 不是一個函式
 
       var named = function named() {
         console.log('named');
