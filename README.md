@@ -1026,7 +1026,7 @@
     function example() {
       console.log(named); // => undefined
 
-      named(); // => TypeError anonymous is not a function
+      named(); // => TypeError named is not a function
 
       superPower(); // => ReferenceError superPower is not defined
 
