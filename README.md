@@ -979,7 +979,7 @@
     // 我們知道這樣是行不通的
     // （假設沒有名為 notDefined 的全域變數）
     function example() {
-      console.log(notDefined); // => 拋出一個 ReferenceError
+      console.log(notDefined); // => throws a ReferenceError
     }
 
     // 由於變數提升的關係，
@@ -1000,8 +1000,8 @@
 
     // 使用 const 及 let
     function example() {
-      console.log(declaredButNotAssigned); // => 拋出一個 ReferenceError
-      console.log(typeof declaredButNotAssigned); // => 拋出一個 ReferenceError
+      console.log(declaredButNotAssigned); // => throws a ReferenceError
+      console.log(typeof declaredButNotAssigned); // => throws a ReferenceError
       const declaredButNotAssigned = true;
     }
     ```
@@ -1012,7 +1012,7 @@
     function example() {
       console.log(anonymous); // => undefined
 
-      anonymous(); // => TypeError，anonymous 不是一個函式
+      anonymous(); // => TypeError anonymous is not a function
 
       var anonymous = function() {
         console.log('anonymous function expression');
@@ -1026,9 +1026,9 @@
     function example() {
       console.log(named); // => undefined
 
-      named(); // => TypeError，named 不是一個函式
+      named(); // => TypeError anonymous is not a function
 
-      superPower(); // => ReferenceError，superPower 沒有被定義
+      superPower(); // => ReferenceError superPower is not defined
 
       var named = function superPower() {
         console.log('Flying');
@@ -1039,7 +1039,7 @@
     function example() {
       console.log(named); // => undefined
 
-      named(); // => TypeError，named 不是一個函式
+      named(); // => TypeError named is not a function
 
       var named = function named() {
         console.log('named');
