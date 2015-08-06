@@ -451,7 +451,7 @@
       return `How are you, ${name}?`;
     }
     ```
-  - [6.5](#6.5) <a name='6.5'></a> Never use eval() on a string, it opens too many vulnerabilities.
+  - [6.5](#6.5) <a name='6.5'></a> 千萬不要在字串中使用 eval()，會造成許多的漏洞。
 
 **[⬆ 回到頂端](#table-of-contents)**
 
@@ -576,9 +576,9 @@
   count();  // 3
   ```
 
-- [7.9](#7.9) <a name='7.9'></a> Never use the Function constructor to create a new function.
+- [7.9](#7.9) <a name='7.9'></a> 千萬別使用建構函式去建立一個新的函式。
 
-  > Why? Creating a function in this way evaluates a string similarly to eval(), which opens vulnerabilities.
+  > 為什麼？透過這種方式建立一個函數來計算字串類似於 eval()，會造成許多的漏洞。
 
   ```javascript
   // bad
@@ -815,7 +815,7 @@
     numbers.forEach((num) => sum += num);
     sum === 15;
 
-    // best (use the functional force)
+    // best (使用 javascript 的高階函式)
     const sum = numbers.reduce((total, num) => total + num, 0);
     sum === 15;
     ```
