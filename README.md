@@ -1,10 +1,15 @@
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-
 # Airbnb JavaScript Style Guide() {
 
 *一份彙整了在 JavasScript 中被普遍使用的風格指南。*
 
-[ES5 版本的指南請點此](es5/).
+[![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb.svg)](https://www.npmjs.com/package/eslint-config-airbnb)
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
+其他風格指南
+ - [ES5](es5/)
+ - [React](react/)
+ - [CSS & Sass](https://github.com/airbnb/css)
+ - [Ruby](https://github.com/airbnb/ruby)
 
 翻譯自 [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript) 。
 
@@ -576,7 +581,21 @@
   count();  // 3
   ```
 
-- [7.9](#7.9) <a name='7.9'></a> 千萬別使用建構函式去建立一個新的函式。
+  - [7.9](#7.9) <a name='7.9'></a> 永遠將預設參數放置於最後。
+
+    ```javascript
+    // bad
+    function handleThings(opts = {}, name) {
+      // ...
+    }
+
+    // good
+    function handleThings(name, opts = {}) {
+      // ...
+    }
+    ```
+
+- [7.10](#7.10) <a name='7.9'></a> 千萬別使用建構函式去建立一個新的函式。
 
   > 為什麼？透過這種方式建立一個函數來計算字串類似於 eval()，會造成許多的漏洞。
 
@@ -602,16 +621,18 @@
     ```javascript
     // bad
     [1, 2, 3].map(function (x) {
-      return x * x;
+      const y = x + 1;
+      return x * y;
     });
 
     // good
     [1, 2, 3].map((x) => {
-      return x * x;
+      const y = x + 1;
+      return x * y;
     });
     ```
 
-  - [8.2](#8.2) <a name='8.2'></a> 如果函式適合只使用一行，你可以很隨性的省略大括號及使用隱藏的回傳。或是使用大括號，及 `return` 語法。
+  - [8.2](#8.2) <a name='8.2'></a> 如果函式適合只使用一行，你可以很隨性的省略大括號及使用隱藏的回傳。否則請使用 `return` 語法。
 
   > 為什麼？因為語法修飾。這樣能夠在多個函式鏈結在一起的時候更易讀。
 
@@ -619,12 +640,50 @@
 
     ```javascript
     // good
+    [1, 2, 3].map(number => `A string containing the ${number}.`);
+
+    // bad
+    [1, 2, 3].map(number => {
+      const nextNumber = number + 1;
+      `A string containing the ${nextNumber}.`;
+    });
+
+    // good
+    [1, 2, 3].map(number => {
+      const nextNumber = number + 1;
+      return `A string containing the ${nextNumber}.`;
+    });
+    ```
+
+  - [8.3](#8.3) <a name='8.3'></a> In case the expression spans over multiple lines, wrap it in parentheses for better readability.
+
+  > Why? It shows clearly where the function starts and ends.
+
+    ```js
+    // bad
+    [1, 2, 3].map(number => 'As time went by, the string containing the ' +
+      `${number} became much longer. So we needed to break it over multiple ` +
+      'lines.'
+    );
+
+    // good
+    [1, 2, 3].map(number => (
+      `As time went by, the string containing the ${number} became much ` +
+      'longer. So we needed to break it over multiple lines.'
+    ));
+    ```
+
+
+  - [8.4](#8.4) <a name='8.4'></a> If your function only takes a single argument, feel free to omit the parentheses.
+
+  > Why? Less visual clutter.
+
+    ```js
+    // good
     [1, 2, 3].map(x => x * x);
 
     // good
-    [1, 2, 3].reduce((total, n) => {
-      return total + n;
-    }, 0);
+    [1, 2, 3].reduce((y, x) => x + y);
     ```
 
 **[⬆ 回到頂端](#table-of-contents)**
@@ -1361,7 +1420,7 @@
     })(this);↵
     ```
 
-  - [18.5](#18.5) <a name='18.5'></a> 當多個方法連接時請換行縮排，利用前面的 `.` 強調該行是呼叫方法，而不是一個新的宣告。
+  - [18.6](#18.6) <a name='18.5'></a> 當多個方法連接時請換行縮排，利用前面的 `.` 強調該行是呼叫方法，而不是一個新的宣告。
 
     ```javascript
     // bad
@@ -1400,7 +1459,7 @@
         .call(tron.led);
     ```
 
-  - [18.6](#18.6) <a name='18.6'></a> 在區塊的結束及下個語法間加上空行。
+  - [18.7](#18.7) <a name='18.6'></a> 在區塊的結束及下個語法間加上空行。
 
     ```javascript
     // bad
@@ -1857,7 +1916,7 @@
 
     ```javascript
     // good
-    $(this).trigger('listingUpdated', { listingId : listing.id });
+    $(this).trigger('listingUpdated', { listingId: listing.id });
 
     ...
 
@@ -1879,6 +1938,9 @@
 
     // good
     const $sidebar = $('.sidebar');
+
+    // good
+    const $sidebarBtn = $('.sidebar-btn');
     ```
 
   - [25.2](#25.2) <a name='25.2'></a> 快取 jQuery 的查詢。
@@ -2079,6 +2141,7 @@
   - **Avalara**: [avalara/javascript](https://github.com/avalara/javascript)
   - **Billabong**: [billabong/javascript](https://github.com/billabong/javascript)
   - **Blendle**: [blendle/javascript](https://github.com/blendle/javascript)
+  - **ComparaOnline**: [comparaonline/javascript](https://github.com/comparaonline/javascript)
   - **Compass Learning**: [compasslearning/javascript-style-guide](https://github.com/compasslearning/javascript-style-guide)
   - **DailyMotion**: [dailymotion/javascript](https://github.com/dailymotion/javascript)
   - **Digitpaint** [digitpaint/javascript](https://github.com/digitpaint/javascript)
@@ -2114,6 +2177,7 @@
   - **Ripple**: [ripple/javascript-style-guide](https://github.com/ripple/javascript-style-guide)
   - **SeekingAlpha**: [seekingalpha/javascript-style-guide](https://github.com/seekingalpha/javascript-style-guide)
   - **Shutterfly**: [shutterfly/javascript](https://github.com/shutterfly/javascript)
+  - **Springload**: [springload/javascript](https://github.com/springload/javascript)
   - **StudentSphere**: [studentsphere/javascript](https://github.com/studentsphere/javascript)
   - **Target**: [target/javascript](https://github.com/target/javascript)
   - **TheLadders**: [TheLadders/javascript](https://github.com/TheLadders/javascript)
@@ -2187,5 +2251,9 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 **[⬆ 回到頂端](#table-of-contents)**
+
+## Amendments
+
+We encourage you to fork this guide and change the rules to fit your team's style guide. Below, you may list some amendments to the style guide. This allows you to periodically update your style guide without having to deal with merge conflicts.
 
 # };

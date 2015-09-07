@@ -20,18 +20,13 @@
 <a name="basic-rules"></a>
 ## 基本規範
 
-<<<<<<< HEAD
   - 一個檔案只包含一個 React 元件。
   - 總是使用 JSX 語法。
   - 請別使用 `React.createElement` ，除非你從一個不轉換 JSX 的檔案初始化。
-=======
-  - Only include one React component per file.
-  - Always use JSX syntax.
-  - Do not use `React.createElement` unless you're initializing the app from a file that is not JSX.
 
 ## Class vs React.createClass
 
-  - Use class extends React.Component unless you have a very good reason to use mixins.
+  - 使用類別繼承 React.Component，除非你有一個非常好的理由才使用 mixins
 
   ```javascript
   // bad
@@ -48,7 +43,6 @@
     }
   }
   ```
->>>>>>> Upstream/master
 
 <a name="naming"></a>
 ## 命名
@@ -103,7 +97,7 @@
 
 <a name="alignment"></a>
 ## 對齊
-  - JS 語法請遵循以下的對齊風格
+  - JSX 語法請遵循以下的對齊風格
 
     ```javascript
     // bad

@@ -1,11 +1,13 @@
-var path = require('path');
-var stripComments = require('strip-json-comments');
-var fs = require('fs');
+const reactRules = require('./react');
+const base = require('./base');
 
-// you could do this all at once if you wanted to look cool
-var filename = path.join(__dirname, '.eslintrc');
-var data = fs.readFileSync(filename, {encoding: 'utf-8'});
-var dataWithoutComments = stripComments(data);
-var parsed = JSON.parse(dataWithoutComments);
+// clone this so we aren't mutating a module
+const eslintrc = JSON.parse(JSON.stringify(base));
 
-module.exports = parsed;
+// manually merge in React rules
+eslintrc.plugins = reactRules.plugins;
+Object.keys(reactRules.rules).forEach(function assignRule(ruleId) {
+  eslintrc.rules[ruleId] = reactRules.rules[ruleId];
+});
+
+module.exports = eslintrc;
