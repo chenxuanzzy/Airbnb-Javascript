@@ -655,9 +655,9 @@
     });
     ```
 
-  - [8.3](#8.3) <a name='8.3'></a> In case the expression spans over multiple lines, wrap it in parentheses for better readability.
+  - [8.3](#8.3) <a name='8.3'></a> 如果表達式跨了多行，請將它們包在括號中增加可讀性。
 
-  > Why? It shows clearly where the function starts and ends.
+  > 為什麼？這麼做更清楚的表達函式的開始與結束的位置。
 
     ```js
     // bad
@@ -674,9 +674,9 @@
     ```
 
 
-  - [8.4](#8.4) <a name='8.4'></a> If your function only takes a single argument, feel free to omit the parentheses.
+  - [8.4](#8.4) <a name='8.4'></a> 如果你的函式只使用一個參數，那麼可以很隨意的省略括號。
 
-  > Why? Less visual clutter.
+  > 為什麼？減少視覺上的混亂。
 
     ```js
     // good
