@@ -89,10 +89,8 @@
     });
 
     // good
-    class ReservationCard extends React.Component {
+    export default class ReservationCard extends React.Component {
     }
- 
-    export default ReservationCard;
     ```
 
 <a name="alignment"></a>
@@ -289,7 +287,7 @@
     text: 'Hello World',
   };
   
-  class Link extends Component {
+  export default class Link extends Component {
     static methodsAreOk() {
       return true;
     }
@@ -301,8 +299,6 @@
   
   Link.propTypes = propTypes;
   Link.defaultProps = defaultProps;
-  
-  export default Link;
   ```
 
   - React.createClass 的排序：
