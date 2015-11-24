@@ -151,7 +151,7 @@
     const item = {};
     ```
 
-  - [3.2](#3.2) <a name='3.2'></a> 別使用[保留字](http://es5.github.io/#x7.6.1) 當作鍵值，他在 IE8 上不會被執行。[了解更多](https://github.com/airbnb/javascript/issues/61)。不過在 ES6 模組及伺服器端程式碼中使用是可行的。
+  - [3.2](#3.2) <a name='3.2'></a> 別使用[保留字](http://es5.github.io/#x7.6.1)當作鍵值，他在 IE8 上不會被執行。[了解更多](https://github.com/airbnb/javascript/issues/61)。不過在 ES6 模組及伺服器端程式碼中使用是可行的。
 
     ```javascript
     // bad
@@ -487,7 +487,7 @@
     ```
 
   - [7.3](#7.3) <a name='7.3'></a> 絕對不要在非函式的區塊（if, while, 等等）宣告函式，瀏覽器或許會允許你這麼做，但不同瀏覽器產生的結果可能會不同。你可以將函式賦予一個區塊外的變數解決這個問題。
-  - [7.4](#7.4) <a name='7.4'></a> **注意:** ECMA-262 將 `區塊` 定義為陳述式，函式宣告則不是陳述式。[閱讀 ECMA-262 關於這個問題的說明](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97)。
+  - [7.4](#7.4) <a name='7.4'></a> **注意:** ECMA-262 將`區塊`定義為陳述式，函式宣告則不是陳述式。[閱讀 ECMA-262 關於這個問題的說明](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97)。
 
     ```javascript
     // bad
@@ -506,7 +506,7 @@
     }
     ```
 
-  - [7.5](#7.5) <a name='7.5'></a> 請勿將參數命名為 `arguments` ，這樣會將覆蓋掉函式作用域傳來的 `arguments` 。
+  - [7.5](#7.5) <a name='7.5'></a> 請勿將參數命名為 `arguments`，這樣會將覆蓋掉函式作用域傳來的 `arguments`。
 
     ```javascript
     // bad
@@ -523,7 +523,7 @@
   <a name="es6-rest"></a>
   - [7.6](#7.6) <a name='7.6'></a> 絕對不要使用 `arguments`，可以選擇使用 rest 語法 `...` 替代。
 
-  > 為什麼？使用 `...` 能夠明確指出你要皆參數傳入哪個變數。再加上 rest 參數是一個真正的陣列，而不像 `arguments` 似陣列而非陣列。
+  > 為什麼？使用 `...` 能夠明確指出你要將參數傳入哪個變數。再加上 rest 參數是一個真正的陣列，而不像 `arguments` 似陣列而非陣列。
 
     ```javascript
     // bad
@@ -1197,7 +1197,7 @@
     }
     ```
 
-  - [16.2](#16.2) <a name='16.2'></a> 如果你使用 `if` 及 `else` 的多行區塊，請將 `else` 放在 `if` 區塊的結尾花括號下。
+  - [16.2](#16.2) <a name='16.2'></a> 如果你使用 `if` 及 `else` 的多行區塊，請將 `else` 放在 `if` 區塊的結尾花括號後。
 
     ```javascript
     // bad
@@ -1524,7 +1524,7 @@
     return arr;
     ```
 
-  - [18.8](#18.8) <a name='18.8'></a> Do not pad your blocks with blank lines.
+  - [18.8](#18.8) <a name='18.8'></a> 別在區塊中置放空行。
 
     ```javascript
     // bad
@@ -1667,9 +1667,6 @@
     ```
 
     [瞭解更多](http://stackoverflow.com/questions/7365172/semicolon-before-self-invoking-function/7365214%237365214)。
-
-**[⬆ back to top](#table-of-contents)**
->>>>>>> Upstream/master
 
 **[⬆ 回到頂端](#table-of-contents)**
 
@@ -2074,13 +2071,13 @@
     }
     ```
 
-  - [28.2](#28.2) <a name="28.2"></a> **No, but seriously**:
-   - Whichever testing framework you use, you should be writing tests!
-   - Strive to write many small pure functions, and minimize where mutations occur.
-   - Be cautious about stubs and mocks - they can make your tests more brittle.
-   - We primarily use [`mocha`](https://www.npmjs.com/package/mocha) at Airbnb. [`tape`](https://www.npmjs.com/package/tape) is also used occasionally for small, separate modules.
-   - 100% test coverage is a good goal to strive for, even if it's not always practical to reach it.
-   - Whenever you fix a bug, _write a regression test_. A bug fixed without a regression test is almost certainly going to break again in the future.
+  - [28.2](#28.2) <a name="28.2"></a> **無題，不過很重要**：
+   - 不論你用哪個測試框架，你都應該撰寫測試！
+   - 力求撰寫許多的純函式，並盡量減少異常發生的機會。
+   - 要對 stubs 及 mocks 保持嚴謹——他們可以讓你的測試變得更加脆弱。
+   - 我們在 Airbnb 主要使用 [`mocha`](https://www.npmjs.com/package/mocha)。對小型或單獨的模組偶爾使用 [`tape`](https://www.npmjs.com/package/tape)。
+   - 努力達到 100% 的測試涵蓋率是個很好的目標，即使實現這件事是不切實際的。
+   - 每當你修復完一個 bug，_就撰寫回歸測試_。一個修復完的 bug 若沒有回歸測試，通常在未來肯定會再次發生損壞。
 
 **[⬆ 回到頂端](#table-of-contents)**
 
