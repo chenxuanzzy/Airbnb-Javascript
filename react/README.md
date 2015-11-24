@@ -124,8 +124,8 @@
 ## 引號
   - 總是在 JSX 的屬性使用雙引號（`"`），但是所有的 JS 請使用單引號。
 
-  > Why? JSX attributes [can't contain escaped quotes](http://eslint.org/docs/rules/jsx-quotes), so double quotes make conjunctions like `"don't"` easier to type.
-  > Regular HTML attributes also typically use double quotes instead of single, so JSX attributes mirror this convention.
+  > 為什麼？JSX 屬性[不能包含跳脫的引號](http://eslint.org/docs/rules/jsx-quotes)，所以雙引號可以更容易輸入像 `"don't"` 的連接詞。
+  > 一般的 HTML 屬性通常也使用雙引號而不是單引號，所以 JSX 屬性借鏡了這個慣例。
 
     ```javascript
     // bad
