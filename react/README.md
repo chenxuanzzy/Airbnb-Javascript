@@ -35,7 +35,7 @@
       return <div />;
     }
   });
-  
+
   // good
   class Listing extends React.Component {
     render() {
@@ -123,6 +123,10 @@
 <a name="quotes"></a>
 ## 引號
   - 總是在 JSX 的屬性使用雙引號（`"`），但是所有的 JS 請使用單引號。
+
+  > Why? JSX attributes [can't contain escaped quotes](http://eslint.org/docs/rules/jsx-quotes), so double quotes make conjunctions like `"don't"` easier to type.
+  > Regular HTML attributes also typically use double quotes instead of single, so JSX attributes mirror this convention.
+
     ```javascript
     // bad
     <Foo bar='bar' />
@@ -256,7 +260,7 @@
 ## 排序
 
   - 類別繼承 React.Component 的排序:
-  
+
   1. constructor
   1. optional static methods
   1. getChildContext
@@ -272,33 +276,35 @@
   1. *Optional render methods* like renderNavigation() or renderProfilePicture()
   1. render
 
-  - How to define propTypes, defaultProps, contextTypes, etc...  
+  - How to define propTypes, defaultProps, contextTypes, etc...
 
   ```javascript
   import React, { Component, PropTypes } from 'react';
-  
+
   const propTypes = {
     id: PropTypes.number.isRequired,
     url: PropTypes.string.isRequired,
     text: PropTypes.string,
   };
-  
+
   const defaultProps = {
     text: 'Hello World',
   };
-  
-  export default class Link extends Component {
+
+  class Link extends Component {
     static methodsAreOk() {
       return true;
     }
-  
+
     render() {
       return <a href={this.props.url} data-id={this.props.id}>{this.props.text}</a>
     }
   }
-  
+
   Link.propTypes = propTypes;
   Link.defaultProps = defaultProps;
+
+  export default Link;
   ```
 
   - React.createClass 的排序：

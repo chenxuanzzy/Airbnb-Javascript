@@ -456,7 +456,7 @@
       return `How are you, ${name}?`;
     }
     ```
-  - [6.5](#6.5) <a name='6.5'></a> 千萬不要在字串中使用 eval()，會造成許多的漏洞。
+  - [6.5](#6.5) <a name='6.5'></a> 千萬不要在字串中使用 `eval()`，會造成許多的漏洞。
 
 **[⬆ 回到頂端](#table-of-contents)**
 
@@ -1118,7 +1118,7 @@
     }
     ```
 
-  - 想瞭解更多訊息，請參考 [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) by [Ben Cherry](http://www.adequatelygood.com/).
+  - 想瞭解更多訊息，請參考 [Ben Cherry](http://www.adequatelygood.com/) 的 [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting/)。
 
 **[⬆ 回到頂端](#table-of-contents)**
 
@@ -1254,7 +1254,7 @@
     }
     ```
 
-  - [17.2](#17.2) <a name='17.2'></a> 單行註解請使用 `//` ，在欲註解的地方上方進行當行註解，並在註解前空一格。
+  - [17.2](#17.2) <a name='17.2'></a> 單行註解請使用 `//`。在欲註解的上方新增一行進行註解。在註解的上方空一行，除非他在區塊的第一行。
 
     ```javascript
     // bad
@@ -1278,6 +1278,14 @@
       console.log('fetching type...');
 
       // 設定預設的類型為 'no type'
+      const type = this._type || 'no type';
+
+      return type;
+    }
+
+    // also good
+    function getType() {
+      // set the default type to 'no type'
       const type = this._type || 'no type';
 
       return type;
@@ -1516,6 +1524,38 @@
     return arr;
     ```
 
+  - [18.8](#18.8) <a name='18.8'></a> Do not pad your blocks with blank lines.
+
+    ```javascript
+    // bad
+    function bar() {
+
+      console.log(foo);
+
+    }
+
+    // also bad
+    if (baz) {
+
+      console.log(qux);
+    } else {
+      console.log(foo);
+
+    }
+
+    // good
+    function bar() {
+      console.log(foo);
+    }
+
+    // good
+    if (baz) {
+      console.log(qux);
+    } else {
+      console.log(foo);
+    }
+    ```
+
 
 **[⬆ 回到頂端](#table-of-contents)**
 
@@ -1626,7 +1666,10 @@
     })();
     ```
 
-    [瞭解更多](http://stackoverflow.com/a/7365214/1712802).
+    [瞭解更多](http://stackoverflow.com/questions/7365172/semicolon-before-self-invoking-function/7365214%237365214)。
+
+**[⬆ back to top](#table-of-contents)**
+>>>>>>> Upstream/master
 
 **[⬆ 回到頂端](#table-of-contents)**
 
@@ -1995,7 +2038,7 @@
 <a name="ecmascript-5-compatibility"></a>
 ## ECMAScript 5 相容性
 
-  - [26.1](#26.1) <a name='26.1'></a> 參考 [Kangax](https://twitter.com/kangax/) 的 ES5 [相容性列表](http://kangax.github.com/es5-compat-table/)。
+  - [26.1](#26.1) <a name='26.1'></a> 參考 [Kangax](https://twitter.com/kangax/) 的 ES5 [相容性列表](http://kangax.github.io/es5-compat-table/)。
 
 **[⬆ 回到頂端](#table-of-contents)**
 
@@ -2026,17 +2069,25 @@
   - [28.1](#28.1) <a name='28.1'></a> **如題。**
 
     ```javascript
-    function() {
+    function () {
       return true;
     }
     ```
+
+  - [28.2](#28.2) <a name="28.2"></a> **No, but seriously**:
+   - Whichever testing framework you use, you should be writing tests!
+   - Strive to write many small pure functions, and minimize where mutations occur.
+   - Be cautious about stubs and mocks - they can make your tests more brittle.
+   - We primarily use [`mocha`](https://www.npmjs.com/package/mocha) at Airbnb. [`tape`](https://www.npmjs.com/package/tape) is also used occasionally for small, separate modules.
+   - 100% test coverage is a good goal to strive for, even if it's not always practical to reach it.
+   - Whenever you fix a bug, _write a regression test_. A bug fixed without a regression test is almost certainly going to break again in the future.
 
 **[⬆ 回到頂端](#table-of-contents)**
 
 <a name="performance"></a>
 ## 效能
 
-  - [On Layout & Web Performance](http://kellegous.com/j/2013/01/26/layout-performance/)
+  - [On Layout & Web Performance](http://www.kellegous.com/j/2013/01/26/layout-performance/)
   - [String vs Array Concat](http://jsperf.com/string-vs-array-concat/2)
   - [Try/Catch Cost In a Loop](http://jsperf.com/try-catch-in-loop-cost)
   - [Bang Function](http://jsperf.com/bang-function)
@@ -2065,18 +2116,18 @@
 
   - Code Style Linters
     + [ESlint](http://eslint.org/) - [Airbnb Style .eslintrc](https://github.com/airbnb/javascript/blob/master/linters/.eslintrc)
-    + [JSHint](http://www.jshint.com/) - [Airbnb Style .jshintrc](https://github.com/airbnb/javascript/blob/master/linters/jshintrc)
+    + [JSHint](http://jshint.com/) - [Airbnb Style .jshintrc](https://github.com/airbnb/javascript/blob/master/linters/jshintrc)
     + [JSCS](https://github.com/jscs-dev/node-jscs) - [Airbnb Style Preset](https://github.com/jscs-dev/node-jscs/blob/master/presets/airbnb.json)
 
 **其他的風格指南**
 
   - [Google JavaScript Style Guide](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
-  - [jQuery Core Style Guidelines](http://docs.jquery.com/JQuery_Core_Style_Guidelines)
-  - [Principles of Writing Consistent, Idiomatic JavaScript](https://github.com/rwldrn/idiomatic.js/)
+  - [jQuery Core Style Guidelines](http://contribute.jquery.org/style-guide/js/)
+  - [Principles of Writing Consistent, Idiomatic JavaScript](https://github.com/rwaldron/idiomatic.js)
 
 **其他風格**
 
-  - [Naming this in nested functions](https://gist.github.com/4135065) - Christian Johansen
+  - [Naming this in nested functions](https://gist.github.com/cjohansen/4135065) - Christian Johansen
   - [Conditional Callbacks](https://github.com/airbnb/javascript/issues/52) - Ross Allen
   - [Popular JavaScript Coding Conventions on Github](http://sideeffect.kr/popularconvention/#javascript) - JeongHoon Byun
   - [Multiple var statements in JavaScript, not superfluous](http://benalman.com/news/2012/05/multiple-var-statements-javascript/) - Ben Alman
@@ -2103,7 +2154,7 @@
   - [Human JavaScript](http://humanjavascript.com/) - Henrik Joreteg
   - [Superhero.js](http://superherojs.com/) - Kim Joar Bekkelund, Mads Mobæk, & Olav Bjorkoy
   - [JSBooks](http://jsbooks.revolunet.com/) - Julien Bouquillon
-  - [Third Party JavaScript](http://manning.com/vinegar/) - Ben Vinegar and Anton Kovalyov
+  - [Third Party JavaScript](https://www.manning.com/books/third-party-javascript) - Ben Vinegar and Anton Kovalyov
   - [Effective JavaScript: 68 Specific Ways to Harness the Power of JavaScript](http://amzn.com/0321812182) - David Herman
   - [Eloquent JavaScript](http://eloquentjavascript.net/) - Marijn Haverbeke
   - [You Don't Know JS: ES6 & Beyond](http://shop.oreilly.com/product/0636920033769.do) - Kyle Simpson
@@ -2113,18 +2164,18 @@
   - [DailyJS](http://dailyjs.com/)
   - [JavaScript Weekly](http://javascriptweekly.com/)
   - [JavaScript, JavaScript...](http://javascriptweblog.wordpress.com/)
-  - [Bocoup Weblog](http://weblog.bocoup.com/)
+  - [Bocoup Weblog](https://bocoup.com/weblog)
   - [Adequately Good](http://www.adequatelygood.com/)
-  - [NCZOnline](http://www.nczonline.net/)
+  - [NCZOnline](https://www.nczonline.net/)
   - [Perfection Kills](http://perfectionkills.com/)
   - [Ben Alman](http://benalman.com/)
   - [Dmitry Baranovskiy](http://dmitry.baranovskiy.com/)
   - [Dustin Diaz](http://dustindiaz.com/)
-  - [nettuts](http://net.tutsplus.com/?s=javascript)
+  - [nettuts](http://code.tutsplus.com/?s=javascript)
 
 **Podcasts**
 
-  - [JavaScript Jabber](http://devchat.tv/js-jabber/)
+  - [JavaScript Jabber](https://devchat.tv/js-jabber/)
 
 
 **[⬆ 回到頂端](#table-of-contents)**
@@ -2141,10 +2192,11 @@
   - **Avalara**: [avalara/javascript](https://github.com/avalara/javascript)
   - **Billabong**: [billabong/javascript](https://github.com/billabong/javascript)
   - **Blendle**: [blendle/javascript](https://github.com/blendle/javascript)
-  - **ComparaOnline**: [comparaonline/javascript](https://github.com/comparaonline/javascript)
+  - **ComparaOnline**: [comparaonline/javascript](https://github.com/comparaonline/javascript-style-guide)
   - **Compass Learning**: [compasslearning/javascript-style-guide](https://github.com/compasslearning/javascript-style-guide)
   - **DailyMotion**: [dailymotion/javascript](https://github.com/dailymotion/javascript)
   - **Digitpaint** [digitpaint/javascript](https://github.com/digitpaint/javascript)
+  - **Ecosia**: [ecosia/javascript](https://github.com/ecosia/javascript)
   - **Evernote**: [evernote/javascript-style-guide](https://github.com/evernote/javascript-style-guide)
   - **ExactTarget**: [ExactTarget/javascript](https://github.com/ExactTarget/javascript)
   - **Expensify** [Expensify/Style-Guide](https://github.com/Expensify/Style-Guide/blob/master/javascript.md)
@@ -2153,14 +2205,15 @@
   - **General Electric**: [GeneralElectric/javascript](https://github.com/GeneralElectric/javascript)
   - **GoodData**: [gooddata/gdc-js-style](https://github.com/gooddata/gdc-js-style)
   - **Grooveshark**: [grooveshark/javascript](https://github.com/grooveshark/javascript)
-  - **How About We**: [howaboutwe/javascript](https://github.com/howaboutwe/javascript)
+  - **How About We**: [howaboutwe/javascript](https://github.com/howaboutwe/javascript-style-guide)
   - **Huballin**: [huballin/javascript](https://github.com/huballin/javascript)
+  - **HubSpot**: [HubSpot/javascript](https://github.com/HubSpot/javascript)
   - **Hyper**: [hyperoslo/javascript-playbook](https://github.com/hyperoslo/javascript-playbook/blob/master/style.md)
   - **InfoJobs**: [InfoJobs/JavaScript-Style-Guide](https://github.com/InfoJobs/JavaScript-Style-Guide)
   - **Intent Media**: [intentmedia/javascript](https://github.com/intentmedia/javascript)
   - **Jam3**: [Jam3/Javascript-Code-Conventions](https://github.com/Jam3/Javascript-Code-Conventions)
   - **JSSolutions**: [JSSolutions/javascript](https://github.com/JSSolutions/javascript)
-  - **Kinetica Solutions**: [kinetica/javascript](https://github.com/kinetica/javascript)
+  - **Kinetica Solutions**: [kinetica/javascript](https://github.com/kinetica/Javascript-style-guide)
   - **Mighty Spring**: [mightyspring/javascript](https://github.com/mightyspring/javascript)
   - **MinnPost**: [MinnPost/javascript](https://github.com/MinnPost/javascript)
   - **MitocGroup**: [MitocGroup/javascript](https://github.com/MitocGroup/javascript)
@@ -2179,7 +2232,7 @@
   - **SeekingAlpha**: [seekingalpha/javascript-style-guide](https://github.com/seekingalpha/javascript-style-guide)
   - **Shutterfly**: [shutterfly/javascript](https://github.com/shutterfly/javascript)
   - **Springload**: [springload/javascript](https://github.com/springload/javascript)
-  - **StudentSphere**: [studentsphere/javascript](https://github.com/studentsphere/javascript)
+  - **StudentSphere**: [studentsphere/javascript](https://github.com/studentsphere/guide-javascript)
   - **Target**: [target/javascript](https://github.com/target/javascript)
   - **TheLadders**: [TheLadders/javascript](https://github.com/TheLadders/javascript)
   - **T4R Technology**: [T4R-Technology/javascript](https://github.com/T4R-Technology/javascript)
