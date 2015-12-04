@@ -623,8 +623,9 @@
   var subtract = Function('a', 'b', 'return a - b');
   ```
 
-- [7.11](#7.11) <a name="7.11"></a> Spacing in a function signature.
+- [7.11](#7.11) <a name="7.11"></a> 在函式的標示後放置空格。
 
+  > 為什麼？一致性較好，而且你不應該在新增或刪除名稱時增加或減少空格。
   > Why? Consistency is good, and you shouldn’t have to add or remove a space when adding or removing a name.
 
   ```javascript
@@ -1639,7 +1640,7 @@
     }
     ```
 
-  - [18.10](#18.10) <a name='18.10'></a> Do not add spaces inside brackets.
+  - [18.10](#18.10) <a name='18.10'></a> 不要在中括號內的兩側置放空格。
 
   eslint rules: [`array-bracket-spacing`](http://eslint.org/docs/rules/array-bracket-spacing.html).
 
@@ -1653,7 +1654,7 @@
     console.log(foo[0]);
     ```
 
-  - [18.11](#18.11) <a name='18.11'></a> Add spaces inside curly braces.
+  - [18.11](#18.11) <a name='18.11'></a> 在大括號內的兩側置放空格。
 
   eslint rules: [`object-curly-spacing`](http://eslint.org/docs/rules/object-curly-spacing.html).
 
