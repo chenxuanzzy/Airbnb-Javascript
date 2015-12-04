@@ -626,7 +626,6 @@
 - [7.11](#7.11) <a name="7.11"></a> 在函式的標示後放置空格。
 
   > 為什麼？一致性較好，而且你不應該在新增或刪除名稱時增加或減少空格。
-  > Why? Consistency is good, and you shouldn’t have to add or remove a space when adding or removing a name.
 
   ```javascript
   // bad
