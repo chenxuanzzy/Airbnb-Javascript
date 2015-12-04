@@ -96,6 +96,8 @@
 
   > 為什麼？因為這能確保你無法對參考重新賦值，也不會讓你的程式碼有錯誤或難以理解。
 
+  eslint rules: [`prefer-const`](http://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](http://eslint.org/docs/rules/no-const-assign.html).
+
     ```javascript
     // bad
     var a = 1;
@@ -109,6 +111,8 @@
   - [2.2](#2.2) <a name='2.2'></a> 如果你需要可變動的參考，使用 `let` 代替 `var`。
 
   > 為什麼？因為 `let` 的作用域是在區塊內，而不像 `var` 是在函式內。
+
+  eslint rules: [`no-var`](http://eslint.org/docs/rules/no-var.html).
 
     ```javascript
     // bad
@@ -142,6 +146,8 @@
 ## 物件
 
   - [3.1](#3.1) <a name='3.1'></a> 使用簡潔的語法建立物件。
+
+  eslint rules: [`no-new-object`](http://eslint.org/docs/rules/no-new-object.html).
 
     ```javascript
     // bad
@@ -215,6 +221,8 @@
   <a name="es6-object-shorthand"></a>
   - [3.5](#3.5) <a name='3.5'></a> 使用物件方法的簡寫。
 
+  eslint rules: [`object-shorthand`](http://eslint.org/docs/rules/object-shorthand.html).
+
     ```javascript
     // bad
     const atom = {
@@ -239,6 +247,8 @@
   - [3.6](#3.6) <a name='3.6'></a> 使用屬性值的簡寫
 
   > 為什麼？因為寫起來更短且更有描述性。
+
+  eslint rules: [`object-shorthand`](http://eslint.org/docs/rules/object-shorthand.html).
 
     ```javascript
     const lukeSkywalker = 'Luke Skywalker';
@@ -289,6 +299,8 @@
 ## 陣列
 
   - [4.1](#4.1) <a name='4.1'></a> 使用簡潔的語法建立陣列。
+
+  eslint rules: [`no-array-constructor`](http://eslint.org/docs/rules/no-array-constructor.html).
 
     ```javascript
     // bad
@@ -408,6 +420,8 @@
 
   - [6.1](#6.1) <a name='6.1'></a> 字串請使用單引號 `''`。
 
+  eslint rules: [`quotes`](http://eslint.org/docs/rules/quotes.html).
+
     ```javascript
     // bad
     const name = "Capt. Janeway";
@@ -439,6 +453,8 @@
   - [6.4](#6.4) <a name='6.4'></a> 當以程式方式建構字串時，請使用模板字串而不是字串連接。
 
   > 為什麼？因為模板字串更有可讀性，正確的換行符號及字串插值功能讓語法更簡潔。
+
+  eslint rules: [`prefer-template`](http://eslint.org/docs/rules/prefer-template.html).
 
     ```javascript
     // bad
@@ -607,6 +623,21 @@
   var subtract = Function('a', 'b', 'return a - b');
   ```
 
+- [7.11](#7.11) <a name="7.11"></a> 在函式的標示後放置空格。
+
+  > 為什麼？一致性較好，而且你不應該在新增或刪除名稱時增加或減少空格。
+
+  ```javascript
+  // bad
+  const f = function(){};
+  const g = function (){};
+  const h = function() {};
+
+  // good
+  const x = function () {};
+  const y = function a() {};
+  ```
+
 **[⬆ 回到頂端](#table-of-contents)**
 
 <a name="arrow-functions"></a>
@@ -617,6 +648,8 @@
   > 為什麼？它會在有 `this` 的內部建立了一個新版本的函式，通常功能都是你所想像的，而且語法更為簡潔。
 
   > 為什麼不？如果你已經有一個相當複雜的函式時，或許你該將邏輯都移到一個函式宣告上。
+
+  eslint rules: [`prefer-arrow-callback`](http://eslint.org/docs/rules/prefer-arrow-callback.html), [`arrow-spacing`](http://eslint.org/docs/rules/arrow-spacing.html).
 
     ```javascript
     // bad
@@ -637,6 +670,8 @@
   > 為什麼？因為語法修飾。這樣能夠在多個函式鏈結在一起的時候更易讀。
 
   > 為什麼不？如果你打算回傳一個物件。
+
+  eslint rules: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html), [`arrow-body-style`](http://eslint.org/docs/rules/arrow-body-style.html).
 
     ```javascript
     // good
@@ -678,6 +713,8 @@
 
   > 為什麼？減少視覺上的混亂。
 
+  eslint rules: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html).
+
     ```js
     // good
     [1, 2, 3].map(x => x * x);
@@ -700,7 +737,7 @@
     function Queue(contents = []) {
       this._queue = [...contents];
     }
-    Queue.prototype.pop = function() {
+    Queue.prototype.pop = function () {
       const value = this._queue[0];
       this._queue.splice(0, 1);
       return value;
@@ -731,7 +768,7 @@
       Queue.apply(this, contents);
     }
     inherits(PeekableQueue, Queue);
-    PeekableQueue.prototype.peek = function() {
+    PeekableQueue.prototype.peek = function () {
       return this._queue[0];
     }
 
@@ -747,12 +784,12 @@
 
     ```javascript
     // bad
-    Jedi.prototype.jump = function() {
+    Jedi.prototype.jump = function () {
       this.jumping = true;
       return true;
     };
 
-    Jedi.prototype.setHeight = function(height) {
+    Jedi.prototype.setHeight = function (height) {
       this.height = height;
     };
 
@@ -858,6 +895,8 @@
 
   > 為什麼？這加強了我們不變的規則。處理純函式的回傳值讓程式碼更易讀，勝過它所造成的函式副作用。
 
+  eslint rules: [`no-iterator`](http://eslint.org/docs/rules/no-iterator.html).
+
     ```javascript
     const numbers = [1, 2, 3, 4, 5];
 
@@ -889,6 +928,8 @@
 ## 屬性
 
   - [12.1](#12.1) <a name='12.1'></a> 使用點 `.` 來存取屬性。
+
+  eslint rules: [`dot-notation`](http://eslint.org/docs/rules/dot-notation.html).
 
     ```javascript
     const luke = {
@@ -936,6 +977,8 @@
   - [13.2](#13.2) <a name='13.2'></a> 每個變數只使用一個 `const` 來宣告。
 
     > 為什麼？因為這樣更容易增加新的變數宣告，而且你也不用擔心替換  `;` 為 `,` 及加入的標點符號不同的問題。
+
+  eslint rules: [`one-var`](http://eslint.org/docs/rules/one-var.html).
 
     ```javascript
     // bad
@@ -986,7 +1029,7 @@
 
     ```javascript
     // good
-    function() {
+    function () {
       test();
       console.log('doing stuff..');
 
@@ -1002,7 +1045,7 @@
     }
 
     // bad - 呼叫不必要的函式
-    function(hasName) {
+    function (hasName) {
       const name = getName();
 
       if (!hasName) {
@@ -1015,7 +1058,7 @@
     }
 
     // good
-    function(hasName) {
+    function (hasName) {
       if (!hasName) {
         return false;
       }
@@ -1073,7 +1116,7 @@
 
       anonymous(); // => TypeError anonymous is not a function
 
-      var anonymous = function() {
+      var anonymous = function () {
         console.log('anonymous function expression');
       };
     }
@@ -1128,12 +1171,14 @@
   - [15.1](#15.1) <a name='15.1'></a> 請使用 `===` 和 `!==` ，別使用 `==` 及 `!=` 。
   - [15.2](#15.2) <a name='15.2'></a> 像是 `if` 的條件語法內會使用 `ToBoolean` 的抽象方法強轉類型，並遵循以下規範：
 
+  eslint rules: [`eqeqeq`](http://eslint.org/docs/rules/eqeqeq.html).
+
     + **物件** 轉換為 **true**
     + **Undefined** 轉換為 **false**
     + **Null** 轉換為 **false**
     + **布林** 轉換為 **該布林值**
     + **數字** 如果是 **+0, -0, 或 NaN** 則轉換為 **false**，其他的皆為 **true**
-    + **字串** 如果是空字串 `''` 則轉換為 **false** ，其他的皆為 **true**
+    + **字串** 如果是空字串 `''` 則轉換為 **false**，其他的皆為 **true**
 
     ```javascript
     if ([0]) {
@@ -1189,15 +1234,17 @@
     }
 
     // bad
-    function() { return false; }
+    function () { return false; }
 
     // good
-    function() {
+    function () {
       return false;
     }
     ```
 
   - [16.2](#16.2) <a name='16.2'></a> 如果你使用 `if` 及 `else` 的多行區塊，請將 `else` 放在 `if` 區塊的結尾花括號後。
+
+    eslint rules: [`brace-style`](http://eslint.org/docs/rules/brace-style.html).
 
     ```javascript
     // bad
@@ -1327,24 +1374,28 @@
 
   - [18.1](#18.1) <a name='18.1'></a> 將 Tab 設定為兩個空格。
 
+  eslint rules: [`indent`](http://eslint.org/docs/rules/indent.html).
+
     ```javascript
     // bad
-    function() {
+    function () {
     ∙∙∙∙const name;
     }
 
     // bad
-    function() {
+    function () {
     ∙const name;
     }
 
     // good
-    function() {
+    function () {
     ∙∙const name;
     }
     ```
 
   - [18.2](#18.2) <a name='18.2'></a> 在花括號前加一個空格。
+
+  eslint rules: [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks.html).
 
     ```javascript
     // bad
@@ -1372,6 +1423,8 @@
 
   - [18.3](#18.3) <a name='18.3'></a> 在控制流程的語句（`if`, `while` 等等。）的左括號前加上一個空格。宣告的函式和傳入的變數間則沒有空格。
 
+  eslint rules: [`space-after-keywords`](http://eslint.org/docs/rules/space-after-keywords.html), [`space-before-keywords`](http://eslint.org/docs/rules/space-before-keywords.html).
+
     ```javascript
     // bad
     if(isJedi) {
@@ -1396,6 +1449,8 @@
 
   - [18.4](#18.4) <a name='18.4'></a> 將運算元用空格隔開。
 
+  eslint rules: [`space-infix-ops`](http://eslint.org/docs/rules/space-infix-ops.html).
+
     ```javascript
     // bad
     const x=y+5;
@@ -1408,14 +1463,14 @@
 
     ```javascript
     // bad
-    (function(global) {
+    (function (global) {
       // ...stuff...
     })(this);
     ```
 
     ```javascript
     // bad
-    (function(global) {
+    (function (global) {
       // ...stuff...
     })(this);↵
     ↵
@@ -1423,7 +1478,7 @@
 
     ```javascript
     // good
-    (function(global) {
+    (function (global) {
       // ...stuff...
     })(this);↵
     ```
@@ -1526,6 +1581,8 @@
 
   - [18.8](#18.8) <a name='18.8'></a> 別在區塊中置放空行。
 
+  eslint rules: [`padded-blocks`](http://eslint.org/docs/rules/padded-blocks.html).
+
     ```javascript
     // bad
     function bar() {
@@ -1556,6 +1613,57 @@
     }
     ```
 
+  - [18.9](#18.9) <a name='18.9'></a> 不要在括號內的兩側置放空格。
+
+  eslint rules: [`space-in-parens`](http://eslint.org/docs/rules/space-in-parens.html).
+
+    ```javascript
+    // bad
+    function bar( foo ) {
+      return foo;
+    }
+
+    // good
+    function bar(foo) {
+      return foo;
+    }
+
+    // bad
+    if ( foo ) {
+      console.log(foo);
+    }
+
+    // good
+    if (foo) {
+      console.log(foo);
+    }
+    ```
+
+  - [18.10](#18.10) <a name='18.10'></a> 不要在中括號內的兩側置放空格。
+
+  eslint rules: [`array-bracket-spacing`](http://eslint.org/docs/rules/array-bracket-spacing.html).
+
+    ```javascript
+    // bad
+    const foo = [ 1, 2, 3 ];
+    console.log(foo[ 0 ]);
+
+    // good
+    const foo = [1, 2, 3];
+    console.log(foo[0]);
+    ```
+
+  - [18.11](#18.11) <a name='18.11'></a> 在大括號內的兩側置放空格。
+
+  eslint rules: [`object-curly-spacing`](http://eslint.org/docs/rules/object-curly-spacing.html).
+
+    ```javascript
+    // bad
+    const foo = {clark: 'kent'};
+
+    // good
+    const foo = { clark: 'kent' };
+    ```
 
 **[⬆ 回到頂端](#table-of-contents)**
 
@@ -1563,6 +1671,8 @@
 ## 逗號
 
   - [19.1](#19.1) <a name='19.1'></a> 不要將逗號放在前方。
+
+  eslint rules: [`comma-style`](http://eslint.org/docs/rules/comma-style.html).
 
     ```javascript
     // bad
@@ -1597,6 +1707,8 @@
     ```
 
   - [19.2](#19.2) <a name='19.2'></a> 增加結尾的逗號：**別懷疑**
+
+  eslint rules: [`no-comma-dangle`](http://eslint.org/docs/rules/no-comma-dangle.html).
 
   > 為什麼？這會讓 Git 的差異列表更乾淨。另外，Babel 轉譯器也會刪除結尾多餘的逗號，也就是說你完全不需要擔心在老舊的瀏覽器發生[多餘逗號的問題](es5/README.md#commas)。
 
@@ -1646,9 +1758,11 @@
 
   - [20.1](#20.1) <a name='20.1'></a> **對啦。**
 
+  eslint rules: [`semi`](http://eslint.org/docs/rules/semi.html).
+
     ```javascript
     // bad
-    (function() {
+    (function () {
       const name = 'Skywalker'
       return name
     })()
@@ -1765,6 +1879,8 @@
 
   - [22.2](#22.2) <a name='22.2'></a> 使用駝峰式大小寫命名物件，函式及實例。
 
+  eslint rules: [`camelcase`](http://eslint.org/docs/rules/camelcase.html).
+
     ```javascript
     // bad
     const OBJEcttsssss = {};
@@ -1802,6 +1918,8 @@
 
   - [22.4](#22.4) <a name='22.4'></a> 命名私有屬性時請在前面加底線 `_` 。
 
+  eslint rules: [`no-underscore-dangle`](http://eslint.org/docs/rules/no-underscore-dangle.html).
+
     ```javascript
     // bad
     this.__firstName__ = 'Panda';
@@ -1817,7 +1935,7 @@
     // bad
     function foo() {
       const self = this;
-      return function() {
+      return function () {
         console.log(self);
       };
     }
@@ -1825,7 +1943,7 @@
     // bad
     function foo() {
       const that = this;
-      return function() {
+      return function () {
         console.log(that);
       };
     }
@@ -1947,7 +2065,7 @@
 
     ...
 
-    $(this).on('listingUpdated', function(e, listingId) {
+    $(this).on('listingUpdated', function (e, listingId) {
       // do something with listingId
     });
     ```
@@ -1960,7 +2078,7 @@
 
     ...
 
-    $(this).on('listingUpdated', function(e, data) {
+    $(this).on('listingUpdated', function (e, data) {
       // do something with data.listingId
     });
     ```
@@ -2188,6 +2306,7 @@
   - **Apartmint**: [apartmint/javascript](https://github.com/apartmint/javascript)
   - **Avalara**: [avalara/javascript](https://github.com/avalara/javascript)
   - **Billabong**: [billabong/javascript](https://github.com/billabong/javascript)
+  - **Bisk**: [bisk/javascript](https://github.com/Bisk/javascript/)
   - **Blendle**: [blendle/javascript](https://github.com/blendle/javascript)
   - **ComparaOnline**: [comparaonline/javascript](https://github.com/comparaonline/javascript-style-guide)
   - **Compass Learning**: [compasslearning/javascript-style-guide](https://github.com/compasslearning/javascript-style-guide)
@@ -2209,6 +2328,7 @@
   - **InfoJobs**: [InfoJobs/JavaScript-Style-Guide](https://github.com/InfoJobs/JavaScript-Style-Guide)
   - **Intent Media**: [intentmedia/javascript](https://github.com/intentmedia/javascript)
   - **Jam3**: [Jam3/Javascript-Code-Conventions](https://github.com/Jam3/Javascript-Code-Conventions)
+  - **JeopardyBot**: [kesne/jeopardy-bot](https://github.com/kesne/jeopardy-bot/blob/master/STYLEGUIDE.md)
   - **JSSolutions**: [JSSolutions/javascript](https://github.com/JSSolutions/javascript)
   - **Kinetica Solutions**: [kinetica/javascript](https://github.com/kinetica/Javascript-style-guide)
   - **Mighty Spring**: [mightyspring/javascript](https://github.com/mightyspring/javascript)
@@ -2224,6 +2344,7 @@
   - **Peerby**: [Peerby/javascript](https://github.com/Peerby/javascript)
   - **Razorfish**: [razorfish/javascript-style-guide](https://github.com/razorfish/javascript-style-guide)
   - **reddit**: [reddit/styleguide/javascript](https://github.com/reddit/styleguide/tree/master/javascript)
+  - **React**: [/facebook/react/blob/master/CONTRIBUTING.md#style-guide](https://github.com/facebook/react/blob/master/CONTRIBUTING.md#style-guide)
   - **REI**: [reidev/js-style-guide](https://github.com/reidev/js-style-guide)
   - **Ripple**: [ripple/javascript-style-guide](https://github.com/ripple/javascript-style-guide)
   - **SeekingAlpha**: [seekingalpha/javascript-style-guide](https://github.com/seekingalpha/javascript-style-guide)
