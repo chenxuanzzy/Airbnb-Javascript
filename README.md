@@ -1613,7 +1613,7 @@
     }
     ```
 
-  - [18.9](#18.9) <a name='18.9'></a> Do not add spaces inside parentheses.
+  - [18.9](#18.9) <a name='18.9'></a> 不要在括號內的兩側置放空格。
 
   eslint rules: [`space-in-parens`](http://eslint.org/docs/rules/space-in-parens.html).
 
