@@ -26,13 +26,26 @@ module.exports = {
     // https://github.com/eslint/eslint/blob/master/docs/rules/indent.md
     'indent': [2, 2, { "SwitchCase": 1, "VariableDeclarator": 1 }],
     // specify whether double or single quotes should be used in JSX attributes
-    'jsx-quotes': 2,
+    // http://eslint.org/docs/rules/jsx-quotes
+    'jsx-quotes': [2, 'prefer-double'],
     // enforces spacing between keys and values in object literal properties
     'key-spacing': [2, {'beforeColon': false, 'afterColon': true}],
     // enforces empty lines around comments
     'lines-around-comment': 0,
     // disallow mixed 'LF' and 'CRLF' as linebreaks
     'linebreak-style': 0,
+    // specify the maximum length of a line in your program
+    // https://github.com/eslint/eslint/blob/master/docs/rules/max-len.md
+    'max-len': [2, {
+      'code': 100,
+      'comments': 100,
+      'commentLength': 100,
+      'tabWidth': 2,
+      'ignoreUrls': false,
+      'ignorePattern': null,
+      'ignoreTrailingComments': false,
+      'ignoreComments': false
+    }],
     // specify the maximum depth callbacks can be nested
     'max-nested-callbacks': 0,
     // require a capital letter for constructors

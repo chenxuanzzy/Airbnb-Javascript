@@ -94,9 +94,9 @@
 
   - [2.1](#2.1) <a name='2.1'></a> 對於所有的參考使用 `const`；避免使用 `var`。
 
-  > 為什麼？因為這能確保你無法對參考重新賦值，也不會讓你的程式碼有錯誤或難以理解。
+    > 為什麼？因為這能確保你無法對參考重新賦值，也不會讓你的程式碼有錯誤或難以理解。
 
-  eslint rules: [`prefer-const`](http://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](http://eslint.org/docs/rules/no-const-assign.html).
+    eslint rules: [`prefer-const`](http://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](http://eslint.org/docs/rules/no-const-assign.html).
 
     ```javascript
     // bad
@@ -110,9 +110,9 @@
 
   - [2.2](#2.2) <a name='2.2'></a> 如果你需要可變動的參考，使用 `let` 代替 `var`。
 
-  > 為什麼？因為 `let` 的作用域是在區塊內，而不像 `var` 是在函式內。
+    > 為什麼？因為 `let` 的作用域是在區塊內，而不像 `var` 是在函式內。
 
-  eslint rules: [`no-var`](http://eslint.org/docs/rules/no-var.html).
+    eslint rules: [`no-var`](http://eslint.org/docs/rules/no-var.html).
 
     ```javascript
     // bad
@@ -147,7 +147,7 @@
 
   - [3.1](#3.1) <a name='3.1'></a> 使用簡潔的語法建立物件。
 
-  eslint rules: [`no-new-object`](http://eslint.org/docs/rules/no-new-object.html).
+    eslint rules: [`no-new-object`](http://eslint.org/docs/rules/no-new-object.html).
 
     ```javascript
     // bad
@@ -195,7 +195,7 @@
   <a name="es6-computed-properties"></a>
   - [3.4](#3.4) <a name='3.4'></a> 建立具有動態屬性名稱的物件時請使用可被計算的屬性名稱。
 
-  > 為什麼？因為這樣能夠讓你在同一個地方定義所有的物件屬性。
+    > 為什麼？因為這樣能夠讓你在同一個地方定義所有的物件屬性。
 
     ```javascript
 
@@ -221,7 +221,7 @@
   <a name="es6-object-shorthand"></a>
   - [3.5](#3.5) <a name='3.5'></a> 使用物件方法的簡寫。
 
-  eslint rules: [`object-shorthand`](http://eslint.org/docs/rules/object-shorthand.html).
+    eslint rules: [`object-shorthand`](http://eslint.org/docs/rules/object-shorthand.html).
 
     ```javascript
     // bad
@@ -246,9 +246,9 @@
   <a name="es6-object-concise"></a>
   - [3.6](#3.6) <a name='3.6'></a> 使用屬性值的簡寫
 
-  > 為什麼？因為寫起來更短且更有描述性。
+    > 為什麼？因為寫起來更短且更有描述性。
 
-  eslint rules: [`object-shorthand`](http://eslint.org/docs/rules/object-shorthand.html).
+    eslint rules: [`object-shorthand`](http://eslint.org/docs/rules/object-shorthand.html).
 
     ```javascript
     const lukeSkywalker = 'Luke Skywalker';
@@ -266,7 +266,7 @@
 
   - [3.7](#3.7) <a name='3.7'></a> 請在物件宣告的開頭將簡寫的屬性分組。
 
-  > 為什麼？因為這樣能夠很簡單的看出哪些屬性是使用簡寫。
+    > 為什麼？因為這樣能夠很簡單的看出哪些屬性是使用簡寫。
 
     ```javascript
     const anakinSkywalker = 'Anakin Skywalker';
@@ -300,7 +300,7 @@
 
   - [4.1](#4.1) <a name='4.1'></a> 使用簡潔的語法建立陣列。
 
-  eslint rules: [`no-array-constructor`](http://eslint.org/docs/rules/no-array-constructor.html).
+    eslint rules: [`no-array-constructor`](http://eslint.org/docs/rules/no-array-constructor.html).
 
     ```javascript
     // bad
@@ -352,7 +352,7 @@
 
   - [5.1](#5.1) <a name='5.1'></a> 存取或使用多屬性的物件時，請使用物件解構子。
 
-  > 為什麼？因為解構子能夠節省你對這些屬性建立暫時的參考。
+    > 為什麼？因為解構子能夠節省你對這些屬性建立暫時的參考。
 
     ```javascript
     // bad
@@ -390,7 +390,7 @@
 
   - [5.3](#5.3) <a name='5.3'></a> 需要回傳多個值時請使用物件解構子，而不是陣列解構子。
 
-  > 為什麼？因為你可以增加新的屬性或改變排序且不須更動呼叫的位置。
+    > 為什麼？因為你可以增加新的屬性或改變排序且不須更動呼叫的位置。
 
     ```javascript
     // bad
@@ -420,7 +420,7 @@
 
   - [6.1](#6.1) <a name='6.1'></a> 字串請使用單引號 `''`。
 
-  eslint rules: [`quotes`](http://eslint.org/docs/rules/quotes.html).
+    eslint rules: [`quotes`](http://eslint.org/docs/rules/quotes.html).
 
     ```javascript
     // bad
@@ -431,7 +431,7 @@
     ```
 
   - [6.2](#6.2) <a name='6.2'></a> 如果字串超過 100 個字元，請使用字串連接符號換行。
-  - [6.3](#6.3) <a name='6.3'></a> 注意：過度的長字串連接可能會影響效能 [jsPerf](http://jsperf.com/ya-string-concat) 及[討論串](https://github.com/airbnb/javascript/issues/40)。
+  - [6.3](#6.3) <a name='6.3'></a> 注意：過度的長字串連接可能會影響效能。[jsPerf](http://jsperf.com/ya-string-concat) 及[討論串](https://github.com/airbnb/javascript/issues/40)。
 
     ```javascript
     // bad
@@ -452,9 +452,9 @@
   <a name="es6-template-literals"></a>
   - [6.4](#6.4) <a name='6.4'></a> 當以程式方式建構字串時，請使用模板字串而不是字串連接。
 
-  > 為什麼？因為模板字串更有可讀性，正確的換行符號及字串插值功能讓語法更簡潔。
+    > 為什麼？因為模板字串更有可讀性，正確的換行符號及字串插值功能讓語法更簡潔。
 
-  eslint rules: [`prefer-template`](http://eslint.org/docs/rules/prefer-template.html).
+    eslint rules: [`prefer-template`](http://eslint.org/docs/rules/prefer-template.html).
 
     ```javascript
     // bad
@@ -481,7 +481,7 @@
 
   - [7.1](#7.1) <a name='7.1'></a> 使用函式宣告而不是函式表達式。
 
-  > 為什麼？因為函式宣告是可命名的，所以他們在呼叫堆疊中更容易被識別。此外，函式宣告自身都會被提升，而函式表達式則只有參考會被提升。這個規則使得[箭頭函式](#arrow-functions)可以完全取代函式表達式。
+    > 為什麼？因為函式宣告是可命名的，所以他們在呼叫堆疊中更容易被識別。此外，函式宣告自身都會被提升，而函式表達式則只有參考會被提升。這個規則使得[箭頭函式](#arrow-functions)可以完全取代函式表達式。
 
     ```javascript
     // bad
@@ -502,8 +502,9 @@
     })();
     ```
 
-  - [7.3](#7.3) <a name='7.3'></a> 絕對不要在非函式的區塊（if, while, 等等）宣告函式，瀏覽器或許會允許你這麼做，但不同瀏覽器產生的結果可能會不同。你可以將函式賦予一個區塊外的變數解決這個問題。
-  - [7.4](#7.4) <a name='7.4'></a> **注意:** ECMA-262 將`區塊`定義為陳述式，函式宣告則不是陳述式。[閱讀 ECMA-262 關於這個問題的說明](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97)。
+  - [7.3](#7.3) <a name='7.3'></a> 絕對不要在非函式的區塊（if、while 等等）宣告函式。你可以將函式賦予至變數解決這個問題。瀏覽器會允許你這麼做，但不同瀏覽器產生的結果可能會不同。
+
+  - [7.4](#7.4) <a name='7.4'></a> **注意：**ECMA-262 將`區塊`定義為陳述式。函式宣告則不是陳述式。[閱讀 ECMA-262 關於這個問題的說明](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97)。
 
     ```javascript
     // bad
@@ -539,7 +540,7 @@
   <a name="es6-rest"></a>
   - [7.6](#7.6) <a name='7.6'></a> 絕對不要使用 `arguments`，可以選擇使用 rest 語法 `...` 替代。
 
-  > 為什麼？使用 `...` 能夠明確指出你要將參數傳入哪個變數。再加上 rest 參數是一個真正的陣列，而不像 `arguments` 似陣列而非陣列。
+    > 為什麼？使用 `...` 能夠明確指出你要將參數傳入哪個變數。再加上 rest 參數是一個真正的陣列，而不像 `arguments` 似陣列而非陣列。
 
     ```javascript
     // bad
@@ -583,19 +584,19 @@
 
   - [7.8](#7.8) <a name='7.8'></a> 使用預設參數時請避免副作用。
 
-  > 為什麼？因為這樣會讓思緒混淆。
+    > 為什麼？因為這樣會讓思緒混淆。
 
-  ```javascript
-  var b = 1;
-  // bad
-  function count(a = b++) {
-    console.log(a);
-  }
-  count();  // 1
-  count();  // 2
-  count(3); // 3
-  count();  // 3
-  ```
+    ```javascript
+    var b = 1;
+    // bad
+    function count(a = b++) {
+      console.log(a);
+    }
+    count();  // 1
+    count();  // 2
+    count(3); // 3
+    count();  // 3
+    ```
 
   - [7.9](#7.9) <a name='7.9'></a> 永遠將預設參數放置於最後。
 
@@ -611,32 +612,75 @@
     }
     ```
 
-- [7.10](#7.10) <a name='7.9'></a> 千萬別使用建構函式去建立一個新的函式。
+  - [7.10](#7.10) <a name='7.9'></a> 千萬別使用建構函式去建立一個新的函式。
 
-  > 為什麼？透過這種方式建立一個函數來計算字串類似於 eval()，會造成許多的漏洞。
+    > 為什麼？透過這種方式建立一個函數來計算字串類似於 eval()，會造成許多的漏洞。
 
-  ```javascript
-  // bad
-  var add = new Function('a', 'b', 'return a + b');
+    ```javascript
+    // bad
+    var add = new Function('a', 'b', 'return a + b');
 
-  // still bad
-  var subtract = Function('a', 'b', 'return a - b');
-  ```
+    // still bad
+    var subtract = Function('a', 'b', 'return a - b');
+    ```
 
-- [7.11](#7.11) <a name="7.11"></a> 在函式的標示後放置空格。
+  - [7.11](#7.11) <a name="7.11"></a> 在函式的標示後放置空格。
 
-  > 為什麼？一致性較好，而且你不應該在新增或刪除名稱時增加或減少空格。
+    > 為什麼？一致性較好，而且你不應該在新增或刪除名稱時增加或減少空格。
 
-  ```javascript
-  // bad
-  const f = function(){};
-  const g = function (){};
-  const h = function() {};
+    ```javascript
+    // bad
+    const f = function(){};
+    const g = function (){};
+    const h = function() {};
 
-  // good
-  const x = function () {};
-  const y = function a() {};
-  ```
+    // good
+    const x = function () {};
+    const y = function a() {};
+    ```
+
+  - [7.12](#7.12) <a name="7.12"></a> Never mutate parameters.
+
+    > Why? Manipulating objects passed in as parameters can cause unwanted variable side effects in the original caller.
+
+    eslint rules: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html).
+
+    ```javascript
+    // bad
+    function f1(obj) {
+      obj.key = 1;
+    };
+
+    // good
+    function f2(obj) {
+      const key = Object.prototype.hasOwnProperty.call(obj, 'key') ? obj.key : 1;
+    };
+    ```
+
+  - [7.13](#7.13) <a name="7.13"></a> Never reassign parameters.
+
+    > Why? Reassigning parameters can lead to unexpected behavior, especially when accessing the `arguments` object. It can also cause optimization issues, especially in V8.
+
+    eslint rules: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html).
+
+    ```javascript
+    // bad
+    function f1(a) {
+      a = 1;
+    }
+
+    function f2(a) {
+      if (!a) { a = 1; }
+    }
+
+    // good
+    function f3(a) {
+      const b = a || 1;
+    }
+
+    function f4(a = 1) {
+    }
+    ```
 
 **[⬆ 回到頂端](#table-of-contents)**
 
@@ -645,11 +689,11 @@
 
   - [8.1](#8.1) <a name='8.1'></a> 當你必須使用函式表達式（或傳遞一個匿名函式）時，請使用箭頭函式的符號。
 
-  > 為什麼？它會在有 `this` 的內部建立了一個新版本的函式，通常功能都是你所想像的，而且語法更為簡潔。
+    > 為什麼？它會在有 `this` 的內部建立了一個新版本的函式，通常功能都是你所想像的，而且語法更為簡潔。
 
-  > 為什麼不？如果你已經有一個相當複雜的函式時，或許你該將邏輯都移到一個函式宣告上。
+    > 為什麼不？如果你已經有一個相當複雜的函式時，或許你該將邏輯都移到一個函式宣告上。
 
-  eslint rules: [`prefer-arrow-callback`](http://eslint.org/docs/rules/prefer-arrow-callback.html), [`arrow-spacing`](http://eslint.org/docs/rules/arrow-spacing.html).
+    eslint rules: [`prefer-arrow-callback`](http://eslint.org/docs/rules/prefer-arrow-callback.html), [`arrow-spacing`](http://eslint.org/docs/rules/arrow-spacing.html).
 
     ```javascript
     // bad
@@ -667,11 +711,11 @@
 
   - [8.2](#8.2) <a name='8.2'></a> 如果函式適合只使用一行，你可以很隨性的省略大括號及使用隱藏的回傳。否則請使用 `return` 語法。
 
-  > 為什麼？因為語法修飾。這樣能夠在多個函式鏈結在一起的時候更易讀。
+    > 為什麼？因為語法修飾。這樣能夠在多個函式鏈結在一起的時候更易讀。
 
-  > 為什麼不？如果你打算回傳一個物件。
+    > 為什麼不？如果你打算回傳一個物件。
 
-  eslint rules: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html), [`arrow-body-style`](http://eslint.org/docs/rules/arrow-body-style.html).
+    eslint rules: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html), [`arrow-body-style`](http://eslint.org/docs/rules/arrow-body-style.html).
 
     ```javascript
     // good
@@ -692,7 +736,7 @@
 
   - [8.3](#8.3) <a name='8.3'></a> 如果表達式跨了多行，請將它們包在括號中增加可讀性。
 
-  > 為什麼？這麼做更清楚的表達函式的開始與結束的位置。
+    > 為什麼？這麼做更清楚的表達函式的開始與結束的位置。
 
     ```js
     // bad
@@ -711,9 +755,9 @@
 
   - [8.4](#8.4) <a name='8.4'></a> 如果你的函式只使用一個參數，那麼可以很隨意的省略括號。
 
-  > 為什麼？減少視覺上的混亂。
+    > 為什麼？減少視覺上的混亂。
 
-  eslint rules: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html).
+    eslint rules: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html).
 
     ```js
     // good
@@ -730,7 +774,7 @@
 
   - [9.1](#9.1) <a name='9.1'></a> 總是使用 `class`。避免直接操作 `prototype`。
 
-  > 為什麼？因為 `class` 語法更簡潔且更易讀。
+    > 為什麼？因為 `class` 語法更簡潔且更易讀。
 
     ```javascript
     // bad
@@ -759,7 +803,7 @@
 
   - [9.2](#9.2) <a name='9.2'></a> 使用 `extends` 繼承。
 
-  > 為什麼？因為他是一個內建繼承原型方法的方式，且不會破壞 `instanceof`。
+    > 為什麼？因為他是一個內建繼承原型方法的方式，且不會破壞 `instanceof`。
 
     ```javascript
     // bad
@@ -843,7 +887,7 @@
 
   - [10.1](#10.1) <a name='10.1'></a> 總是使用模組（`import`/`export`）勝過一個非標準模組的系統。你可以編譯為喜歡的模組系統。
 
-  > 為什麼？模組就是未來的趨勢，讓我們現在就開始前往未來吧。
+    > 為什麼？模組就是未來的趨勢，讓我們現在就開始前往未來吧。
 
     ```javascript
     // bad
@@ -861,7 +905,7 @@
 
   - [10.2](#10.2) <a name='10.2'></a> 請別使用萬用字元引入。
 
-  > 為什麼？這樣能夠確保你只有一個預設導出。
+    > 為什麼？這樣能夠確保你只有一個預設導出。
 
     ```javascript
     // bad
@@ -873,7 +917,7 @@
 
   - [10.3](#10.3) <a name='10.3'></a> 然後也不要在引入的地方導出。
 
-  > 為什麼？雖然一行程式相當的簡明，但是讓引入及導出各自有明確的方式能夠讓事情保持一致。
+    > 為什麼？雖然一行程式相當的簡明，但是讓引入及導出各自有明確的方式能夠讓事情保持一致。
 
     ```javascript
     // bad
@@ -893,9 +937,9 @@
 
   - [11.1](#11.1) <a name='11.1'></a> 不要使用迭代器。更好的做法是使用 JavaScript 的高階函式，像是 `map()` 及 `reduce()`，替代如 `for-of ` 的迴圈語法。
 
-  > 為什麼？這加強了我們不變的規則。處理純函式的回傳值讓程式碼更易讀，勝過它所造成的函式副作用。
+    > 為什麼？這加強了我們不變的規則。處理純函式的回傳值讓程式碼更易讀，勝過它所造成的函式副作用。
 
-  eslint rules: [`no-iterator`](http://eslint.org/docs/rules/no-iterator.html).
+    eslint rules: [`no-iterator`](http://eslint.org/docs/rules/no-iterator.html).
 
     ```javascript
     const numbers = [1, 2, 3, 4, 5];
@@ -920,7 +964,7 @@
 
   - [11.2](#11.2) <a name='11.2'></a> 現在還不要使用產生器。
 
-  > 為什麼？因為它現在編譯至 ES5 還沒有編譯得非常好。
+    > 為什麼？因為它現在編譯至 ES5 還沒有編譯得非常好。
 
 **[⬆ 回到頂端](#table-of-contents)**
 
@@ -929,7 +973,7 @@
 
   - [12.1](#12.1) <a name='12.1'></a> 使用點 `.` 來存取屬性。
 
-  eslint rules: [`dot-notation`](http://eslint.org/docs/rules/dot-notation.html).
+    eslint rules: [`dot-notation`](http://eslint.org/docs/rules/dot-notation.html).
 
     ```javascript
     const luke = {
@@ -978,7 +1022,7 @@
 
     > 為什麼？因為這樣更容易增加新的變數宣告，而且你也不用擔心替換  `;` 為 `,` 及加入的標點符號不同的問題。
 
-  eslint rules: [`one-var`](http://eslint.org/docs/rules/one-var.html).
+    eslint rules: [`one-var`](http://eslint.org/docs/rules/one-var.html).
 
     ```javascript
     // bad
@@ -1000,7 +1044,7 @@
 
   - [13.3](#13.3) <a name='13.3'></a> 將所有的 `const` 及 `let` 分組。
 
-  > 為什麼？當你需要根據之前已賦值的變數來賦值給未賦值變數時相當有幫助。
+    > 為什麼？當你需要根據之前已賦值的變數來賦值給未賦值變數時相當有幫助。
 
     ```javascript
     // bad
@@ -1025,7 +1069,7 @@
 
   - [13.4](#13.4) <a name='13.4'></a> 在你需要的地方賦值給變數，但是請把它們放在合理的位置。
 
-  > 為什麼？因為 `let` 及 `const` 是在區塊作用域內，而不是函式作用域。
+    > 為什麼？因為 `let` 及 `const` 是在區塊作用域內，而不是函式作用域。
 
     ```javascript
     // good
@@ -1168,10 +1212,13 @@
 <a name="comparison-operators--equality"></a>
 ## 條件式與等號
 
+## Comparison Operators & Equality
+
   - [15.1](#15.1) <a name='15.1'></a> 請使用 `===` 和 `!==` ，別使用 `==` 及 `!=` 。
+
   - [15.2](#15.2) <a name='15.2'></a> 像是 `if` 的條件語法內會使用 `ToBoolean` 的抽象方法強轉類型，並遵循以下規範：
 
-  eslint rules: [`eqeqeq`](http://eslint.org/docs/rules/eqeqeq.html).
+    eslint rules: [`eqeqeq`](http://eslint.org/docs/rules/eqeqeq.html).
 
     + **物件** 轉換為 **true**
     + **Undefined** 轉換為 **false**
@@ -1374,7 +1421,7 @@
 
   - [18.1](#18.1) <a name='18.1'></a> 將 Tab 設定為兩個空格。
 
-  eslint rules: [`indent`](http://eslint.org/docs/rules/indent.html).
+    eslint rules: [`indent`](http://eslint.org/docs/rules/indent.html).
 
     ```javascript
     // bad
@@ -1395,7 +1442,7 @@
 
   - [18.2](#18.2) <a name='18.2'></a> 在花括號前加一個空格。
 
-  eslint rules: [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks.html).
+    eslint rules: [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks.html).
 
     ```javascript
     // bad
@@ -1423,7 +1470,7 @@
 
   - [18.3](#18.3) <a name='18.3'></a> 在控制流程的語句（`if`, `while` 等等。）的左括號前加上一個空格。宣告的函式和傳入的變數間則沒有空格。
 
-  eslint rules: [`space-after-keywords`](http://eslint.org/docs/rules/space-after-keywords.html), [`space-before-keywords`](http://eslint.org/docs/rules/space-before-keywords.html).
+    eslint rules: [`space-after-keywords`](http://eslint.org/docs/rules/space-after-keywords.html), [`space-before-keywords`](http://eslint.org/docs/rules/space-before-keywords.html).
 
     ```javascript
     // bad
@@ -1449,7 +1496,7 @@
 
   - [18.4](#18.4) <a name='18.4'></a> 將運算元用空格隔開。
 
-  eslint rules: [`space-infix-ops`](http://eslint.org/docs/rules/space-infix-ops.html).
+    eslint rules: [`space-infix-ops`](http://eslint.org/docs/rules/space-infix-ops.html).
 
     ```javascript
     // bad
@@ -1581,7 +1628,7 @@
 
   - [18.8](#18.8) <a name='18.8'></a> 別在區塊中置放空行。
 
-  eslint rules: [`padded-blocks`](http://eslint.org/docs/rules/padded-blocks.html).
+    eslint rules: [`padded-blocks`](http://eslint.org/docs/rules/padded-blocks.html).
 
     ```javascript
     // bad
@@ -1615,7 +1662,7 @@
 
   - [18.9](#18.9) <a name='18.9'></a> 不要在括號內的兩側置放空格。
 
-  eslint rules: [`space-in-parens`](http://eslint.org/docs/rules/space-in-parens.html).
+    eslint rules: [`space-in-parens`](http://eslint.org/docs/rules/space-in-parens.html).
 
     ```javascript
     // bad
@@ -1641,7 +1688,7 @@
 
   - [18.10](#18.10) <a name='18.10'></a> 不要在中括號內的兩側置放空格。
 
-  eslint rules: [`array-bracket-spacing`](http://eslint.org/docs/rules/array-bracket-spacing.html).
+    eslint rules: [`array-bracket-spacing`](http://eslint.org/docs/rules/array-bracket-spacing.html).
 
     ```javascript
     // bad
@@ -1655,7 +1702,7 @@
 
   - [18.11](#18.11) <a name='18.11'></a> 在大括號內的兩側置放空格。
 
-  eslint rules: [`object-curly-spacing`](http://eslint.org/docs/rules/object-curly-spacing.html).
+    eslint rules: [`object-curly-spacing`](http://eslint.org/docs/rules/object-curly-spacing.html).
 
     ```javascript
     // bad
@@ -1665,6 +1712,33 @@
     const foo = { clark: 'kent' };
     ```
 
+  - [18.12](#18.12) <a name='18.12'></a> Avoid having lines of code that are longer than 100 characters (including whitespace).
+
+    > Why? This ensures readability and maintainability.
+
+    eslint rules: [`max-len`](http://eslint.org/docs/rules/max-len.html).
+
+    ```javascript
+    // bad
+    const foo = 'Whatever national crop flips the window. The cartoon reverts within the screw. Whatever wizard constrains a helpful ally. The counterpart ascends!';
+
+    // bad
+    $.ajax({ method: 'POST', url: 'https://airbnb.com/', data: { name: 'John' } }).done(() => console.log('Congratulations!')).fail(() => console.log('You have failed this city.'));
+
+    // good
+    const foo = 'Whatever national crop flips the window. The cartoon reverts within the screw. ' +
+      'Whatever wizard constrains a helpful ally. The counterpart ascends!';
+
+    // good
+    $.ajax({
+      method: 'POST',
+      url: 'https://airbnb.com/',
+      data: { name: 'John' },
+    })
+      .done(() => console.log('Congratulations!'))
+      .fail(() => console.log('You have failed this city.'));
+    ```
+
 **[⬆ 回到頂端](#table-of-contents)**
 
 <a name="commas"></a>
@@ -1672,7 +1746,7 @@
 
   - [19.1](#19.1) <a name='19.1'></a> 不要將逗號放在前方。
 
-  eslint rules: [`comma-style`](http://eslint.org/docs/rules/comma-style.html).
+    eslint rules: [`comma-style`](http://eslint.org/docs/rules/comma-style.html).
 
     ```javascript
     // bad
@@ -1708,9 +1782,9 @@
 
   - [19.2](#19.2) <a name='19.2'></a> 增加結尾的逗號：**別懷疑**
 
-  eslint rules: [`no-comma-dangle`](http://eslint.org/docs/rules/no-comma-dangle.html).
+    eslint rules: [`no-comma-dangle`](http://eslint.org/docs/rules/no-comma-dangle.html).
 
-  > 為什麼？這會讓 Git 的差異列表更乾淨。另外，Babel 轉譯器也會刪除結尾多餘的逗號，也就是說你完全不需要擔心在老舊的瀏覽器發生[多餘逗號的問題](es5/README.md#commas)。
+    > 為什麼？這會讓 Git 的差異列表更乾淨。另外，Babel 轉譯器也會刪除結尾多餘的逗號，也就是說你完全不需要擔心在老舊的瀏覽器發生[多餘逗號的問題](es5/README.md#commas)。
 
     ```javascript
     // bad - 不含多餘逗號的 git 差異列表
@@ -1758,7 +1832,7 @@
 
   - [20.1](#20.1) <a name='20.1'></a> **對啦。**
 
-  eslint rules: [`semi`](http://eslint.org/docs/rules/semi.html).
+    eslint rules: [`semi`](http://eslint.org/docs/rules/semi.html).
 
     ```javascript
     // bad
@@ -1879,7 +1953,7 @@
 
   - [22.2](#22.2) <a name='22.2'></a> 使用駝峰式大小寫命名物件，函式及實例。
 
-  eslint rules: [`camelcase`](http://eslint.org/docs/rules/camelcase.html).
+    eslint rules: [`camelcase`](http://eslint.org/docs/rules/camelcase.html).
 
     ```javascript
     // bad
@@ -1918,7 +1992,7 @@
 
   - [22.4](#22.4) <a name='22.4'></a> 命名私有屬性時請在前面加底線 `_` 。
 
-  eslint rules: [`no-underscore-dangle`](http://eslint.org/docs/rules/no-underscore-dangle.html).
+    eslint rules: [`no-underscore-dangle`](http://eslint.org/docs/rules/no-underscore-dangle.html).
 
     ```javascript
     // bad
@@ -2314,6 +2388,7 @@
   - **Digitpaint** [digitpaint/javascript](https://github.com/digitpaint/javascript)
   - **Ecosia**: [ecosia/javascript](https://github.com/ecosia/javascript)
   - **Evernote**: [evernote/javascript-style-guide](https://github.com/evernote/javascript-style-guide)
+  - **Evolution Gaming**: [evolution-gaming/javascript](https://github.com/evolution-gaming/javascript)
   - **ExactTarget**: [ExactTarget/javascript](https://github.com/ExactTarget/javascript)
   - **Expensify** [Expensify/Style-Guide](https://github.com/Expensify/Style-Guide/blob/master/javascript.md)
   - **Flexberry**: [Flexberry/javascript-style-guide](https://github.com/Flexberry/javascript-style-guide)
@@ -2341,6 +2416,7 @@
   - **National Park Service**: [nationalparkservice/javascript](https://github.com/nationalparkservice/javascript)
   - **Nimbl3**: [nimbl3/javascript](https://github.com/nimbl3/javascript)
   - **Orion Health**: [orionhealth/javascript](https://github.com/orionhealth/javascript)
+  - **OutBoxSoft**: [OutBoxSoft/javascript](https://github.com/OutBoxSoft/javascript)
   - **Peerby**: [Peerby/javascript](https://github.com/Peerby/javascript)
   - **Razorfish**: [razorfish/javascript-style-guide](https://github.com/razorfish/javascript-style-guide)
   - **reddit**: [reddit/styleguide/javascript](https://github.com/reddit/styleguide/tree/master/javascript)

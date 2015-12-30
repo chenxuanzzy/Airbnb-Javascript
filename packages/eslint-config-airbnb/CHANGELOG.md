@@ -1,3 +1,14 @@
+2.1.1 / 2015-12-15
+==================
+ - [fix] Remove deprecated react/jsx-quotes (#622)
+
+2.1.0 / 2015-12-15
+==================
+ - [fix] use `require.resolve` to allow nested `extend`s (#582)
+ - [new] enable `object-shorthand` rule (#621)
+ - [new] enable `arrow-spacing` rule (#517)
+ - [docs] flesh out react rule defaults (#618)
+
 2.0.0 / 2015-12-03
 ==================
  - [breaking] `space-before-function-paren`: require function spacing: `function <optional name>(` (#605)
