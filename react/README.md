@@ -6,7 +6,7 @@
 ## 目錄
 
   1. [基本規範](#basic-rules)
-  1. [Class vs `React.createClass`](#class-vs-reactcreateclass)
+  1. [Class vs `React.createClass` vs stateless](#class-vs-reactcreateclass-vs-stateless)
   1. [命名](#naming)
   1. [宣告](#declaration)
   1. [對齊](#alignment)
@@ -23,28 +23,51 @@
 ## 基本規範
 
   - 一個檔案只包含一個 React 元件。
+    - 不過，一個檔案可以有多個 [Stateless 或 Pure Components](https://facebook.github.io/react/docs/reusable-components.html#stateless-functions)。eslint: [`react/no-multi-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-multi-comp.md#ignorestateless).
   - 總是使用 JSX 語法。
-  - 請別使用 `React.createElement` ，除非你從一個不轉換 JSX 的檔案初始化。
+  - 請別使用 `React.createElement`，除非你初始化 app 的檔案不是 JSX。
 
-## Class vs `React.createClass`
+## Class vs `React.createClass` vs stateless
 
-  - 使用 `class extends React.Component`，除非你有一個非常好的理由才使用 mixins。
-
-  eslint rules: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md).
+  - 如果你有內部 state 及 / 或 refs，使用 `class extends React.Component` 勝於 `React.createClass`，除非你有一個非常好的理由才使用 mixins。eslint: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md)
 
     ```javascript
     // bad
     const Listing = React.createClass({
+      // ...
       render() {
-        return <div />;
+        return <div>{this.state.hello}</div>;
       }
     });
 
     // good
     class Listing extends React.Component {
+      // ...
       render() {
-        return <div />;
+        return <div>{this.state.hello}</div>;
       }
+    }
+    ```
+
+    如果你不使用 state 或 refs，使用一般函式（不是箭頭函式）勝於 classes：
+
+    ```javascript
+
+    // bad
+    class Listing extends React.Component {
+      render() {
+        return <div>{this.props.hello}</div>;
+      }
+    }
+
+    // bad (因為箭頭函式沒有「name」屬性)
+    const Listing = ({ hello }) => (
+      <div>{hello}</div>
+    );
+
+    // good
+    function Listing({ hello }) {
+      return <div>{hello}</div>;
     }
     ```
 
@@ -53,9 +76,7 @@
 
   - **副檔名**：React 元件的副檔名請使用 `jsx`。
   - **檔案名稱**：檔案名稱請使用帕斯卡命名法。例如：`ReservationCard.jsx`。
-  - **參考命名規範**: React 元件請使用帕斯卡命名法，元件的實例則使用駝峰式大小寫：
-
-  eslint rules: [`react/jsx-pascal-case`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md).
+  - **參考命名規範**: React 元件請使用帕斯卡命名法，元件的實例則使用駝峰式大小寫。eslint: [`react/jsx-pascal-case`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md)
 
     ```javascript
     // bad
@@ -105,9 +126,7 @@
 <a name="alignment"></a>
 ## 對齊
 
-  - JSX 語法請遵循以下的對齊風格
-
-  eslint rules: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md).
+  - JSX 語法請遵循以下的對齊風格。eslint: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md)
 
     ```javascript
     // bad
@@ -128,19 +147,17 @@
       superLongParam="bar"
       anotherSuperLongParam="baz"
     >
-      <Spazz />
+      <Quux />
     </Foo>
     ```
 
 <a name="quotes"></a>
 ## 引號
 
-  - 總是在 JSX 的屬性使用雙引號（`"`），但是所有的 JS 請使用單引號。
+  - 總是在 JSX 的屬性使用雙引號（`"`），但是所有的 JS 請使用單引號。eslint: [`jsx-quotes`](http://eslint.org/docs/rules/jsx-quotes)
 
   > 為什麼？JSX 屬性[不能包含跳脫的引號](http://eslint.org/docs/rules/jsx-quotes)，所以雙引號可以更容易輸入像 `"don't"` 的連接詞。
   > 一般的 HTML 屬性通常也使用雙引號而不是單引號，所以 JSX 屬性借鏡了這個慣例。
-
-  eslint rules: [`jsx-quotes`](http://eslint.org/docs/rules/jsx-quotes).
 
     ```javascript
     // bad
@@ -195,9 +212,7 @@
     />
     ```
 
-  - Omit the value of the prop when it is explicitly `true`.
-
-  eslint rules: [`react/jsx-boolean-value`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-boolean-value.md).
+  - Omit the value of the prop when it is explicitly `true`. eslint: [`react/jsx-boolean-value`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-boolean-value.md)
 
     ```javascript
     // bad
@@ -214,9 +229,7 @@
 <a name="parentheses"></a>
 ## 括號
 
-  - 當 JSX 的標籤有多行時請使用括號將它們包起來：
-
-  eslint rules: [`react/wrap-multilines`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/wrap-multilines.md).
+  - 當 JSX 的標籤有多行時請使用括號將它們包起來：eslint: [`react/wrap-multilines`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/wrap-multilines.md)
 
     ```javascript
     // bad
@@ -245,9 +258,7 @@
 <a name="tags"></a>
 ## 標籤
 
-  - 沒有子標籤時總是使用自身結尾標籤。
-
-  eslint rules: [`react/self-closing-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md).
+  - 沒有子標籤時總是使用自身結尾標籤。eslint: [`react/self-closing-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md)
 
     ```javascript
     // bad
@@ -257,9 +268,7 @@
     <Foo className="stuff" />
     ```
 
-  - 如果你的元件擁有多行屬性，結尾標籤請放在新的一行。
-
-  eslint rules: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md).
+  - 如果你的元件擁有多行屬性，結尾標籤請放在新的一行。eslint: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md)
 
     ```javascript
     // bad
@@ -277,11 +286,9 @@
 <a name="methods"></a>
 ## 方法
 
-  - Bind event handlers for the render method in the constructor.
+  - Bind event handlers for the render method in the constructor. eslint: [`react/jsx-no-bind`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md)
 
-  > Why? A bind call in a the render path create a brand new function on every single render.
-
-  eslint rules: [`react/jsx-no-bind`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md).
+  > Why? A bind call in the render path creates a brand new function on every single render.
 
     ```javascript
     // bad
@@ -340,8 +347,8 @@
 
   - `class extends React.Component` 的排序：
 
-  1. `constructor`
   1. optional `static` methods
+  1. `constructor`
   1. `getChildContext`
   1. `componentWillMount`
   1. `componentDidMount`
@@ -350,9 +357,9 @@
   1. `componentWillUpdate`
   1. `componentDidUpdate`
   1. `componentWillUnmount`
-  1. *clickHandlers or eventHandlers* like `onClickSubmit()` or `onChangeDescription()`
-  1. *getter methods for `render`* like `getSelectReason()` or `getFooterContent()`
-  1. *Optional render methods* like `renderNavigation()` or `renderProfilePicture()`
+  1. *clickHandlers 或 eventHandlers* 像是 `onClickSubmit()` 或 `onChangeDescription()`
+  1. *getter methods for `render`* 像是 `getSelectReason()` 或 `getFooterContent()`
+  1. *Optional render methods* 像是 `renderNavigation()` 或 `renderProfilePicture()`
   1. `render`
 
   - How to define `propTypes`, `defaultProps`, `contextTypes`, etc...
@@ -386,7 +393,7 @@
     export default Link;
     ```
 
-  - `React.createClass` 的排序：
+  - `React.createClass` 的排序：eslint: [`react/sort-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md)
 
   1. `displayName`
   1. `propTypes`
@@ -405,21 +412,17 @@
   1. `componentWillUpdate`
   1. `componentDidUpdate`
   1. `componentWillUnmount`
-  1. *clickHandlers or eventHandlers* like `onClickSubmit()` or `onChangeDescription()`
-  1. *getter methods for `render`* like `getSelectReason()` or `getFooterContent()`
-  1. *Optional render methods* like `renderNavigation()` or `renderProfilePicture()`
+  1. *clickHandlers 或 eventHandlers* 像是 `onClickSubmit()` 或 `onChangeDescription()`
+  1. *getter methods for `render`* 像是 `getSelectReason()` 或 `getFooterContent()`
+  1. *Optional render methods* 像是 `renderNavigation()` 或 `renderProfilePicture()`
   1. `render`
-
-  eslint rules: [`react/sort-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md).
 
 ## `isMounted`
 
-  - Do not use `isMounted`.
+  - 切勿使用`isMounted`。eslint: [`react/no-is-mounted`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-is-mounted.md)
 
-  > Why? [`isMounted` is an anti-pattern][anti-pattern], is not available when using ES6 classes, and is on its way to being officially deprecated.
+  > 為什麼？[`isMounted` 是個 anti-pattern][anti-pattern]，在 ES6 classes 不可使用，並且被正式棄用。
 
   [anti-pattern]: https://facebook.github.io/react/blog/2015/12/16/ismounted-antipattern.html
-
-  eslint rules: [`react/no-is-mounted`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-is-mounted.md).
 
 **[⬆ 回到頂端](#table-of-contents)**
