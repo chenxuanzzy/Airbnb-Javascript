@@ -283,9 +283,9 @@
     };
     ```
 
-  - [3.8](#3.8) <a name="3.8"></a> Only quote properties that are invalid identifiers. eslint: [`quote-props`](http://eslint.org/docs/rules/quote-props.html) jscs: [`disallowQuotedKeysInObjects`](http://jscs.info/rule/disallowQuotedKeysInObjects)
+  - [3.8](#3.8) <a name="3.8"></a> 只在無效的鍵加上引號。eslint: [`quote-props`](http://eslint.org/docs/rules/quote-props.html) jscs: [`disallowQuotedKeysInObjects`](http://jscs.info/rule/disallowQuotedKeysInObjects)
 
-  > Why? In general we consider it subjectively easier to read. It improves syntax highlighting, and is also more easily optimized by many JS engines.
+  > 為什麼？整體來說，我們認為這在主觀上更容易閱讀。它會改善語法高亮，也能讓多數的 JS 引擎更容易最佳化。
 
   ```javascript
   // bad
@@ -353,7 +353,7 @@
     const nodes = Array.from(foo);
     ```
 
-  - [4.5](#4.5) <a name='4.5'></a> Use return statements in array method callbacks. It's ok to omit the return if the function body consists of a single statement following [8.2](#8.2). eslint: [`array-callback-return`](http://eslint.org/docs/rules/array-callback-return)
+  - [4.5](#4.5) <a name='4.5'></a> 在陣列方法的回呼使用 return 宣告。若函式本體是如 [8.2](#8.2) 的單一語法，那麼省略 return 是可以的。eslint: [`array-callback-return`](http://eslint.org/docs/rules/array-callback-return)
 
     ```javascript
     // good
@@ -552,7 +552,7 @@
 
   - [7.2](#7.2) <a name='7.2'></a> 立即函式：eslint: [`wrap-iife`](http://eslint.org/docs/rules/wrap-iife.html) jscs: [`requireParenthesesAroundIIFE`](http://jscs.info/rule/requireParenthesesAroundIIFE)
 
-    > Why? An immediately invoked function expression is a single unit - wrapping both it, and its invocation parens, in parens, cleanly expresses this. Note that in a world with modules everywhere, you almost never need an IIFE.
+    > 為什麼？一個立即函式是個獨立的單元－將函式及呼叫函式的括號包起來明確表示這一點。注意在模組世界的任何地方，你都不需要使用立即函式。
 
     ```javascript
     // 立即函式（IIFE）
@@ -698,9 +698,9 @@
     const y = function a() {};
     ```
 
-  - [7.12](#7.12) <a name="7.12"></a> Never mutate parameters. eslint: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html)
+  - [7.12](#7.12) <a name="7.12"></a> 切勿變更參數。eslint: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html)
 
-    > Why? Manipulating objects passed in as parameters can cause unwanted variable side effects in the original caller.
+    > 為什麼？操作作為參數傳入的物件可能導致變數產生原呼叫者不期望的副作用。
 
     ```javascript
     // bad
@@ -714,9 +714,9 @@
     };
     ```
 
-  - [7.13](#7.13) <a name="7.13"></a> Never reassign parameters. eslint: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html)
+  - [7.13](#7.13) <a name="7.13"></a> 切勿重新賦值給參數。eslint: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html)
 
-    > Why? Reassigning parameters can lead to unexpected behavior, especially when accessing the `arguments` object. It can also cause optimization issues, especially in V8.
+  > 為什麼？將參數重新賦值可能導致意外的行為，尤其在存取 `arguments` 物件時。它可能會引起最佳化的問題，尤其在 V8。
 
     ```javascript
     // bad
@@ -834,7 +834,7 @@
     });
     ```
 
-  - [8.5](#8.5) <a name='8.5'></a> Avoid confusing arrow function syntax (`=>`) with comparison operators (`<=`, `>=`). eslint: [`no-confusing-arrow`](http://eslint.org/docs/rules/no-confusing-arrow)
+  - [8.5](#8.5) <a name='8.5'></a> 避免混淆箭頭函式語法（`=>`）及比較運算子（`<=`、`>=`）。eslint: [`no-confusing-arrow`](http://eslint.org/docs/rules/no-confusing-arrow)
 
     ```js
     // bad
@@ -959,7 +959,7 @@
     }
     ```
 
-  - [9.5](#9.5) <a name='9.5'></a> Classes have a default constructor if one is not specified. An empty constructor function or one that just delegates to a parent class is unnecessary. [`no-useless-constructor`](http://eslint.org/docs/rules/no-useless-constructor)
+  - [9.5](#9.5) <a name='9.5'></a> 若類別沒有指定建構子，那它會擁有預設的建構子。一個空的建構子函式或只委派給父類別是不必要的。[`no-useless-constructor`](http://eslint.org/docs/rules/no-useless-constructor)
 
     ```javascript
     // bad
@@ -1353,8 +1353,10 @@
 
   - [15.4](#15.4) <a name='15.4'></a> 想瞭解更多訊息請參考 Angus Croll 的 [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108)。
   - [15.5](#15.5) <a name='15.5'></a> Use braces to create blocks in `case` and `default` clauses that contain lexical declarations (e.g. `let`, `const`, `function`, and `class`).
+  - [15.5](#15.5) <a name='15.5'></a> 若 `case` 與 `default` 包含了宣告語法（例如：`let`、`const`、`function` 及 `class`）時使用大括號來建立區塊。
 
   > Why? Lexical declarations are visible in the entire `switch` block but only get initialized when assigned, which only happens when its `case` is reached. This causes problems when multiple `case` clauses attempt to define the same thing.
+  > 為什麼？宣告語法可以在整個 `switch` 區塊中可見，但是只在進入該 `case` 時初始化。當多個 `case` 語法時會導致嘗試定義相同事情的問題。
 
   eslint rules: [`no-case-declarations`](http://eslint.org/docs/rules/no-case-declarations.html).
 
@@ -1397,7 +1399,7 @@
     }
     ```
 
-  - [15.6](#15.6) <a name='15.6'></a> Ternaries should not be nested and generally be single line expressions.
+  - [15.6](#15.6) <a name='15.6'></a> 不應該使用巢狀的三元運算子，且通常應該使用單行來表示。
 
     eslint rules: [`no-nested-ternary`](http://eslint.org/docs/rules/no-nested-ternary.html).
 
@@ -1420,7 +1422,7 @@
     const foo = maybe1 > maybe2 ? 'bar' : maybeNull;
     ```
 
-  - [15.7](#15.7) <a name='15.7'></a> Avoid unneeded ternary statements.
+  - [15.7](#15.7) <a name='15.7'></a> 避免不必要的三元運算子語法。
 
     eslint rules: [`no-unneeded-ternary`](http://eslint.org/docs/rules/no-unneeded-ternary.html).
 
@@ -1441,7 +1443,7 @@
 <a name="blocks"></a>
 ## 區塊
 
-  - [16.1](#16.1) <a name='16.1'></a> 多行區塊請使用花括號刮起來。
+  - [16.1](#16.1) <a name='16.1'></a> 多行區塊請使用大括號刮起來。
 
     ```javascript
     // bad
@@ -1465,7 +1467,7 @@
     }
     ```
 
-  - [16.2](#16.2) <a name='16.2'></a> 如果你使用 `if` 及 `else` 的多行區塊，請將 `else` 放在 `if` 區塊的結尾花括號後。eslint: [`brace-style`](http://eslint.org/docs/rules/brace-style.html) jscs:  [`disallowNewlineBeforeBlockStatements`](http://jscs.info/rule/disallowNewlineBeforeBlockStatements)
+  - [16.2](#16.2) <a name='16.2'></a> 如果你使用 `if` 及 `else` 的多行區塊，請將 `else` 放在 `if` 區塊的結尾大括號後。eslint: [`brace-style`](http://eslint.org/docs/rules/brace-style.html) jscs:  [`disallowNewlineBeforeBlockStatements`](http://jscs.info/rule/disallowNewlineBeforeBlockStatements)
 
     ```javascript
     // bad
@@ -1612,7 +1614,7 @@
     }
     ```
 
-  - [18.2](#18.2) <a name='18.2'></a> 在花括號前加一個空格。eslint: [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks.html) jscs: [`requireSpaceBeforeBlockStatements`](http://jscs.info/rule/requireSpaceBeforeBlockStatements)
+  - [18.2](#18.2) <a name='18.2'></a> 在大括號前加一個空格。eslint: [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks.html) jscs: [`requireSpaceBeforeBlockStatements`](http://jscs.info/rule/requireSpaceBeforeBlockStatements)
 
     ```javascript
     // bad
@@ -1873,9 +1875,9 @@
     const foo = { clark: 'kent' };
     ```
 
-  - [18.12](#18.12) <a name='18.12'></a> Avoid having lines of code that are longer than 100 characters (including whitespace). eslint: [`max-len`](http://eslint.org/docs/rules/max-len.html) jscs: [`maximumLineLength`](http://jscs.info/rule/maximumLineLength)
+  - [18.12](#18.12) <a name='18.12'></a> 避免一行的程式碼超過 100 字元（包含空白）。eslint: [`max-len`](http://eslint.org/docs/rules/max-len.html) jscs: [`maximumLineLength`](http://jscs.info/rule/maximumLineLength)
 
-    > Why? This ensures readability and maintainability.
+    > 為什麼？這樣確保可讀性及維護性。
 
     ```javascript
     // bad
