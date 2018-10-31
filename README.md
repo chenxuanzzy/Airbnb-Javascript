@@ -32,6 +32,7 @@
   1. [提升](#hoisting)
   1. [條件式與等號](#comparison-operators--equality)
   1. [區塊](#blocks)
+  1. [控制陳述式](#control-statements)
   1. [註解](#comments)
   1. [空格](#whitespace)
   1. [逗號](#commas)
@@ -43,6 +44,7 @@
   1. [jQuery](#jquery)
   1. [ECMAScript 5 相容性](#ecmascript-5-compatibility)
   1. [ECMAScript 6 風格](#ecmascript-6-styles)
+  1. [標準程式庫](#standard-library)
   1. [測試](#testing)
   1. [效能](#performance)
   1. [資源](#resources)
@@ -52,6 +54,7 @@
   1. [和我們討論 Javascript](#chat-with-us-about-javascript)
   1. [貢獻者](#contributors)
   1. [授權許可](#license)
+  1. [Amendments](#amendments)
 
 <a name="types"></a>
 ## 資料型態
@@ -285,23 +288,23 @@
 
   - [3.8](#3.8) <a name="3.8"></a> 只在無效的鍵加上引號。eslint: [`quote-props`](http://eslint.org/docs/rules/quote-props.html) jscs: [`disallowQuotedKeysInObjects`](http://jscs.info/rule/disallowQuotedKeysInObjects)
 
-  > 為什麼？整體來說，我們認為這在主觀上更容易閱讀。它會改善語法高亮，也能讓多數的 JS 引擎更容易最佳化。
+    > 為什麼？整體來說，我們認為這在主觀上更容易閱讀。它會改善語法高亮，也能讓多數的 JS 引擎更容易最佳化。
 
-  ```javascript
-  // bad
-  const bad = {
-    'foo': 3,
-    'bar': 4,
-    'data-blah': 5,
-  };
+    ```javascript
+    // bad
+    const bad = {
+      'foo': 3,
+      'bar': 4,
+      'data-blah': 5,
+    };
 
-  // good
-  const good = {
-    foo: 3,
-    bar: 4,
-    'data-blah': 5,
-  };
-  ```
+    // good
+    const good = {
+      foo: 3,
+      bar: 4,
+      'data-blah': 5,
+    };
+    ```
 
 **[⬆ 回到頂端](#table-of-contents)**
 
@@ -671,7 +674,7 @@
     }
     ```
 
-  - [7.10](#7.10) <a name='7.9'></a> 千萬別使用建構函式去建立一個新的函式。
+  - [7.10](#7.10) <a name='7.10'></a> 千萬別使用建構函式去建立一個新的函式。
 
     > 為什麼？透過這種方式建立一個函數來計算字串類似於 eval()，會造成許多的漏洞。
 
@@ -716,26 +719,26 @@
 
   - [7.13](#7.13) <a name="7.13"></a> 切勿重新賦值給參數。eslint: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html)
 
-  > 為什麼？將參數重新賦值可能導致意外的行為，尤其在存取 `arguments` 物件時。它可能會引起最佳化的問題，尤其在 V8。
+    > 為什麼？將參數重新賦值可能導致意外的行為，尤其在存取 `arguments` 物件時。它可能會引起最佳化的問題，尤其在 V8。
 
-    ```javascript
-    // bad
-    function f1(a) {
-      a = 1;
-    }
+      ```javascript
+      // bad
+      function f1(a) {
+        a = 1;
+      }
 
-    function f2(a) {
-      if (!a) { a = 1; }
-    }
+      function f2(a) {
+        if (!a) { a = 1; }
+      }
 
-    // good
-    function f3(a) {
-      const b = a || 1;
-    }
+      // good
+      function f3(a) {
+        const b = a || 1;
+      }
 
-    function f4(a = 1) {
-    }
-    ```
+      function f4(a = 1) {
+      }
+      ```
 
 **[⬆ 回到頂端](#table-of-contents)**
 
@@ -1353,12 +1356,12 @@
 
   - [15.4](#15.4) <a name='15.4'></a> 想瞭解更多訊息請參考 Angus Croll 的 [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108)。
   - [15.5](#15.5) <a name='15.5'></a> Use braces to create blocks in `case` and `default` clauses that contain lexical declarations (e.g. `let`, `const`, `function`, and `class`).
-  - [15.5](#15.5) <a name='15.5'></a> 若 `case` 與 `default` 包含了宣告語法（例如：`let`、`const`、`function` 及 `class`）時使用大括號來建立區塊。
+  - [15.6](#15.6) <a name='15.6'></a> 若 `case` 與 `default` 包含了宣告語法（例如：`let`、`const`、`function` 及 `class`）時使用大括號來建立區塊。
 
-  > Why? Lexical declarations are visible in the entire `switch` block but only get initialized when assigned, which only happens when its `case` is reached. This causes problems when multiple `case` clauses attempt to define the same thing.
-  > 為什麼？宣告語法可以在整個 `switch` 區塊中可見，但是只在進入該 `case` 時初始化。當多個 `case` 語法時會導致嘗試定義相同事情的問題。
+    > Why? Lexical declarations are visible in the entire `switch` block but only get initialized when assigned, which only happens when its `case` is reached. This causes problems when multiple `case` clauses attempt to define the same thing.
+    > 為什麼？宣告語法可以在整個 `switch` 區塊中可見，但是只在進入該 `case` 時初始化。當多個 `case` 語法時會導致嘗試定義相同事情的問題。
 
-  eslint rules: [`no-case-declarations`](http://eslint.org/docs/rules/no-case-declarations.html).
+    eslint rules: [`no-case-declarations`](http://eslint.org/docs/rules/no-case-declarations.html).
 
     ```javascript
     // bad
@@ -1399,7 +1402,7 @@
     }
     ```
 
-  - [15.6](#15.6) <a name='15.6'></a> 不應該使用巢狀的三元運算子，且通常應該使用單行來表示。
+  - [15.7](#15.7) <a name='15.7'></a> 不應該使用巢狀的三元運算子，且通常應該使用單行來表示。
 
     eslint rules: [`no-nested-ternary`](http://eslint.org/docs/rules/no-nested-ternary.html).
 
@@ -1422,7 +1425,7 @@
     const foo = maybe1 > maybe2 ? 'bar' : maybeNull;
     ```
 
-  - [15.7](#15.7) <a name='15.7'></a> 避免不必要的三元運算子語法。
+  - [15.8](#15.8) <a name='15.8'></a> 避免不必要的三元運算子語法。
 
     eslint rules: [`no-unneeded-ternary`](http://eslint.org/docs/rules/no-unneeded-ternary.html).
 
@@ -1488,13 +1491,82 @@
     }
     ```
 
-
 **[⬆ 回到頂端](#table-of-contents)**
 
+<a name="control-statements"></a>
+## 控制陳述式
+
+  - [17.1](#17.1) <a name='17.1'></a> 為避免控制陳述式（`if`、`while` 等）太長或超過該行字數限制，每組條件式可自成一行。邏輯運算子應置於行首。
+
+    > 為什麼？行首的運算子可維持版面整齊，遵守和方法鏈類似的排版模式。還能提供視覺線索，讓複雜的邏輯述句更容易閱讀。
+
+    ```javascript
+    // bad
+    if ((foo === 123 || bar === 'abc') && doesItLookGoodWhenItBecomesThatLong() && isThisReallyHappening()) {
+      thing1();
+    }
+
+    // bad
+    if (foo === 123 &&
+      bar === 'abc') {
+      thing1();
+    }
+
+    // bad
+    if (foo === 123
+      && bar === 'abc') {
+      thing1();
+    }
+
+    // bad
+    if (
+      foo === 123 &&
+      bar === 'abc'
+    ) {
+      thing1();
+    }
+
+    // good
+    if (
+      foo === 123
+      && bar === 'abc'
+    ) {
+      thing1();
+    }
+
+    // good
+    if (
+      (foo === 123 || bar === 'abc')
+      && doesItLookGoodWhenItBecomesThatLong()
+      && isThisReallyHappening()
+    ) {
+      thing1();
+    }
+
+    // good
+    if (foo === 123 && bar === 'abc') {
+      thing1();
+    }
+    ```
+
+  - [17.2](#17.2)  <a name='17.2'></a> 不要用選擇運算子（selection operators）來取代控制陳述式。
+
+    ```javascript
+    // bad
+    !isRunning && startRunning();
+
+    // good
+    if (!isRunning) {
+      startRunning();
+    }
+    ```
+
+**[⬆ 回到頂端](#table-of-contents)**
+ 
 <a name="comments"></a>
 ## 註解
 
-  - [17.1](#17.1) <a name='17.1'></a> 多行註解請使用 `/** ... */` ，包含描述，指定類型以及參數值還有回傳值。
+  - [18.1](#18.1) <a name='18.1'></a> 多行註解請使用 `/** ... */` ，包含描述，指定類型以及參數值還有回傳值。
 
     ```javascript
     // bad
@@ -1524,7 +1596,7 @@
     }
     ```
 
-  - [17.2](#17.2) <a name='17.2'></a> 單行註解請使用 `//`。在欲註解的上方新增一行進行註解。在註解的上方空一行，除非他在區塊的第一行。
+  - [18.2](#18.2) <a name='18.2'></a> 單行註解請使用 `//`。在欲註解的上方新增一行進行註解。在註解的上方空一行，除非他在區塊的第一行。
 
     ```javascript
     // bad
@@ -1562,9 +1634,9 @@
     }
     ```
 
-  - [17.3](#17.3) <a name='17.3'></a> 在註解前方加上 `FIXME` 或 `TODO` 可以幫助其他開發人員快速瞭解這是一個需要重新討論的問題，或是一個等待解決的問題。和一般的註解不同，他們是可被執行的。對應的動作為 `FIXME -- 重新討論並解決` 或 `TODO -- 必須執行`。
+  - [18.3](#18.3) <a name='18.3'></a> 在註解前方加上 `FIXME` 或 `TODO` 可以幫助其他開發人員快速瞭解這是一個需要重新討論的問題，或是一個等待解決的問題。和一般的註解不同，他們是可被執行的。對應的動作為 `FIXME -- 重新討論並解決` 或 `TODO -- 必須執行`。
 
-  - [17.4](#17.4) <a name='17.4'></a> 使用 `// FIXME:` 標注問題。
+  - [18.4](#18.4) <a name='18.4'></a> 使用 `// FIXME:` 標注問題。
 
     ```javascript
     class Calculator extends Abacus {
@@ -1577,7 +1649,7 @@
     }
     ```
 
-  - [17.5](#17.5) <a name='17.5'></a> 使用 `// TODO:` 標注問題的解決方式。
+  - [18.5](#18.5) <a name='18.5'></a> 使用 `// TODO:` 標注問題的解決方式。
 
     ```javascript
     class Calculator extends Abacus {
@@ -1595,7 +1667,7 @@
 <a name="whitespace"></a>
 ## 空格
 
-  - [18.1](#18.1) <a name='18.1'></a> 將 Tab 設定為兩個空格。eslint: [`indent`](http://eslint.org/docs/rules/indent.html) jscs: [`validateIndentation`](http://jscs.info/rule/validateIndentation)
+  - [19.1](#19.1) <a name='19.1'></a> 將 Tab 設定為兩個空格。eslint: [`indent`](http://eslint.org/docs/rules/indent.html) jscs: [`validateIndentation`](http://jscs.info/rule/validateIndentation)
 
     ```javascript
     // bad
@@ -1614,7 +1686,7 @@
     }
     ```
 
-  - [18.2](#18.2) <a name='18.2'></a> 在大括號前加一個空格。eslint: [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks.html) jscs: [`requireSpaceBeforeBlockStatements`](http://jscs.info/rule/requireSpaceBeforeBlockStatements)
+  - [19.2](#19.2) <a name='19.2'></a> 在大括號前加一個空格。eslint: [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks.html) jscs: [`requireSpaceBeforeBlockStatements`](http://jscs.info/rule/requireSpaceBeforeBlockStatements)
 
     ```javascript
     // bad
@@ -1640,7 +1712,7 @@
     });
     ```
 
-  - [18.3](#18.3) <a name='18.3'></a> 在控制流程的語句（`if`, `while` 等等。）的左括號前加上一個空格。宣告的函式和傳入的變數間則沒有空格。eslint: [`space-after-keywords`](http://eslint.org/docs/rules/space-after-keywords.html), [`space-before-keywords`](http://eslint.org/docs/rules/space-before-keywords.html) jscs:  [`requireSpaceAfterKeywords`](http://jscs.info/rule/requireSpaceAfterKeywords)
+  - [19.3](#19.3) <a name='19.3'></a> 在控制流程的語句（`if`, `while` 等等。）的左括號前加上一個空格。宣告的函式和傳入的變數間則沒有空格。eslint: [`space-after-keywords`](http://eslint.org/docs/rules/space-after-keywords.html), [`space-before-keywords`](http://eslint.org/docs/rules/space-before-keywords.html) jscs:  [`requireSpaceAfterKeywords`](http://jscs.info/rule/requireSpaceAfterKeywords)
 
     ```javascript
     // bad
@@ -1664,7 +1736,7 @@
     }
     ```
 
-  - [18.4](#18.4) <a name='18.4'></a> 將運算元用空格隔開。eslint: [`space-infix-ops`](http://eslint.org/docs/rules/space-infix-ops.html) jscs: [`requireSpaceBeforeBinaryOperators`](http://jscs.info/rule/requireSpaceBeforeBinaryOperators), [`requireSpaceAfterBinaryOperators`](http://jscs.info/rule/requireSpaceAfterBinaryOperators)
+  - [19.4](#19.4) <a name='19.4'></a> 將運算元用空格隔開。eslint: [`space-infix-ops`](http://eslint.org/docs/rules/space-infix-ops.html) jscs: [`requireSpaceBeforeBinaryOperators`](http://jscs.info/rule/requireSpaceBeforeBinaryOperators), [`requireSpaceAfterBinaryOperators`](http://jscs.info/rule/requireSpaceAfterBinaryOperators)
 
     ```javascript
     // bad
@@ -1674,7 +1746,7 @@
     const x = y + 5;
     ```
 
-  - [18.5](#18.5) <a name='18.5'></a> 在檔案的最尾端加上一行空白行。
+  - [19.5](#19.5) <a name='19.5'></a> 在檔案的最尾端加上一行空白行。
 
     ```javascript
     // bad
@@ -1698,7 +1770,7 @@
     })(this);↵
     ```
 
-  - [18.6](#18.6) <a name='18.5'></a> 當多個方法鏈結（大於兩個方法鏈結）時請換行縮排。利用前面的 `.` 強調該行是呼叫方法，而不是一個新的宣告。eslint: [`newline-per-chained-call`](http://eslint.org/docs/rules/newline-per-chained-call) [`no-whitespace-before-property`](http://eslint.org/docs/rules/no-whitespace-before-property)
+  - [19.6](#19.6) <a name='19.6'></a> 當多個方法鏈結（大於兩個方法鏈結）時請換行縮排。利用前面的 `.` 強調該行是呼叫方法，而不是一個新的宣告。eslint: [`newline-per-chained-call`](http://eslint.org/docs/rules/newline-per-chained-call) [`no-whitespace-before-property`](http://eslint.org/docs/rules/no-whitespace-before-property)
 
     ```javascript
     // bad
@@ -1740,7 +1812,7 @@
     const leds = stage.selectAll('.led').data(data);
     ```
 
-  - [18.7](#18.7) <a name='18.6'></a> 在區塊的結束及下個語法間加上空行。jscs: [`requirePaddingNewLinesAfterBlocks`](http://jscs.info/rule/requirePaddingNewLinesAfterBlocks)
+  - [19.7](#19.7) <a name='19.7'></a> 在區塊的結束及下個語法間加上空行。jscs: [`requirePaddingNewLinesAfterBlocks`](http://jscs.info/rule/requirePaddingNewLinesAfterBlocks)
 
     ```javascript
     // bad
@@ -1797,7 +1869,7 @@
     return arr;
     ```
 
-  - [18.8](#18.8) <a name='18.8'></a> 別在區塊中置放空行。eslint: [`padded-blocks`](http://eslint.org/docs/rules/padded-blocks.html) jscs:  [`disallowPaddingNewlinesInBlocks`](http://jscs.info/rule/disallowPaddingNewlinesInBlocks)
+  - [19.8](#19.8) <a name='19.8'></a> 別在區塊中置放空行。eslint: [`padded-blocks`](http://eslint.org/docs/rules/padded-blocks.html) jscs:  [`disallowPaddingNewlinesInBlocks`](http://jscs.info/rule/disallowPaddingNewlinesInBlocks)
 
     ```javascript
     // bad
@@ -1829,7 +1901,7 @@
     }
     ```
 
-  - [18.9](#18.9) <a name='18.9'></a> 不要在括號內的兩側置放空格。eslint: [`space-in-parens`](http://eslint.org/docs/rules/space-in-parens.html) jscs: [`disallowSpacesInsideParentheses`](http://jscs.info/rule/disallowSpacesInsideParentheses)
+  - [19.9](#19.9) <a name='19.9'></a> 不要在括號內的兩側置放空格。eslint: [`space-in-parens`](http://eslint.org/docs/rules/space-in-parens.html) jscs: [`disallowSpacesInsideParentheses`](http://jscs.info/rule/disallowSpacesInsideParentheses)
 
     ```javascript
     // bad
@@ -1853,7 +1925,7 @@
     }
     ```
 
-  - [18.10](#18.10) <a name='18.10'></a> 不要在中括號內的兩側置放空格。eslint: [`array-bracket-spacing`](http://eslint.org/docs/rules/array-bracket-spacing.html) jscs: [`disallowSpacesInsideArrayBrackets`](http://jscs.info/rule/disallowSpacesInsideArrayBrackets)
+  - [19.10](#19.10) <a name='19.10'></a> 不要在中括號內的兩側置放空格。eslint: [`array-bracket-spacing`](http://eslint.org/docs/rules/array-bracket-spacing.html) jscs: [`disallowSpacesInsideArrayBrackets`](http://jscs.info/rule/disallowSpacesInsideArrayBrackets)
 
     ```javascript
     // bad
@@ -1865,7 +1937,7 @@
     console.log(foo[0]);
     ```
 
-  - [18.11](#18.11) <a name='18.11'></a> 在大括號內的兩側置放空格。eslint: [`object-curly-spacing`](http://eslint.org/docs/rules/object-curly-spacing.html) jscs: [`disallowSpacesInsideObjectBrackets`](http://jscs.info/rule/
+  - [19.11](#19.11) <a name='19.11'></a> 在大括號內的兩側置放空格。eslint: [`object-curly-spacing`](http://eslint.org/docs/rules/object-curly-spacing.html) jscs: [`disallowSpacesInsideObjectBrackets`](http://jscs.info/rule/
 
     ```javascript
     // bad
@@ -1875,7 +1947,7 @@
     const foo = { clark: 'kent' };
     ```
 
-  - [18.12](#18.12) <a name='18.12'></a> 避免一行的程式碼超過 100 字元（包含空白）。eslint: [`max-len`](http://eslint.org/docs/rules/max-len.html) jscs: [`maximumLineLength`](http://jscs.info/rule/maximumLineLength)
+  - [19.12](#19.12) <a name='19.12'></a> 避免一行的程式碼超過 100 字元（包含空白）。eslint: [`max-len`](http://eslint.org/docs/rules/max-len.html) jscs: [`maximumLineLength`](http://jscs.info/rule/maximumLineLength)
 
     > 為什麼？這樣確保可讀性及維護性。
 
@@ -1905,7 +1977,7 @@
 <a name="commas"></a>
 ## 逗號
 
-  - [19.1](#19.1) <a name='19.1'></a> 不要將逗號放在前方。eslint: [`comma-style`](http://eslint.org/docs/rules/comma-style.html) jscs: [`requireCommaBeforeLineBreak`](http://jscs.info/rule/requireCommaBeforeLineBreak)
+  - [20.1](#20.1) <a name='20.1'></a> 不要將逗號放在前方。eslint: [`comma-style`](http://eslint.org/docs/rules/comma-style.html) jscs: [`requireCommaBeforeLineBreak`](http://jscs.info/rule/requireCommaBeforeLineBreak)
 
     ```javascript
     // bad
@@ -1939,7 +2011,7 @@
     };
     ```
 
-  - [19.2](#19.2) <a name='19.2'></a> 增加結尾的逗號：**別懷疑**eslint: [`comma-dangle`](http://eslint.org/docs/rules/comma-dangle.html) jscs: [`requireTrailingComma`](http://jscs.info/rule/requireTrailingComma)
+  - [20.2](#20.2) <a name='20.2'></a> 增加結尾的逗號：**別懷疑**eslint: [`comma-dangle`](http://eslint.org/docs/rules/comma-dangle.html) jscs: [`requireTrailingComma`](http://jscs.info/rule/requireTrailingComma)
 
     > 為什麼？這會讓 Git 的差異列表更乾淨。另外，Babel 轉譯器也會刪除結尾多餘的逗號，也就是說你完全不需要擔心在老舊的瀏覽器發生[多餘逗號的問題](es5/README.md#commas)。
 
@@ -1987,7 +2059,7 @@
 <a name="semicolons"></a>
 ## 分號
 
-  - [20.1](#20.1) <a name='20.1'></a> **對啦。**eslint: [`semi`](http://eslint.org/docs/rules/semi.html) jscs: [`requireSemicolons`](http://jscs.info/rule/requireSemicolons)
+  - [21.1](#21.1) <a name='21.1'></a> **對啦。**eslint: [`semi`](http://eslint.org/docs/rules/semi.html) jscs: [`requireSemicolons`](http://jscs.info/rule/requireSemicolons)
 
     ```javascript
     // bad
@@ -2016,8 +2088,8 @@
 <a name="type-casting--coercion"></a>
 ## 型別轉換
 
-  - [21.1](#21.1) <a name='21.1'></a> 在開頭的宣告進行強制型別轉換。
-  - [21.2](#21.2) <a name='21.2'></a> 字串：
+  - [22.1](#22.1) <a name='22.1'></a> 在開頭的宣告進行強制型別轉換。
+  - [22.2](#22.2) <a name='22.2'></a> 字串：
 
     ```javascript
     // => this.reviewScore = 9;
@@ -2029,7 +2101,7 @@
     const totalScore = String(this.reviewScore);
     ```
 
-  - [21.3](#21.3) <a name='21.3'></a> 數字：使用 `Number` 做型別轉換，而 `parseInt` 則始終以基數解析字串。eslint: [`radix`](http://eslint.org/docs/rules/radix)
+  - [22.3](#22.3) <a name='22.3'></a> 數字：使用 `Number` 做型別轉換，而 `parseInt` 則始終以基數解析字串。eslint: [`radix`](http://eslint.org/docs/rules/radix)
 
     ```javascript
     const inputValue = '4';
@@ -2053,7 +2125,7 @@
     const val = parseInt(inputValue, 10);
     ```
 
-  - [21.4](#21.4) <a name='21.4'></a> 如果你因為某個原因在做些瘋狂的事情，但是 `parseInt` 是你的瓶頸，所以你對於[性能方面的原因](http://jsperf.com/coercion-vs-casting/3)而必須使用位元右移，請留下評論並解釋為什麼使用，及你做了哪些事情。
+  - [22.4](#22.4) <a name='22.4'></a> 如果你因為某個原因在做些瘋狂的事情，但是 `parseInt` 是你的瓶頸，所以你對於[性能方面的原因](http://jsperf.com/coercion-vs-casting/3)而必須使用位元右移，請留下評論並解釋為什麼使用，及你做了哪些事情。
 
     ```javascript
     // good
@@ -2064,7 +2136,7 @@
     const val = inputValue >> 0;
     ```
 
-  - [21.5](#21.5) <a name='21.5'></a> **注意：**使用位元轉換時請小心。數字為 [64 位元數值](http://es5.github.io/#x4.3.19)，但是使用位元轉換時則會回傳一個 32 位元的整數（[來源](http://es5.github.io/#x11.7)），這會導致大於 32 位元的數值產生異常 [討論串](https://github.com/airbnb/javascript/issues/109)，32 位元的整數最大值為 2,147,483,647：
+  - [22.5](#22.5) <a name='22.5'></a> **注意：**使用位元轉換時請小心。數字為 [64 位元數值](http://es5.github.io/#x4.3.19)，但是使用位元轉換時則會回傳一個 32 位元的整數（[來源](http://es5.github.io/#x11.7)），這會導致大於 32 位元的數值產生異常 [討論串](https://github.com/airbnb/javascript/issues/109)，32 位元的整數最大值為 2,147,483,647：
 
     ```javascript
     2147483647 >> 0 //=> 2147483647
@@ -2072,7 +2144,7 @@
     2147483649 >> 0 //=> -2147483647
     ```
 
-  - [21.6](#21.6) <a name='21.6'></a> 布林：
+  - [22.6](#22.6) <a name='22.6'></a> 布林：
 
     ```javascript
     const age = 0;
@@ -2092,7 +2164,7 @@
 <a name="naming-conventions"></a>
 ## 命名規則
 
-  - [22.1](#22.1) <a name='22.1'></a> 避免使用單一字母的名稱，讓你的名稱有解釋的含義。
+  - [23.1](#23.1) <a name='23.1'></a> 避免使用單一字母的名稱，讓你的名稱有解釋的含義。
 
     ```javascript
     // bad
@@ -2106,7 +2178,7 @@
     }
     ```
 
-  - [22.2](#22.2) <a name='22.2'></a> 使用駝峰式大小寫命名物件，函式及實例。eslint: [`camelcase`](http://eslint.org/docs/rules/camelcase.html) jscs: [`requireCamelCaseOrUpperCaseIdentifiers`](http://jscs.info/rule/requireCamelCaseOrUpperCaseIdentifiers)
+  - [23.2](#23.2) <a name='23.2'></a> 使用駝峰式大小寫命名物件，函式及實例。eslint: [`camelcase`](http://eslint.org/docs/rules/camelcase.html) jscs: [`requireCamelCaseOrUpperCaseIdentifiers`](http://jscs.info/rule/requireCamelCaseOrUpperCaseIdentifiers)
 
     ```javascript
     // bad
@@ -2119,7 +2191,7 @@
     function thisIsMyFunction() {}
     ```
 
-  - [22.3](#22.3) <a name='22.3'></a> 使用帕斯卡命名法來命名建構子或類別。eslint: [`new-cap`](http://eslint.org/docs/rules/new-cap.html) jscs: [`requireCapitalizedConstructors`](http://jscs.info/rule/requireCapitalizedConstructors)
+  - [23.3](#23.3) <a name='23.3'></a> 使用帕斯卡命名法來命名建構子或類別。eslint: [`new-cap`](http://eslint.org/docs/rules/new-cap.html) jscs: [`requireCapitalizedConstructors`](http://jscs.info/rule/requireCapitalizedConstructors)
 
     ```javascript
     // bad
@@ -2143,7 +2215,7 @@
     });
     ```
 
-  - [22.4](#22.4) <a name='22.4'></a> 命名私有屬性時請在前面加底線 `_`。eslint: [`no-underscore-dangle`](http://eslint.org/docs/rules/no-underscore-dangle.html) jscs: [`disallowDanglingUnderscores`](http://jscs.info/rule/disallowDanglingUnderscores)
+  - [23.4](#23.4) <a name='23.4'></a> 命名私有屬性時請在前面加底線 `_`。eslint: [`no-underscore-dangle`](http://eslint.org/docs/rules/no-underscore-dangle.html) jscs: [`disallowDanglingUnderscores`](http://jscs.info/rule/disallowDanglingUnderscores)
 
     ```javascript
     // bad
@@ -2154,7 +2226,7 @@
     this._firstName = 'Panda';
     ```
 
-  - [22.5](#22.5) <a name='22.5'></a> 請別儲存 `this` 為參考。請使用箭頭函式或是 Function#bind。jscs: [`disallowNodeTypes`](http://jscs.info/rule/disallowNodeTypes)
+  - [23.5](#23.5) <a name='23.5'></a> 請別儲存 `this` 為參考。請使用箭頭函式或是 Function#bind。jscs: [`disallowNodeTypes`](http://jscs.info/rule/disallowNodeTypes)
 
     ```javascript
     // bad
@@ -2181,7 +2253,7 @@
     }
     ```
 
-  - [22.6](#22.6) <a name='22.6'></a> 如果你的檔案只有輸出一個類別，你的檔案名稱必須和你的類別名稱相同。
+  - [23.6](#23.6) <a name='23.6'></a> 如果你的檔案只有輸出一個類別，你的檔案名稱必須和你的類別名稱相同。
 
     ```javascript
     // 檔案內容
@@ -2201,7 +2273,7 @@
     import CheckBox from './CheckBox';
     ```
 
-  - [22.7](#22.7) <a name='22.7'></a> 當你導出為預設的函式時請使用駝峰式大小寫。檔案名稱必須與你的函式名稱一致。
+  - [23.7](#23.7) <a name='23.7'></a> 當你導出為預設的函式時請使用駝峰式大小寫。檔案名稱必須與你的函式名稱一致。
 
     ```javascript
     function makeStyleGuide() {
@@ -2210,7 +2282,7 @@
     export default makeStyleGuide;
     ```
 
-  - [22.8](#22.8) <a name='22.8'></a> 當你導出為單例 / 函式庫 / 空物件時請使用帕斯卡命名法。
+  - [23.8](#23.8) <a name='23.8'></a> 當你導出為單例 / 函式庫 / 空物件時請使用帕斯卡命名法。
 
     ```javascript
     const AirbnbStyleGuide = {
@@ -2227,8 +2299,8 @@
 <a name="accessors"></a>
 ## 存取器
 
-  - [23.1](#23.1) <a name='23.1'></a> 屬性的存取器函式不是必須的。
-  - [23.2](#23.2) <a name='23.2'></a> 別使用 JavaScript 的 getters 或 setters，因為它們會導致意想不到的副作用，而且不易於測試、維護以及進行推測。取而代之，如果你要建立一個存取器函式，請使用 getVal() 及 setVal('hello')。
+  - [24.1](#24.1) <a name='24.1'></a> 屬性的存取器函式不是必須的。
+  - [24.2](#24.2) <a name='24.2'></a> 別使用 JavaScript 的 getters 或 setters，因為它們會導致意想不到的副作用，而且不易於測試、維護以及進行推測。取而代之，如果你要建立一個存取器函式，請使用 getVal() 及 setVal('hello')。
 
     ```javascript
     // bad
@@ -2244,7 +2316,7 @@
     dragon.setAge(25);
     ```
 
-  - [23.3](#23.3) <a name='23.3'></a> 如果屬性是布林，請使用 `isVal()` 或 `hasVal()`。
+  - [24.3](#24.3) <a name='24.3'></a> 如果屬性是布林，請使用 `isVal()` 或 `hasVal()`。
 
     ```javascript
     // bad
@@ -2258,7 +2330,7 @@
     }
     ```
 
-  - [23.4](#23.4) <a name='23.4'></a> 可以建立 get() 及 set() 函式，但請保持一致。
+  - [24.4](#24.4) <a name='24.4'></a> 可以建立 get() 及 set() 函式，但請保持一致。
 
     ```javascript
     class Jedi {
@@ -2282,7 +2354,7 @@
 <a name="events"></a>
 ## 事件
 
-  - [24.1](#24.1) <a name='24.1'></a> 當需要對事件傳入資料時（不論是 DOM 事件或是其他私有事件），請傳入物件替代單一的資料。這樣可以使之後的開發人員直接加入其他的資料到事件裡，而不需更新該事件的處理器。例如，比較不好的做法：
+  - [25.1](#25.1) <a name='25.1'></a> 當需要對事件傳入資料時（不論是 DOM 事件或是其他私有事件），請傳入物件替代單一的資料。這樣可以使之後的開發人員直接加入其他的資料到事件裡，而不需更新該事件的處理器。例如，比較不好的做法：
 
     ```javascript
     // bad
@@ -2313,7 +2385,7 @@
 
 ## jQuery
 
-  - [25.1](#25.1) <a name='25.1'></a> jQuery 的物件請使用 `$` 當前綴。jscs: [`requireDollarBeforejQueryAssignment`](http://jscs.info/rule/requireDollarBeforejQueryAssignment)
+  - [26.1](#26.1) <a name='26.1'></a> jQuery 的物件請使用 `$` 當前綴。jscs: [`requireDollarBeforejQueryAssignment`](http://jscs.info/rule/requireDollarBeforejQueryAssignment)
 
     ```javascript
     // bad
@@ -2326,7 +2398,7 @@
     const $sidebarBtn = $('.sidebar-btn');
     ```
 
-  - [25.2](#25.2) <a name='25.2'></a> 快取 jQuery 的查詢。
+  - [26.2](#26.2) <a name='26.2'></a> 快取 jQuery 的查詢。
 
     ```javascript
     // bad
@@ -2353,8 +2425,8 @@
     }
     ```
 
-  - [25.3](#25.3) <a name='25.3'></a> DOM 的查詢請使用層遞的 `$('.sidebar ul')` 或 父元素 > 子元素 `$('.sidebar > ul')`。[jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
-  - [25.4](#25.4) <a name='25.4'></a> 對作用域內的 jQuery 物件使用 `find` 做查詢。
+  - [26.3](#26.3) <a name='26.3'></a> DOM 的查詢請使用層遞的 `$('.sidebar ul')` 或 父元素 > 子元素 `$('.sidebar > ul')`。[jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
+  - [26.4](#26.4) <a name='26.4'></a> 對作用域內的 jQuery 物件使用 `find` 做查詢。
 
     ```javascript
     // bad
@@ -2378,14 +2450,14 @@
 <a name="ecmascript-5-compatibility"></a>
 ## ECMAScript 5 相容性
 
-  - [26.1](#26.1) <a name='26.1'></a> 參考 [Kangax](https://twitter.com/kangax/) 的 ES5 [相容性列表](http://kangax.github.io/es5-compat-table/)。
+  - [27.1](#27.1) <a name='27.1'></a> 參考 [Kangax](https://twitter.com/kangax/) 的 ES5 [相容性列表](http://kangax.github.io/es5-compat-table/)。
 
 **[⬆ 回到頂端](#table-of-contents)**
 
 <a name="ecmascript-6-styles"></a>
 ## ECMAScript 6 風格
 
-  - [27.1](#27.1) <a name='27.1'></a> 以下是連結到各個 ES6 特性的列表。
+  - [28.1](#28.1) <a name='28.1'></a> 以下是連結到各個 ES6 特性的列表。
 
 1. [箭頭函式](#arrow-functions)
 1. [類別](#constructors)
@@ -2403,10 +2475,46 @@
 
 **[⬆ 回到頂端](#table-of-contents)**
 
+<a name="standard-library"></a>
+## 標準程式庫
+
+[標準程式庫（Standard Library）](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects)基於歷史因素，仍保有某些功能有缺陷的函式。
+
+  - [29.1](#29.1) <a name='29.1'></a> 使用 `Number.isNaN` 而非 `isNaN`。
+
+    > 為什麼？全域函式 `isNaN` 會先將任何非數值轉換為數值，如果轉換後之值為 NaN，則函式回傳 true。
+    > 若真要轉換為數值，請表達清楚。
+
+    ```javascript
+    // bad
+    isNaN('1.2'); // false
+    isNaN('1.2.3'); // true
+
+    // good
+    Number.isNaN('1.2.3'); // false
+    Number.isNaN(Number('1.2.3')); // true
+    ```
+
+  - [29.2](#29.2) <a name='29.2'></a> 使用 `Number.isFinite` 而非 `isFinite`。
+
+    > 為什麼？全域函式 `isFinite` 會先將任何非數值轉換為數值，如果轉換後之值有限，則函式回傳 true。
+    > 若真要轉換為數值，請表達清楚。
+
+    ```javascript
+    // bad
+    isFinite('2e3'); // true
+
+    // good
+    Number.isFinite('2e3'); // false
+    Number.isFinite(parseInt('2e3', 10)); // true
+    ```
+
+**[⬆ 回到頂端](#table-of-contents)**
+
 <a name="testing"></a>
 ## 測試
 
-  - [28.1](#28.1) <a name='28.1'></a> **如題。**
+  - [30.1](#30.1) <a name='30.1'></a> **如題。**
 
     ```javascript
     function foo() {
@@ -2414,13 +2522,13 @@
     }
     ```
 
-  - [28.2](#28.2) <a name="28.2"></a> **無題，不過很重要**：
-   - 不論你用哪個測試框架，你都應該撰寫測試！
-   - 力求撰寫許多的純函式，並盡量減少異常發生的機會。
-   - 要對 stubs 及 mocks 保持嚴謹——他們可以讓你的測試變得更加脆弱。
-   - 我們在 Airbnb 主要使用 [`mocha`](https://www.npmjs.com/package/mocha)。對小型或單獨的模組偶爾使用 [`tape`](https://www.npmjs.com/package/tape)。
-   - 努力達到 100% 的測試涵蓋率是個很好的目標，即使實現這件事是不切實際的。
-   - 每當你修復完一個 bug，_就撰寫回歸測試_。一個修復完的 bug 若沒有回歸測試，通常在未來肯定會再次發生損壞。
+  - [30.2](#30.2) <a name="30.2"></a> **無題，不過很重要**：
+    - 不論你用哪個測試框架，你都應該撰寫測試！
+    - 力求撰寫許多的純函式，並盡量減少異常發生的機會。
+    - 要對 stubs 及 mocks 保持嚴謹——他們可以讓你的測試變得更加脆弱。
+    - 我們在 Airbnb 主要使用 [`mocha`](https://www.npmjs.com/package/mocha)。對小型或單獨的模組偶爾使用 [`tape`](https://www.npmjs.com/package/tape)。
+    - 努力達到 100% 的測試涵蓋率是個很好的目標，即使實現這件事是不切實際的。
+    - 每當你修復完一個 bug，_就撰寫回歸測試_。一個修復完的 bug 若沒有回歸測試，通常在未來肯定會再次發生損壞。
 
 **[⬆ 回到頂端](#table-of-contents)**
 
